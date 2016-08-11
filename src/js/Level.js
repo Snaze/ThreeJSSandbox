@@ -1,10 +1,9 @@
 "use strict";
 
 define(["THREE"], function (THREE) {
-    var toRet = function (width, height, edgeVariation, numNurbPoints, extrudeHeight) {
-        this.width = width;
-        this.height = height;
-        this.extrudeHeight = extrudeHeight || Math.max(width, height) / 10.0;
+    var toRet = function (radius, edgeVariation, numNurbPoints, extrudeHeight) {
+        this.radius = radius;
+        this.extrudeHeight = extrudeHeight || radius / 5.0;
         this.edgeVariation = edgeVariation;
         this.numNurbPoints = numNurbPoints;
         this._object3D = null;
@@ -18,58 +17,40 @@ define(["THREE"], function (THREE) {
 
             return this._object3D;
         },
-        _createLevel: function() {
-
+        createImperfectCircle: function (numSteps, variation, theRadius) {
             var theShape = new THREE.Shape();
+
             theShape.moveTo(0, 0);
             theShape.closed = true;
-            var yInc = this.height / this.numNurbPoints;
-            var xInc = this.width / this.numNurbPoints;
 
-            // WALK AROUND A SQUARE WITH SOME VARIATION
-            var x = 0, y = 0, cpx = 0, cpy = 0, currentY = 0, currentX = 0;
-            for (y = yInc; y < this.height; y += yInc) {
-                currentY = theShape.currentPoint.y;
+            // theShape.quadraticCurveTo(cpx, cpy, x, y);
 
-                cpx = (Math.random() - 0.5) * this.edgeVariation + x;
-                cpy = currentY + (y - currentY) / 2.0;
+            var step = 360.0 / numSteps;  // amount to add to theta each time (degrees)
+            var firstX = null;
+            var firstY = null;
 
-                // toRet.quadraticCurveTo(cpx, cpy, x, y);
-                theShape.lineTo(cpx, y);
+            for (var theta = 0.0; theta < 360.0; theta += step) {
+                var radTheta = theta * Math.PI / 180.0
+                var x = Math.random() * variation + theRadius * Math.cos(radTheta);
+                var y = Math.random() * variation + theRadius * Math.sin(radTheta);
+                if (null === firstX) {
+                    firstX = x;
+                }
+
+                if (null === firstY) {
+                    firstY = y;
+                }
+
+                theShape.lineTo(x, y);
             }
+            theShape.lineTo(firstX, firstY);
 
-            y = this.height;
-            for (; x < this.width; x += xInc) {
-                currentX = theShape.currentPoint.x;
+            return theShape;
+        }, _createLevel: function() {
 
-                cpx = currentX + (x - currentX) / 2.0;
-                cpy = (Math.random() - 0.5) * this.edgeVariation + y;
-
-                // toRet.quadraticCurveTo(cpx, cpy, x, y);
-                theShape.lineTo(x, cpy);
-            }
-
-            x = this.width;
-            for (; y >= 0; y -= yInc) {
-                currentY = theShape.currentPoint.y;
-
-                cpx = (Math.random() - 0.5) * this.edgeVariation + x;
-                cpy = currentY + (y - currentY) / 2.0;
-
-                // toRet.quadraticCurveTo(cpx, cpy, x, y);
-                theShape.lineTo(cpx, y);
-            }
-
-            y = 0;
-            for (; x >= 0; x -= xInc) {
-                currentX = theShape.currentPoint.x;
-
-                cpx = currentX + (x - currentX) / 2.0;
-                cpy = (Math.random() - 0.5) * this.edgeVariation + y;
-
-                // toRet.quadraticCurveTo(cpx, cpy, x, y);
-                theShape.lineTo(x, cpy);
-            }
+            var theShape = this.createImperfectCircle(this.numNurbPoints, this.edgeVariation, this.radius);
+            // var hole = this.createImperfectCircle(8.0, 2.0, 20);
+            // theShape.holes.push(hole);
 
             // var path = new THREE.Path();
             // path.moveTo(0, 0);
@@ -81,9 +62,9 @@ define(["THREE"], function (THREE) {
 
             var toRet = new THREE.Object3D();
             toRet.add(mesh);
-            mesh.position.x -= (this.width / 2.0);
-            mesh.position.y -= (this.height / 2.0);
-            mesh.position.z -= (this.extrudeHeight / 2.0);
+            // mesh.position.x -= this.radius;
+            // mesh.position.y -= this.radius;
+            // mesh.position.z -= (this.extrudeHeight / 2.0);
 
             toRet.rotation.x -= 90.0 * Math.PI / 180.0;
 

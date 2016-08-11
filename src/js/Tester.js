@@ -24,7 +24,8 @@ function (THREE,   ObjLoaderHelper,   gaussian, Level) {
     directionalLight.position.set( -50, 50, -50 );
     scene.add( directionalLight );
 
-    var level = new Level(100.0, 100.0, 10.0, 20.0);
+    var level = new Level(200.0, 40.0, 30.0);
+    level.getObject3D().position.z = 100;
     scene.add(level.getObject3D());
 
     // var leftTree = null;
@@ -56,11 +57,13 @@ function (THREE,   ObjLoaderHelper,   gaussian, Level) {
     camera.position.z = -200;
 
     camera.lookAt(new THREE.Vector3(0, 0, 0));
+    var clock = new THREE.Clock();
 
     function render() {
         requestAnimationFrame( render );
+        var delta = clock.getDelta();
 
-        // level.getObject3D().rotation.x += 0.01;
+        // level.getObject3D().rotation.x += delta;
         // level.getObject3D().rotation.y += 0.01;
         level.getObject3D().rotation.z += 0.01;
 
