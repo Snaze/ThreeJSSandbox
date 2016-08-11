@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27156f0a-5b77-4f7d-9fc1-292d83c5c864" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/lowPolyTree/Lowpoly_tree_sample.mtl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/lowPolyTree/Lowpoly_tree_sample.obj" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/require/require.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/require/require.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/three/DDSLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/three/MTLLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/three/OBJLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/three/three.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/three/three.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/html/Tester.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/ObjLoaderHelper.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/RequireConfig.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/Tester.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/Level.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ThreeJSSandbox.iml" afterPath="$PROJECT_DIR$/.idea/ThreeJSSandbox.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/ObjLoaderHelper.js" afterPath="$PROJECT_DIR$/src/js/ObjLoaderHelper.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/RequireConfig.js" afterPath="$PROJECT_DIR$/src/js/RequireConfig.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/Tester.js" afterPath="$PROJECT_DIR$/src/js/Tester.js" />
     </list>
     <ignored path="ThreeJSSandbox.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,33 +33,9 @@
       <file leaf-file-name="ObjLoaderHelper.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/ObjLoaderHelper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+            <state relative-caret-position="218">
+              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gaussian.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bower_components/gaussian/lib/gaussian.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="106" column="4" selection-start-line="106" selection-start-column="3" selection-end-line="106" selection-end-column="4" />
-              <folding>
-                <element signature="e#28#59#0" expanded="false" />
-                <element signature="e#127#471#0" expanded="false" />
-                <element signature="e#476#515#0" expanded="false" />
-                <element signature="e#579#1021#0" expanded="false" />
-                <element signature="e#1103#1315#0" expanded="false" />
-                <element signature="e#1391#1548#0" expanded="false" />
-                <element signature="e#1624#1712#0" expanded="false" />
-                <element signature="e#1783#1865#0" expanded="false" />
-                <element signature="e#1969#2234#0" expanded="false" />
-                <element signature="e#2339#2608#0" expanded="false" />
-                <element signature="e#2679#2753#0" expanded="false" />
-                <element signature="e#2827#2901#0" expanded="false" />
-                <element signature="e#2976#3040#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -84,32 +52,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="three.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/three/three.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="18391" column="45" selection-start-line="18391" selection-start-column="45" selection-end-line="18391" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tester.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/html/Tester.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RequireConfig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+            <state relative-caret-position="150">
+              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OBJLoader.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/loaders/OBJLoader.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="627" column="57" selection-start-line="627" selection-start-column="43" selection-end-line="627" selection-end-column="57" />
+              <folding>
+                <element signature="e#214#1506#0" expanded="false" />
+                <element signature="e#1629#1844#0" expanded="false" />
+                <element signature="e#1876#1903#0" expanded="false" />
+                <element signature="e#1944#1980#0" expanded="false" />
+                <element signature="e#2017#9928#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,8 +81,38 @@
       <file leaf-file-name="Tester.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/Tester.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+            <state relative-caret-position="298">
+              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CCDIKSolver.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/animation/CCDIKSolver.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-225">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MMDPhysics.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/animation/MMDPhysics.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-525">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Level.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Level.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -127,8 +121,8 @@
       <file leaf-file-name="three.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bower_components/three.js/build/three.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="8843" column="6" selection-start-line="8843" selection-start-column="6" selection-end-line="8843" selection-end-column="6" />
+            <state relative-caret-position="275">
+              <caret line="8514" column="23" selection-start-line="8514" selection-start-column="23" selection-end-line="8514" selection-end-column="23" />
               <folding>
                 <element signature="e#162480#162613#0" expanded="false" />
                 <element signature="e#162668#162758#0" expanded="false" />
@@ -188,9 +182,11 @@
         <option value="$PROJECT_DIR$/src/js/Tree.js" />
         <option value="$PROJECT_DIR$/src/html/Tester.html" />
         <option value="$PROJECT_DIR$/src/js/ObjCache.js" />
-        <option value="$PROJECT_DIR$/src/js/RequireConfig.js" />
         <option value="chrome-extension://aomjjhallfgjeglblehebfpbcfeobpgk/data/src/end.min.js" />
         <option value="$PROJECT_DIR$/bower_components/gaussian/lib/gaussian.js" />
+        <option value="$PROJECT_DIR$/src/js/ObjLoaderHelper.js" />
+        <option value="$PROJECT_DIR$/src/js/RequireConfig.js" />
+        <option value="$PROJECT_DIR$/src/js/Level.js" />
         <option value="$PROJECT_DIR$/src/js/Tester.js" />
       </list>
     </option>
@@ -202,8 +198,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="42" />
-    <option name="y" value="82" />
+    <option name="x" value="56" />
+    <option name="y" value="38" />
     <option name="width" value="1322" />
     <option name="height" value="802" />
   </component>
@@ -281,10 +277,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -311,64 +303,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ThreeJSSandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ThreeJSSandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gaussian" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ThreeJSSandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ThreeJSSandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gaussian" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ThreeJSSandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ThreeJSSandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lowPolyTree" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -497,15 +431,15 @@
       <workItem from="1470711165077" duration="4740000" />
       <workItem from="1470778853572" duration="3457000" />
       <workItem from="1470786194710" duration="1718000" />
-      <workItem from="1470789217616" duration="10956000" />
+      <workItem from="1470789217616" duration="24527000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21402000" />
+    <option name="totallyTimeSpent" value="34973000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="42" y="82" width="1322" height="802" extended-state="0" />
+    <frame x="56" y="38" width="1322" height="802" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -539,7 +473,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="14" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/js/ObjLoaderHelper.js</url>
+          <line>56</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="22" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -637,13 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
@@ -697,14 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/three/three.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="18391" column="45" selection-start-line="18391" selection-start-column="45" selection-end-line="18391" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/require/require.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -712,6 +639,60 @@
           <folding>
             <element signature="n#!!doc" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Tree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/requirejs/require.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="716" column="9" selection-start-line="716" selection-start-column="9" selection-end-line="716" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/Tester.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/gaussian/lib/gaussian.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="106" column="4" selection-start-line="106" selection-start-column="3" selection-end-line="106" selection-end-column="4" />
+          <folding>
+            <element signature="e#28#59#0" expanded="false" />
+            <element signature="e#127#471#0" expanded="false" />
+            <element signature="e#476#515#0" expanded="false" />
+            <element signature="e#579#1021#0" expanded="false" />
+            <element signature="e#1103#1315#0" expanded="false" />
+            <element signature="e#1391#1548#0" expanded="false" />
+            <element signature="e#1624#1712#0" expanded="false" />
+            <element signature="e#1783#1865#0" expanded="false" />
+            <element signature="e#1969#2234#0" expanded="false" />
+            <element signature="e#2339#2608#0" expanded="false" />
+            <element signature="e#2679#2753#0" expanded="false" />
+            <element signature="e#2827#2901#0" expanded="false" />
+            <element signature="e#2976#3040#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/three/three.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="11433" column="0" selection-start-line="11433" selection-start-column="0" selection-end-line="11433" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -725,18 +706,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/Tree.js">
+    <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/loaders/OBJLoader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="168">
+          <caret line="627" column="57" selection-start-line="627" selection-start-column="43" selection-end-line="627" selection-end-column="57" />
+          <folding>
+            <element signature="e#214#1506#0" expanded="false" />
+            <element signature="e#1629#1844#0" expanded="false" />
+            <element signature="e#1876#1903#0" expanded="false" />
+            <element signature="e#1944#1980#0" expanded="false" />
+            <element signature="e#2017#9928#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/animation/CCDIKSolver.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="566" column="0" selection-start-line="566" selection-start-column="0" selection-end-line="566" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/curves/NURBSCurve.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/animation/MMDPhysics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-525">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/ObjLoaderHelper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/three.js/build/three.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="8843" column="6" selection-start-line="8843" selection-start-column="6" selection-end-line="8843" selection-end-column="6" />
+        <state relative-caret-position="275">
+          <caret line="8514" column="23" selection-start-line="8514" selection-start-column="23" selection-end-line="8514" selection-end-column="23" />
           <folding>
             <element signature="e#162480#162613#0" expanded="false" />
             <element signature="e#162668#162758#0" expanded="false" />
@@ -774,72 +811,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/loaders/OBJLoader.js">
+    <entry file="file://$PROJECT_DIR$/src/js/Level.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/requirejs/require.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="716" column="9" selection-start-line="716" selection-start-column="9" selection-end-line="716" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/gaussian/lib/gaussian.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="106" column="4" selection-start-line="106" selection-start-column="3" selection-end-line="106" selection-end-column="4" />
-          <folding>
-            <element signature="e#28#59#0" expanded="false" />
-            <element signature="e#127#471#0" expanded="false" />
-            <element signature="e#476#515#0" expanded="false" />
-            <element signature="e#579#1021#0" expanded="false" />
-            <element signature="e#1103#1315#0" expanded="false" />
-            <element signature="e#1391#1548#0" expanded="false" />
-            <element signature="e#1624#1712#0" expanded="false" />
-            <element signature="e#1783#1865#0" expanded="false" />
-            <element signature="e#1969#2234#0" expanded="false" />
-            <element signature="e#2339#2608#0" expanded="false" />
-            <element signature="e#2679#2753#0" expanded="false" />
-            <element signature="e#2827#2901#0" expanded="false" />
-            <element signature="e#2976#3040#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/html/Tester.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/ObjLoaderHelper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+        <state relative-caret-position="338">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/Tester.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+        <state relative-caret-position="298">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding />
         </state>
       </provider>

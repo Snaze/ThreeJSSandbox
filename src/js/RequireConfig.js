@@ -8,6 +8,7 @@ require.config({
         'MTLLoader': '../../bower_components/three.js/examples/js/loaders/MTLLoader',
         'Tester': '../js/Tester',
         'ObjLoaderHelper': '../js/ObjLoaderHelper',
+        'Level': '../js/Level',
         'gaussian': '../../bower_components/gaussian/lib/gaussian'
     },
     shim: {

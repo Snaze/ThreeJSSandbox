@@ -4,7 +4,6 @@ define( ['THREE', 'jquery', 'MTLLoader', 'OBJLoader', 'DDSLoader'],
 function (THREE,  $,         MTLLoader,   OBJLoader,   DDSLoader) {
     var toRet = function (basePath) {
 
-        this._cache = {};
         this._basePath = basePath;
         THREE.Loader.Handlers.add( /\.dds$/i, new DDSLoader() );
     };

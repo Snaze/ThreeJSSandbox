@@ -1,7 +1,7 @@
 "use strict";
 
-define( ['THREE', 'ObjLoaderHelper', 'gaussian'],
-function (THREE,   ObjLoaderHelper,   gaussian) {
+define( ['THREE', 'ObjLoaderHelper', 'gaussian', 'Level'],
+function (THREE,   ObjLoaderHelper,   gaussian, Level) {
 
     var objLoaderHelper = new ObjLoaderHelper('../../assets/');
     var scene = new THREE.Scene();
@@ -15,10 +15,17 @@ function (THREE,   ObjLoaderHelper,   gaussian) {
     scene.add( ambient );
 
     var directionalLight = new THREE.DirectionalLight( 0xFFFFFF );
-    directionalLight.intensity = 2.0;
-    directionalLight.position.set( 0, 100, 0 );
-
+    directionalLight.intensity = 0.9;
+    directionalLight.position.set( 0, 50, -50 );
     scene.add( directionalLight );
+
+    directionalLight = new THREE.DirectionalLight( 0xFFFFFF );
+    directionalLight.intensity = 0.9;
+    directionalLight.position.set( -50, 50, -50 );
+    scene.add( directionalLight );
+
+    var level = new Level(100.0, 100.0, 10.0, 20.0);
+    scene.add(level.getObject3D());
 
     // var leftTree = null;
     // var midTree = null;
@@ -30,27 +37,32 @@ function (THREE,   ObjLoaderHelper,   gaussian) {
 
     var temp = new gaussian(mean, variance);
 
-    objLoaderHelper.loadObject('lowPolyTree/Lowpoly_tree_sample.mtl',
-        'lowPolyTree/Lowpoly_tree_sample.obj', function (object) {
-            for (var i = 0; i < numTrees; i++) {
+    // objLoaderHelper.loadObject('lowPolyTree/Lowpoly_tree_sample.mtl',
+    //     'lowPolyTree/Lowpoly_tree_sample.obj', function (object) {
+    //         for (var i = 0; i < numTrees; i++) {
+    //
+    //             var sampleX = temp.ppf(Math.random());
+    //             var sampleZ = temp.ppf(Math.random());
+    //             var currentObject = object.clone();
+    //             currentObject.position.x = sampleX;
+    //             currentObject.position.z = sampleZ;
+    //             scene.add(currentObject);
+    //         }
+    //
+    //     });
 
-                var sampleX = temp.ppf(Math.random());
-                var sampleZ = temp.ppf(Math.random());
-                var currentObject = object.clone();
-                currentObject.position.x = sampleX;
-                currentObject.position.z = sampleZ;
-                scene.add(currentObject);
-            }
-
-        });
-
-    camera.position.y = 50;
-    camera.position.z = -50;
+    camera.position.x = -100;
+    camera.position.y = 200;
+    camera.position.z = -200;
 
     camera.lookAt(new THREE.Vector3(0, 0, 0));
 
     function render() {
         requestAnimationFrame( render );
+
+        // level.getObject3D().rotation.x += 0.01;
+        // level.getObject3D().rotation.y += 0.01;
+        level.getObject3D().rotation.z += 0.01;
 
         renderer.render( scene, camera );
     }
