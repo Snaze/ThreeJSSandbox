@@ -9,6 +9,7 @@ require.config({
         'Tester': '../js/Tester',
         'ObjLoaderHelper': '../js/ObjLoaderHelper',
         'Level': '../js/Level',
+        'Axes': '../js/Axes',
         'gaussian': '../../bower_components/gaussian/lib/gaussian'
     },
     shim: {

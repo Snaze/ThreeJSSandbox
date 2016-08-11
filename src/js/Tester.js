@@ -1,7 +1,7 @@
 "use strict";
 
-define( ['THREE', 'ObjLoaderHelper', 'gaussian', 'Level'],
-function (THREE,   ObjLoaderHelper,   gaussian, Level) {
+define( ['THREE', 'ObjLoaderHelper', 'gaussian', 'Level', 'Axes'],
+function (THREE,   ObjLoaderHelper,   gaussian, Level, Axes) {
 
     var objLoaderHelper = new ObjLoaderHelper('../../assets/');
     var scene = new THREE.Scene();
@@ -11,22 +11,26 @@ function (THREE,   ObjLoaderHelper,   gaussian, Level) {
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
 
-    var ambient = new THREE.AmbientLight( 0x101030 );
+    var ambient = new THREE.AmbientLight( 0xFFFFFF );
     scene.add( ambient );
 
-    var directionalLight = new THREE.DirectionalLight( 0xFFFFFF );
-    directionalLight.intensity = 0.9;
-    directionalLight.position.set( 0, 50, -50 );
-    scene.add( directionalLight );
+    // var directionalLight = new THREE.DirectionalLight( 0xFFFFFF );
+    // directionalLight.intensity = 3.0;
+    // directionalLight.position.set( 0, 50, -50 );
+    // directionalLight.lookAt(new THREE.Vector3(0, 0, 0));
+    // scene.add( directionalLight );
 
-    directionalLight = new THREE.DirectionalLight( 0xFFFFFF );
-    directionalLight.intensity = 0.9;
-    directionalLight.position.set( -50, 50, -50 );
-    scene.add( directionalLight );
+    // directionalLight = new THREE.DirectionalLight( 0xFFFFFF );
+    // directionalLight.intensity = 0.9;
+    // directionalLight.position.set( -50, 50, -50 );
+    // scene.add( directionalLight );
 
-    var level = new Level(200.0, 40.0, 30.0);
+    var level = new Level(200.0, 40.0, 40.0);
     level.getObject3D().position.z = 100;
     scene.add(level.getObject3D());
+
+    var axes = new Axes(500);
+    scene.add(axes.getObject3D());
 
     // var leftTree = null;
     // var midTree = null;
@@ -52,20 +56,24 @@ function (THREE,   ObjLoaderHelper,   gaussian, Level) {
     //
     //     });
 
-    camera.position.x = -100;
-    camera.position.y = 200;
-    camera.position.z = -200;
-
+    camera.position.x = 0;
+    camera.position.y = 250;
+    camera.position.z = 0;
     camera.lookAt(new THREE.Vector3(0, 0, 0));
+    camera.up = new THREE.Vector3(0, 0, 1);
+    // camera.up
+    // directionalLight.position.set(camera.position);
+
+
     var clock = new THREE.Clock();
 
     function render() {
         requestAnimationFrame( render );
         var delta = clock.getDelta();
 
-        // level.getObject3D().rotation.x += delta;
-        // level.getObject3D().rotation.y += 0.01;
-        level.getObject3D().rotation.z += 0.01;
+        // level.getObject3D().rotation.x += 50 * delta * Math.PI / 180.0;
+        // level.getObject3D().rotation.y += 50 * delta * Math.PI / 180.0;
+        level.getObject3D().rotation.z += 50 * delta * Math.PI / 180.0;
 
         renderer.render( scene, camera );
     }
