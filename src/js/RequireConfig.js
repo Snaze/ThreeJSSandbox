@@ -10,6 +10,9 @@ require.config({
         'ObjLoaderHelper': '../js/ObjLoaderHelper',
         'Level': '../js/Level',
         'Axes': '../js/Axes',
+        'GridLevel': '../js/GridLevel',
+        'GridLevelOctogon': '../js/GridLevelOctogon',
+        'GridLevelSquare': '../js/GridLevelSquare',
         'gaussian': '../../bower_components/gaussian/lib/gaussian'
     },
     shim: {

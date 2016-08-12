@@ -1,7 +1,7 @@
 "use strict";
 
-define( ['THREE', 'ObjLoaderHelper', 'gaussian', 'Level', 'Axes'],
-function (THREE,   ObjLoaderHelper,   gaussian, Level, Axes) {
+define( ['THREE', 'ObjLoaderHelper', 'gaussian', 'Level', 'Axes', 'GridLevelOctogon', 'GridLevelSquare', "GridLevel"],
+function (THREE,   ObjLoaderHelper,   gaussian, Level, Axes, GridLevelOctogon, GridLevelSquare, GridLevel) {
 
     var objLoaderHelper = new ObjLoaderHelper('../../assets/');
     var scene = new THREE.Scene();
@@ -25,9 +25,18 @@ function (THREE,   ObjLoaderHelper,   gaussian, Level, Axes) {
     // directionalLight.position.set( -50, 50, -50 );
     // scene.add( directionalLight );
 
-    var level = new Level(200.0, 40.0, 40.0);
-    level.getObject3D().position.z = 100;
-    scene.add(level.getObject3D());
+    // var level = new Level(200.0, 40.0, 40.0);
+    // level.getObject3D().position.z = 100;
+    // scene.add(level.getObject3D());
+
+    // var octo = new GridLevelOctogon(10, 50);
+    // scene.add(octo.getObject3D());
+
+    // var octo = new GridLevelSquare(20, 50);
+    // scene.add(octo.getObject3D());
+
+    var octo = new GridLevel(10, 10, 20, 20);
+    scene.add(octo.getObject3D());
 
     var axes = new Axes(500);
     scene.add(axes.getObject3D());
@@ -73,8 +82,9 @@ function (THREE,   ObjLoaderHelper,   gaussian, Level, Axes) {
 
         // level.getObject3D().rotation.x += 50 * delta * Math.PI / 180.0;
         // level.getObject3D().rotation.y += 50 * delta * Math.PI / 180.0;
-        level.getObject3D().rotation.z += 50 * delta * Math.PI / 180.0;
+        // level.getObject3D().rotation.z += 50 * delta * Math.PI / 180.0;
 
+        // octo.getObject3D().rotation.z += 50.0 * delta * Math.PI / 180.0;
         renderer.render( scene, camera );
     }
 

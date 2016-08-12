@@ -12,7 +12,7 @@ define(["THREE"], function (THREE) {
     toRet.prototype = {
         getObject3D: function () {
             if (null === this._object3D) {
-                this._object3D = this._createLevel();
+                this._object3D = this._createObject3D();
             }
 
             return this._object3D;
@@ -46,7 +46,7 @@ define(["THREE"], function (THREE) {
             theShape.lineTo(firstX, firstY);
 
             return theShape;
-        }, _createLevel: function() {
+        }, _createObject3D: function() {
 
             var theShape = this.createImperfectCircle(this.numNurbPoints, this.edgeVariation, this.radius);
             // var hole = this.createImperfectCircle(8.0, 2.0, 20);
