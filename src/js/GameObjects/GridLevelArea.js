@@ -18,6 +18,9 @@ define(["THREE", "GridLevelOctogon", "GridLevelSquare", "GameObjectBase", "GridL
 
             var object3D = new THREE.Object3D();
             var currentSection;
+            var increment = null;
+            var toSubtractX = null;
+            var toSubtractZ = null;
 
             for (var z = 0; z < this.ud.height; z++) {
 
@@ -25,24 +28,28 @@ define(["THREE", "GridLevelOctogon", "GridLevelSquare", "GameObjectBase", "GridL
 
                 for (var x = 0; x < this.ud.width; x++) {
 
-                    var isLast = (x === (this.ud.width - 1));
-
-                    currentSection = new GridLevelSection(this.ud.cellRadius, this.ud.cellHeight, isLast).init();
+                    currentSection = new GridLevelSection(this.ud.cellRadius, this.ud.cellHeight).init();
                     object3D.add(currentSection);
+                    if (null === increment) {
+                        increment = currentSection.getIncrement();
+                        var halfInc = currentSection.getHalfIncrement();
+                        toSubtractX = ((increment * this.ud.width - 2 * halfInc) / 2.0);
+                        toSubtractZ = ((increment * this.ud.height - 2 * halfInc) / 2.0);
+                    }
 
-                    currentSection.position.x = x * currentSection.getIncrement();
-                    currentSection.position.z = z * currentSection.getIncrement();
+                    currentSection.position.x = (x * increment) - toSubtractX;
+                    currentSection.position.z = (z * increment) - toSubtractZ;
 
                     this.ud._gridSections[z][x] = currentSection;
                 }
             }
-            var box = new THREE.Box3();
-            box.setFromObject(object3D);
-            var width = Math.abs(box.min.x - box.max.x);
-            var depth = Math.abs(box.min.z - box.max.z);
+            // var box = new THREE.Box3();
+            // box.setFromObject(object3D);
+            // var width = Math.abs(box.min.x - box.max.x);
+            // var depth = Math.abs(box.min.z - box.max.z);
 
-            object3D.position.x -= width / 2.0;
-            object3D.position.z -= depth / 2.0;
+            // object3D.position.x -= width / 2.0;
+            // object3D.position.z -= depth / 2.0;
 
             return object3D;
         }

@@ -18,6 +18,8 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
             this._innerObject3D = this._createObject();
             this.add(this._innerObject3D);
 
+            // I want to create the bounding box buffer adding the axes because
+            // the axes make the bounding box too big.
             var dims = this.getDims();
 
             this._boundingBox = this._createBoundingBox(dims.x, dims.y, dims.z);

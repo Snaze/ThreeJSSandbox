@@ -27,6 +27,9 @@ define(["THREE", "GridLevelOctogon", "GridLevelSquare", "GameObjectBase"],
         getIncrement: function () {
             return this.getHalfWidth() * 2.0 + this.getHalfSquareDim() * 2.0;
         },
+        getHalfIncrement: function () {
+            return this.getHalfWidth() + this.getHalfSquareDim();
+        },
         _createObject: function() {
 
             var object3D = new THREE.Object3D();
