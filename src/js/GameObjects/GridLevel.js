@@ -1,48 +1,37 @@
 "use strict";
 
-define(["THREE", "GridLevelOctogon", "GridLevelSquare", "GameObjectBase"],
-    function (THREE, GridLevelOctogon, GridLevelSquare, GameObjectBase) {
+define(["THREE", "GridLevelOctogon", "GridLevelSquare", "GameObjectBase", "GridLevelSection"],
+    function (THREE, GridLevelOctogon, GridLevelSquare, GameObjectBase, GridLevelSection) {
 
     var toRet = function (width, height, cellRadius, cellHeight) {
         GameObjectBase.call(this);
 
-        this.width = width;
-        this.height = height;
-        this.cellRadius = cellRadius || 10;
-        this.cellHeight = cellHeight || 25;
-        this._grid = [];
-        this._gridSquares = [];
-        this._object3D = null;
+        this.ud.width = width;
+        this.ud.height = height;
+        this.ud.cellRadius = cellRadius || 10;
+        this.ud.cellHeight = cellHeight || 25;
+        this.ud._gridSections = [];
     };
 
     toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
         _createObject: function() {
 
             var object3D = new THREE.Object3D();
-            var currentOctogon = null;
-            var currentSquare = null;
-            var currentZPosition;
+            var currentSection;
 
-            for (var z = 0; z < this.height; z++) {
+            for (var z = 0; z < this.ud.height; z++) {
 
-                this._grid[z] = [];
-                this._gridSquares[z] = [];
+                this.ud._gridSections[z] = [];
 
-                currentZPosition = z * 2 * this.cellRadius;
+                for (var x = 0; x < this.ud.width; x++) {
 
-                for (var x = 0; x < this.width; x++) {
+                    currentSection = new GridLevelSection(this.ud.cellRadius, this.ud.cellHeight).init();
+                    object3D.add(currentSection);
 
-                    currentOctogon = new GridLevelOctogon(this.cellRadius, this.cellHeight).init();
+                    currentSection.position.x = x * (currentSection.getDims().x / 2.0);
+                    currentSection.position.z = z * (currentSection.getDims().z / 2.0);
 
-                    this._grid[z][x] = currentOctogon;
-                    object3D.add(currentOctogon);
-                    if (z % 2 == 1) {
-                        currentOctogon.position.x = this.cellRadius + x * 2 * this.cellRadius;
-                    } else  {
-                        currentOctogon.position.x = x * 2 * this.cellRadius;
-                    }
-
-                    currentOctogon.position.z = currentZPosition;
+                    this.ud._gridSections[z][x] = currentSection;
                 }
             }
 

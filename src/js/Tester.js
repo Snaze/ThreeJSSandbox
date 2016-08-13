@@ -79,11 +79,22 @@ function (THREE,
     //
     //     });
 
-    camera.position.x = 0;
-    camera.position.y = 250;
-    camera.position.z = 0;
+    // camera.position.x = -50;
+    // camera.position.y = 50;
+    // camera.position.z = -50;
+    // camera.up = new THREE.Vector3(0, 1, 0);
+    // camera.rotation.y = (-135.0) * Math.PI / 180.0;
+
+
+    camera.position.x = 100;
+    camera.position.y = 500;
+    camera.position.z = -200;
+    // camera.up = new THREE.Vector3(0, 0, 1);
     camera.lookAt(new THREE.Vector3(0, 0, 0));
-    camera.up = new THREE.Vector3(0, 0, 1);
+    // camera.rotation.y = (-135.0) * Math.PI / 180.0;
+
+
+
     // camera.up
     // directionalLight.position.set(camera.position);
 

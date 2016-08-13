@@ -1,26 +1,27 @@
 "use strict";
 
 define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
-    var geometry = null;
-    var material = null;
 
     var toRet = function (radius, height) {
         GameObjectBase.call(this);
 
-        this.radius = radius;
-        this.height = height;
+        this.ud.radius = radius;
+        this.ud.height = height;
     };
+
+    toRet.geometry = null;
+    toRet.material = null;
 
     toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
         getGeometry: function () {
-            if (null === geometry) {
-                geometry = this._createGeometry();
+            if (null === toRet.geometry) {
+                toRet.geometry = this._createGeometry();
             }
 
-            return geometry;
+            return toRet.geometry;
         },
         getMaterial: function () {
-            if (material === null) {
+            if (toRet.material === null) {
                 var textureLoader = new THREE.TextureLoader();
                 var dirtTexture = textureLoader.load('../../assets/textures/dirt1.jpg');
                 var grassTexture = textureLoader.load('../../assets/textures/grass1.jpg');
@@ -40,10 +41,10 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
                     }
                 }
 
-                material = new THREE.MeshFaceMaterial(mats);
+                toRet.material = new THREE.MeshFaceMaterial(mats);
             }
 
-            return material;
+            return toRet.material;
         },
         _createObject: function () {
 
@@ -52,7 +53,8 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
             return cylinderMesh;
         },
         _createGeometry: function () {
-            return new THREE.CylinderGeometry(this.radius, this.radius, this.height, 8, 1, false);
+            return new THREE.CylinderGeometry(this.ud.radius,
+                this.ud.radius, this.ud.height, 8, 1, false);
         }
     });
 

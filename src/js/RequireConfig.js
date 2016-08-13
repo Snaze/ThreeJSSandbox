@@ -14,6 +14,7 @@ require.config({
         'Axes': 'src/js/GameObjects/Axes',
         'BoundingBox': 'src/js/GameObjects/BoundingBox',
         'GridLevel': 'src/js/GameObjects/GridLevel',
+        'GridLevelSection': 'src/js/GameObjects/GridLevelSection',
         'GridLevelOctogon': 'src/js/GameObjects/GridLevelOctogon',
         'GridLevelSquare': 'src/js/GameObjects/GridLevelSquare',
         'gaussian': 'bower_components/gaussian/lib/gaussian'

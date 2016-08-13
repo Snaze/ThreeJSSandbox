@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27156f0a-5b77-4f7d-9fc1-292d83c5c864" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/GameObjects/BoundingBox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/Axes.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/Axes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevel.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/Level.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/Level.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/RequireConfig.js" afterPath="$PROJECT_DIR$/src/js/RequireConfig.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/Tester.js" afterPath="$PROJECT_DIR$/src/js/Tester.js" />
     </list>
@@ -37,8 +35,8 @@
       <file leaf-file-name="RequireConfig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+            <state relative-caret-position="240">
+              <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -57,8 +55,18 @@
       <file leaf-file-name="GridLevel.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="562">
-              <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+            <state relative-caret-position="465">
+              <caret line="31" column="86" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GridLevelSection.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -67,8 +75,8 @@
       <file leaf-file-name="GridLevelOctogon.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+            <state relative-caret-position="313">
+              <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -77,18 +85,18 @@
       <file leaf-file-name="GridLevelSquare.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+            <state relative-caret-position="442">
+              <caret line="48" column="61" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameObjectBase.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameObjectBase.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+            <state relative-caret-position="330">
+              <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -104,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tester.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Tester.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/Tester.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
+            <state relative-caret-position="352">
+              <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -188,13 +196,14 @@
         <option value="$PROJECT_DIR$/src/js/Axes.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/Level.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/Axes.js" />
-        <option value="$PROJECT_DIR$/src/js/Tester.js" />
-        <option value="$PROJECT_DIR$/src/js/RequireConfig.js" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevel.js" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/BoundingBox.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js" />
+        <option value="$PROJECT_DIR$/src/js/RequireConfig.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevel.js" />
+        <option value="$PROJECT_DIR$/src/js/Tester.js" />
       </list>
     </option>
   </component>
@@ -441,12 +450,12 @@
       <workItem from="1470789217616" duration="29194000" />
       <workItem from="1470955797459" duration="1157000" />
       <workItem from="1470957000253" duration="2925000" />
-      <workItem from="1470996901525" duration="15092000" />
+      <workItem from="1470996901525" duration="21757000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58814000" />
+    <option name="totallyTimeSpent" value="65479000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="38" width="1322" height="802" extended-state="0" />
@@ -512,14 +521,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/js/ObjLoaderHelper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/require/require.js" />
     <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -792,14 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/three.js/build/three.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -841,38 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/Tester.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/GameObjects/Axes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -897,10 +858,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js">
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
-          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <caret line="48" column="61" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="86" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Tester.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
           <folding />
         </state>
       </provider>
