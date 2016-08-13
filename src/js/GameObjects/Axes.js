@@ -1,21 +1,16 @@
 "use strict";
 
-define(["THREE"], function (THREE) {
+define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
     var toRet = function (size) {
+        GameObjectBase.call(this);
+
         this.size = size;
-        this._object3D = null;
+
+        this._createAxes();
     };
 
-    toRet.prototype = {
-        getObject3D: function () {
-            if (null === this._object3D) {
-                this._object3D = this._createAxes();
-            }
-
-            return this._object3D;
-        },
+    toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
         _createAxes: function () {
-            var toRet = new THREE.Object3D();
 
             var xMaterial = new THREE.LineBasicMaterial({
                 color: 0xFF0000 // R
@@ -45,14 +40,12 @@ define(["THREE"], function (THREE) {
             var yLine = new THREE.Line(yGeom, yMaterial);
             var zLine = new THREE.Line(zGeom, zMaterial);
 
-            toRet.add(xLine);
-            toRet.add(yLine);
-            toRet.add(zLine);
-
-            return toRet;
+            this.add(xLine);
+            this.add(yLine);
+            this.add(zLine);
         }
 
-    };
+    });
 
     return toRet;
 });

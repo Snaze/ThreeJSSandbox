@@ -1,17 +1,19 @@
 "use strict";
 
-define(["THREE"], function (THREE) {
+define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
     var geometry = null;
     var material = null;
 
     var toRet = function (width, height) {
+        GameObjectBase.call(this);
+
         this.width = width;
         this.height = height;
 
         this._object3D = null;
     };
 
-    toRet.prototype = {
+    toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
         getObject3D: function () {
             if (null === this._object3D) {
                 this._object3D = this._createObject3D();
@@ -62,7 +64,7 @@ define(["THREE"], function (THREE) {
 
             return new THREE.MeshFaceMaterial(mats);
         }
-    };
+    });
 
     return toRet;
 });

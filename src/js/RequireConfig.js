@@ -1,19 +1,21 @@
 // contents of main.js:
 require.config({
+    baseUrl: '/ThreeJSSandbox',
     paths: {
-        'jquery': '../../bower_components/jquery/dist/jquery',
-        'THREE': '../../bower_components/three.js/build/three',
-        'OBJLoader': '../../bower_components/three.js/examples/js/loaders/OBJLoader',
-        'DDSLoader': '../../bower_components/three.js/examples/js/loaders/DDSLoader',
-        'MTLLoader': '../../bower_components/three.js/examples/js/loaders/MTLLoader',
-        'Tester': '../js/Tester',
-        'ObjLoaderHelper': '../js/ObjLoaderHelper',
-        'Level': '../js/Level',
-        'Axes': '../js/Axes',
-        'GridLevel': '../js/GridLevel',
-        'GridLevelOctogon': '../js/GridLevelOctogon',
-        'GridLevelSquare': '../js/GridLevelSquare',
-        'gaussian': '../../bower_components/gaussian/lib/gaussian'
+        'jquery': 'bower_components/jquery/dist/jquery',
+        'THREE': 'bower_components/three.js/build/three',
+        'OBJLoader': 'bower_components/three.js/examples/js/loaders/OBJLoader',
+        'DDSLoader': 'bower_components/three.js/examples/js/loaders/DDSLoader',
+        'MTLLoader': 'bower_components/three.js/examples/js/loaders/MTLLoader',
+        'Tester': 'src/js/Tester',
+        'ObjLoaderHelper': 'src/js/ObjLoaderHelper',
+        'Level': 'src/js/GameObjects/Level',
+        'GameObjectBase': 'src/js/GameObjects/GameObjectBase',
+        'Axes': 'src/js/GameObjects/Axes',
+        'GridLevel': 'src/js/GameObjects/GridLevel',
+        'GridLevelOctogon': 'src/js/GameObjects/GridLevelOctogon',
+        'GridLevelSquare': 'src/js/GameObjects/GridLevelSquare',
+        'gaussian': 'bower_components/gaussian/lib/gaussian'
     },
     shim: {
         'THREE': {

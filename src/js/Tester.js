@@ -1,7 +1,21 @@
 "use strict";
 
-define( ['THREE', 'ObjLoaderHelper', 'gaussian', 'Level', 'Axes', 'GridLevelOctogon', 'GridLevelSquare', "GridLevel"],
-function (THREE,   ObjLoaderHelper,   gaussian, Level, Axes, GridLevelOctogon, GridLevelSquare, GridLevel) {
+define( ['THREE',
+        'ObjLoaderHelper',
+        'gaussian',
+        'Level',
+        'Axes',
+        'GridLevelOctogon',
+        'GridLevelSquare',
+        "GridLevel"],
+function (THREE,
+          ObjLoaderHelper,
+          gaussian,
+          Level,
+          Axes,
+          GridLevelOctogon,
+          GridLevelSquare,
+          GridLevel) {
 
     var objLoaderHelper = new ObjLoaderHelper('../../assets/');
     var scene = new THREE.Scene();
@@ -39,7 +53,7 @@ function (THREE,   ObjLoaderHelper,   gaussian, Level, Axes, GridLevelOctogon, G
     scene.add(octo.getObject3D());
 
     var axes = new Axes(500);
-    scene.add(axes.getObject3D());
+    scene.add(axes);
 
     // var leftTree = null;
     // var midTree = null;

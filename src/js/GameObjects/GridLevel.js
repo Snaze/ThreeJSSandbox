@@ -1,7 +1,11 @@
 "use strict";
 
-define(["THREE", "GridLevelOctogon", "GridLevelSquare"], function (THREE, GridLevelOctogon, GridLevelSquare) {
+define(["THREE", "GridLevelOctogon", "GridLevelSquare", "GameObjectBase"],
+    function (THREE, GridLevelOctogon, GridLevelSquare, GameObjectBase) {
+
     var toRet = function (width, height, cellRadius, cellHeight) {
+        GameObjectBase.call(this);
+
         this.width = width;
         this.height = height;
         this.cellRadius = cellRadius || 10;
@@ -12,7 +16,7 @@ define(["THREE", "GridLevelOctogon", "GridLevelSquare"], function (THREE, GridLe
         this._separationDistance = null;
     };
 
-    toRet.prototype = {
+    toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
         getObject3D: function () {
             if (null === this._object3D) {
                 this._object3D = this._createObject3D();
@@ -79,7 +83,7 @@ define(["THREE", "GridLevelOctogon", "GridLevelSquare"], function (THREE, GridLe
             return toRet;
 
         }
-    };
+    });
 
     return toRet;
 });

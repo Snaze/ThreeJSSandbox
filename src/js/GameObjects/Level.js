@@ -1,7 +1,9 @@
 "use strict";
 
-define(["THREE"], function (THREE) {
+define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
     var toRet = function (radius, edgeVariation, numNurbPoints, extrudeHeight) {
+        GameObjectBase.call(this);
+
         this.radius = radius;
         this.extrudeHeight = extrudeHeight || radius / 5.0;
         this.edgeVariation = edgeVariation;
@@ -9,7 +11,7 @@ define(["THREE"], function (THREE) {
         this._object3D = null;
     };
 
-    toRet.prototype = {
+    toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
         getObject3D: function () {
             if (null === this._object3D) {
                 this._object3D = this._createObject3D();
@@ -71,7 +73,7 @@ define(["THREE"], function (THREE) {
             return toRet;
 
         }
-    };
+    });
 
     return toRet;
 });
