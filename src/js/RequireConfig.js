@@ -12,6 +12,7 @@ require.config({
         'Level': 'src/js/GameObjects/Level',
         'GameObjectBase': 'src/js/GameObjects/GameObjectBase',
         'Axes': 'src/js/GameObjects/Axes',
+        'BoundingBox': 'src/js/GameObjects/BoundingBox',
         'GridLevel': 'src/js/GameObjects/GridLevel',
         'GridLevelOctogon': 'src/js/GameObjects/GridLevelOctogon',
         'GridLevelSquare': 'src/js/GameObjects/GridLevelSquare',

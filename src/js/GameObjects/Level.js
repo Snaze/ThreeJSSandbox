@@ -8,17 +8,9 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
         this.extrudeHeight = extrudeHeight || radius / 5.0;
         this.edgeVariation = edgeVariation;
         this.numNurbPoints = numNurbPoints;
-        this._object3D = null;
     };
 
     toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
-        getObject3D: function () {
-            if (null === this._object3D) {
-                this._object3D = this._createObject3D();
-            }
-
-            return this._object3D;
-        },
         createImperfectCircle: function (numSteps, variation, theRadius) {
             var theShape = new THREE.Shape();
 
@@ -48,7 +40,8 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
             theShape.lineTo(firstX, firstY);
 
             return theShape;
-        }, _createObject3D: function() {
+        },
+        _createObject: function() {
 
             var theShape = this.createImperfectCircle(this.numNurbPoints, this.edgeVariation, this.radius);
             // var hole = this.createImperfectCircle(8.0, 2.0, 20);
@@ -62,16 +55,12 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
             var material = new THREE.MeshLambertMaterial({color: 0x7A5230});
             var mesh = new THREE.Mesh(extruded, material);
 
-            var toRet = new THREE.Object3D();
-            toRet.add(mesh);
+            this.add(mesh);
             // mesh.position.x -= this.radius;
             // mesh.position.y -= this.radius;
             // mesh.position.z -= (this.extrudeHeight / 2.0);
 
-            toRet.rotation.x -= 90.0 * Math.PI / 180.0;
-
-            return toRet;
-
+            this.rotation.x -= 90.0 * Math.PI / 180.0;
         }
     });
 

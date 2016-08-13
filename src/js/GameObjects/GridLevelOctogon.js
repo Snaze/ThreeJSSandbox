@@ -9,18 +9,9 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
 
         this.radius = radius;
         this.height = height;
-
-        this._object3D = null;
     };
 
     toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
-        getObject3D: function () {
-            if (null === this._object3D) {
-                this._object3D = this._createObject3D();
-            }
-
-            return this._object3D;
-        },
         getGeometry: function () {
             if (null === geometry) {
                 geometry = this._createGeometry();
@@ -54,13 +45,11 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
 
             return material;
         },
-        _createObject3D: function () {
+        _createObject: function () {
 
             var cylinderMesh = new THREE.Mesh(this.getGeometry(), this.getMaterial());
-            var toRet = new THREE.Object3D();
-            toRet.add(cylinderMesh);
             cylinderMesh.rotation.y = (45.0 / 2.0) * Math.PI / 180.0;
-            return toRet;
+            return cylinderMesh;
         },
         _createGeometry: function () {
             return new THREE.CylinderGeometry(this.radius, this.radius, this.height, 8, 1, false);

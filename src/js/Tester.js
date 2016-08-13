@@ -49,10 +49,10 @@ function (THREE,
     // var octo = new GridLevelSquare(20, 50);
     // scene.add(octo.getObject3D());
 
-    var octo = new GridLevel(10, 10, 20, 20);
-    scene.add(octo.getObject3D());
+    var octo = new GridLevel(10, 10, 20, 20).init();
+    scene.add(octo);
 
-    var axes = new Axes(500);
+    var axes = new Axes(500).init();
     scene.add(axes);
 
     // var leftTree = null;
@@ -94,11 +94,11 @@ function (THREE,
         requestAnimationFrame( render );
         var delta = clock.getDelta();
 
-        // level.getObject3D().rotation.x += 50 * delta * Math.PI / 180.0;
-        // level.getObject3D().rotation.y += 50 * delta * Math.PI / 180.0;
-        // level.getObject3D().rotation.z += 50 * delta * Math.PI / 180.0;
+        // level.rotation.x += 50 * delta * Math.PI / 180.0;
+        // level.rotation.y += 50 * delta * Math.PI / 180.0;
+        // level.rotation.z += 50 * delta * Math.PI / 180.0;
 
-        // octo.getObject3D().rotation.z += 50.0 * delta * Math.PI / 180.0;
+        // octo.rotation.z += 50.0 * delta * Math.PI / 180.0;
         renderer.render( scene, camera );
     }
 

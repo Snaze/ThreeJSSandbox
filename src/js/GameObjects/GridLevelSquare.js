@@ -9,18 +9,9 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
 
         this.width = width;
         this.height = height;
-
-        this._object3D = null;
     };
 
     toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
-        getObject3D: function () {
-            if (null === this._object3D) {
-                this._object3D = this._createObject3D();
-            }
-
-            return this._object3D;
-        },
         getGeometry: function () {
             if (null === geometry) {
                 geometry = this._createGeometry();
@@ -35,8 +26,7 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
 
             return material;
         },
-        _createObject3D: function () {
-
+        _createObject: function () {
             return new THREE.Mesh(this.getGeometry(), this.getMaterial());
         },
         _createGeometry: function () {
