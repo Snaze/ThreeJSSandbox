@@ -25,15 +25,24 @@ define(["THREE", "GridLevelOctogon", "GridLevelSquare", "GameObjectBase", "GridL
 
                 for (var x = 0; x < this.ud.width; x++) {
 
-                    currentSection = new GridLevelSection(this.ud.cellRadius, this.ud.cellHeight).init();
+                    var isLast = (x === (this.ud.width - 1));
+
+                    currentSection = new GridLevelSection(this.ud.cellRadius, this.ud.cellHeight, isLast).init();
                     object3D.add(currentSection);
 
-                    currentSection.position.x = x * (currentSection.getDims().x / 2.0);
-                    currentSection.position.z = z * (currentSection.getDims().z / 2.0);
+                    currentSection.position.x = x * currentSection.getIncrement();
+                    currentSection.position.z = z * currentSection.getIncrement();
 
                     this.ud._gridSections[z][x] = currentSection;
                 }
             }
+            var box = new THREE.Box3();
+            box.setFromObject(object3D);
+            var width = Math.abs(box.min.x - box.max.x);
+            var depth = Math.abs(box.min.z - box.max.z);
+
+            object3D.position.x -= width / 2.0;
+            object3D.position.z -= depth / 2.0;
 
             return object3D;
         }

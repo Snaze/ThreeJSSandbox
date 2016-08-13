@@ -7,7 +7,7 @@ define( ['THREE',
         'Axes',
         'GridLevelOctogon',
         'GridLevelSquare',
-        "GridLevel"],
+        "GridLevelArea"],
 function (THREE,
           ObjLoaderHelper,
           gaussian,
@@ -15,7 +15,7 @@ function (THREE,
           Axes,
           GridLevelOctogon,
           GridLevelSquare,
-          GridLevel) {
+          GridLevelArea) {
 
     var objLoaderHelper = new ObjLoaderHelper('../../assets/');
     var scene = new THREE.Scene();
@@ -49,7 +49,8 @@ function (THREE,
     // var octo = new GridLevelSquare(20, 50);
     // scene.add(octo.getObject3D());
 
-    var octo = new GridLevel(10, 10, 20, 20).init();
+    var octo = new GridLevelArea(10, 10, 20, 20).init();
+    octo.setBoundingBoxVisible(true);
     scene.add(octo);
 
     var axes = new Axes(500).init();
@@ -86,9 +87,13 @@ function (THREE,
     // camera.rotation.y = (-135.0) * Math.PI / 180.0;
 
 
-    camera.position.x = 100;
-    camera.position.y = 500;
-    camera.position.z = -200;
+    camera.position.x = 500;
+    camera.position.y = 100;
+    camera.position.z = 500;
+
+    // camera.position.x = 0;
+    // camera.position.y = 500;
+    // camera.position.z = 0;
     // camera.up = new THREE.Vector3(0, 0, 1);
     camera.lookAt(new THREE.Vector3(0, 0, 0));
     // camera.rotation.y = (-135.0) * Math.PI / 180.0;
@@ -106,7 +111,7 @@ function (THREE,
         var delta = clock.getDelta();
 
         // level.rotation.x += 50 * delta * Math.PI / 180.0;
-        // level.rotation.y += 50 * delta * Math.PI / 180.0;
+        octo.rotation.y += 50 * delta * Math.PI / 180.0;
         // level.rotation.z += 50 * delta * Math.PI / 180.0;
 
         // octo.rotation.z += 50.0 * delta * Math.PI / 180.0;

@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27156f0a-5b77-4f7d-9fc1-292d83c5c864" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/html/GridLevelOctogonTest.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/html/GridLevelSectionTest.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/html/GridLevelSquareTest.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevel.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelArea.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevel.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/RequireConfig.js" afterPath="$PROJECT_DIR$/src/js/RequireConfig.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/Tester.js" afterPath="$PROJECT_DIR$/src/js/Tester.js" />
     </list>
@@ -32,51 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RequireConfig.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Axes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/Axes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GridLevel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="86" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GridLevelSection.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GridLevelOctogon.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+            <state relative-caret-position="248">
+              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -85,8 +46,8 @@
       <file leaf-file-name="GridLevelSquare.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="48" column="61" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
+            <state relative-caret-position="375">
+              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -95,28 +56,18 @@
       <file leaf-file-name="GameObjectBase.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+            <state relative-caret-position="150">
+              <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoundingBox.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/BoundingBox.js">
+      <file leaf-file-name="bower.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tester.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/Tester.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -125,42 +76,49 @@
       <file leaf-file-name="three.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bower_components/three.js/build/three.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="4021" column="0" selection-start-line="4021" selection-start-column="0" selection-end-line="4021" selection-end-column="0" />
-              <folding>
-                <element signature="e#162480#162613#0" expanded="false" />
-                <element signature="e#162668#162758#0" expanded="false" />
-                <element signature="e#162803#162856#0" expanded="false" />
-                <element signature="e#162898#163025#0" expanded="false" />
-                <element signature="e#163071#163136#0" expanded="false" />
-                <element signature="e#163166#163437#0" expanded="false" />
-                <element signature="e#163464#163598#0" expanded="false" />
-                <element signature="e#163625#163759#0" expanded="false" />
-                <element signature="e#163786#163920#0" expanded="false" />
-                <element signature="e#163955#164283#0" expanded="false" />
-                <element signature="e#164313#164459#0" expanded="false" />
-                <element signature="e#164489#164635#0" expanded="false" />
-                <element signature="e#164665#164811#0" expanded="false" />
-                <element signature="e#164851#164907#0" expanded="false" />
-                <element signature="e#164937#165094#0" expanded="false" />
-                <element signature="e#165120#165385#0" expanded="false" />
-                <element signature="e#165416#166069#0" expanded="false" />
-                <element signature="e#166101#166430#0" expanded="false" />
-                <element signature="e#166465#166518#0" expanded="false" />
-                <element signature="e#166557#166614#0" expanded="false" />
-                <element signature="e#166664#166957#0" expanded="false" />
-                <element signature="e#167007#167162#0" expanded="false" />
-                <element signature="e#167198#167514#0" expanded="false" />
-                <element signature="e#167550#167837#0" expanded="false" />
-                <element signature="e#167870#168191#0" expanded="false" />
-                <element signature="e#168228#168503#0" expanded="false" />
-                <element signature="e#168568#168729#0" expanded="false" />
-                <element signature="e#168772#168981#0" expanded="false" />
-                <element signature="e#169026#169159#0" expanded="false" />
-                <element signature="e#169189#169303#0" expanded="false" />
-                <element signature="e#169345#169859#0" expanded="false" />
-                <element signature="e#169889#172386#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="-31">
+              <caret line="40444" column="6" selection-start-line="40444" selection-start-column="6" selection-end-line="40444" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tester.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Tester.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="825">
+              <caret line="55" column="4" selection-start-line="55" selection-start-column="4" selection-end-line="56" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GridLevelOctogonTest.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/html/GridLevelOctogonTest.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GridLevelSquareTest.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/html/GridLevelSquareTest.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="35" column="51" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GridLevelSectionTest.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/html/GridLevelSectionTest.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -197,13 +155,17 @@
         <option value="$PROJECT_DIR$/src/js/GameObjects/Level.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/Axes.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/BoundingBox.js" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js" />
-        <option value="$PROJECT_DIR$/src/js/RequireConfig.js" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevel.js" />
+        <option value="$PROJECT_DIR$/src/js/RequireConfig.js" />
         <option value="$PROJECT_DIR$/src/js/Tester.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelArea.js" />
+        <option value="$PROJECT_DIR$/src/html/GridLevelOctogonTest.html" />
+        <option value="$PROJECT_DIR$/src/html/GridLevelOctogonSquare.html" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" />
+        <option value="$PROJECT_DIR$/src/html/GridLevelSectionTest.html" />
       </list>
     </option>
   </component>
@@ -214,8 +176,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="56" />
-    <option name="y" value="38" />
+    <option name="x" value="111" />
+    <option name="y" value="61" />
     <option name="width" value="1322" />
     <option name="height" value="802" />
   </component>
@@ -244,7 +206,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -338,6 +299,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -349,14 +311,15 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../three.js-master" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/html" />
       <recent name="$PROJECT_DIR$/src/js/GameObjects" />
       <recent name="$PROJECT_DIR$/src/js" />
       <recent name="$PROJECT_DIR$/assets/lowPolyTree" />
       <recent name="$PROJECT_DIR$/lib/three" />
-      <recent name="$PROJECT_DIR$/lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/js/GameObjects" />
@@ -364,8 +327,14 @@
       <recent name="$PROJECT_DIR$/lib/three" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.Tester.html">
+  <component name="RunManager" selected="JavaScript Debug.GridLevelSectionTest.html">
     <configuration default="false" name="Tester.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/src/html/Tester.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="GridLevelSectionTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/src/html/GridLevelSectionTest.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="GridLevelOctogonTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/src/html/GridLevelOctogonTest.html">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -421,12 +390,16 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="1">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.Tester.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.GridLevelSectionTest.html" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.GridLevelOctogonTest.html" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.Tester.html" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.GridLevelSectionTest.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.GridLevelOctogonTest.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.Tester.html" />
       </list>
     </recent_temporary>
   </component>
@@ -450,27 +423,31 @@
       <workItem from="1470789217616" duration="29194000" />
       <workItem from="1470955797459" duration="1157000" />
       <workItem from="1470957000253" duration="2925000" />
-      <workItem from="1470996901525" duration="21757000" />
+      <workItem from="1470996901525" duration="29969000" />
+      <workItem from="1471121413153" duration="388000" />
+      <workItem from="1471122128665" duration="374000" />
+      <workItem from="1471122547848" duration="369000" />
+      <workItem from="1471122965946" duration="2311000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65479000" />
+    <option name="totallyTimeSpent" value="77133000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="56" y="38" width="1322" height="802" extended-state="0" />
+    <frame x="111" y="61" width="1322" height="802" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.50269026" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5149885" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.49730977" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.49730977" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.48501152" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -506,57 +483,28 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/js/Tester.js</url>
           <line>46</line>
-          <properties />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/js/Tester.js</url>
           <line>51</line>
-          <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/html/GridLevelSectionTest.html</url>
+          <line>25</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="38" />
+      <option name="time" value="56" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/require/require.js" />
-    <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/loaders/OBJLoader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3720">
-          <caret line="627" column="57" selection-start-line="627" selection-start-column="43" selection-end-line="627" selection-end-column="57" />
-          <folding>
-            <element signature="e#214#1506#0" expanded="false" />
-            <element signature="e#1629#1844#0" expanded="false" />
-            <element signature="e#1876#1903#0" expanded="false" />
-            <element signature="e#1944#1980#0" expanded="false" />
-            <element signature="e#2017#9928#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/Tester.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/animation/CCDIKSolver.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -564,7 +512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -580,7 +527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13965">
           <caret line="931" column="4" selection-start-line="931" selection-start-column="4" selection-end-line="931" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -588,40 +534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127710">
           <caret line="8514" column="23" selection-start-line="8514" selection-start-column="23" selection-end-line="8514" selection-end-column="23" />
-          <folding>
-            <element signature="e#162480#162613#0" expanded="false" />
-            <element signature="e#162668#162758#0" expanded="false" />
-            <element signature="e#162803#162856#0" expanded="false" />
-            <element signature="e#162898#163025#0" expanded="false" />
-            <element signature="e#163071#163136#0" expanded="false" />
-            <element signature="e#163166#163437#0" expanded="false" />
-            <element signature="e#163464#163598#0" expanded="false" />
-            <element signature="e#163625#163759#0" expanded="false" />
-            <element signature="e#163786#163920#0" expanded="false" />
-            <element signature="e#163955#164283#0" expanded="false" />
-            <element signature="e#164313#164459#0" expanded="false" />
-            <element signature="e#164489#164635#0" expanded="false" />
-            <element signature="e#164665#164811#0" expanded="false" />
-            <element signature="e#164851#164907#0" expanded="false" />
-            <element signature="e#164937#165094#0" expanded="false" />
-            <element signature="e#165120#165385#0" expanded="false" />
-            <element signature="e#165416#166069#0" expanded="false" />
-            <element signature="e#166101#166430#0" expanded="false" />
-            <element signature="e#166465#166518#0" expanded="false" />
-            <element signature="e#166557#166614#0" expanded="false" />
-            <element signature="e#166664#166957#0" expanded="false" />
-            <element signature="e#167007#167162#0" expanded="false" />
-            <element signature="e#167198#167514#0" expanded="false" />
-            <element signature="e#167550#167837#0" expanded="false" />
-            <element signature="e#167870#168191#0" expanded="false" />
-            <element signature="e#168228#168503#0" expanded="false" />
-            <element signature="e#168568#168729#0" expanded="false" />
-            <element signature="e#168772#168981#0" expanded="false" />
-            <element signature="e#169026#169159#0" expanded="false" />
-            <element signature="e#169189#169303#0" expanded="false" />
-            <element signature="e#169345#169859#0" expanded="false" />
-            <element signature="e#169889#172386#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -654,9 +566,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="0">
@@ -664,6 +573,9 @@
           </first_editor>
           <second_editor />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/three/three.js" />
@@ -677,9 +589,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="30">
@@ -687,6 +596,9 @@
           </first_editor>
           <second_editor />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/three/DDSLoader.js" />
@@ -715,14 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/html/Tester.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/gaussian/lib/gaussian.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
@@ -736,13 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3720">
           <caret line="627" column="57" selection-start-line="627" selection-start-column="43" selection-end-line="627" selection-end-column="57" />
-          <folding>
-            <element signature="e#214#1506#0" expanded="false" />
-            <element signature="e#1629#1844#0" expanded="false" />
-            <element signature="e#1876#1903#0" expanded="false" />
-            <element signature="e#1944#1980#0" expanded="false" />
-            <element signature="e#2017#9928#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -750,7 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -765,7 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -781,7 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13965">
           <caret line="931" column="4" selection-start-line="931" selection-start-column="4" selection-end-line="931" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -790,47 +684,6 @@
         <state relative-caret-position="555">
           <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/three.js/build/three.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="4021" column="0" selection-start-line="4021" selection-start-column="0" selection-end-line="4021" selection-end-column="0" />
-          <folding>
-            <element signature="e#162480#162613#0" expanded="false" />
-            <element signature="e#162668#162758#0" expanded="false" />
-            <element signature="e#162803#162856#0" expanded="false" />
-            <element signature="e#162898#163025#0" expanded="false" />
-            <element signature="e#163071#163136#0" expanded="false" />
-            <element signature="e#163166#163437#0" expanded="false" />
-            <element signature="e#163464#163598#0" expanded="false" />
-            <element signature="e#163625#163759#0" expanded="false" />
-            <element signature="e#163786#163920#0" expanded="false" />
-            <element signature="e#163955#164283#0" expanded="false" />
-            <element signature="e#164313#164459#0" expanded="false" />
-            <element signature="e#164489#164635#0" expanded="false" />
-            <element signature="e#164665#164811#0" expanded="false" />
-            <element signature="e#164851#164907#0" expanded="false" />
-            <element signature="e#164937#165094#0" expanded="false" />
-            <element signature="e#165120#165385#0" expanded="false" />
-            <element signature="e#165416#166069#0" expanded="false" />
-            <element signature="e#166101#166430#0" expanded="false" />
-            <element signature="e#166465#166518#0" expanded="false" />
-            <element signature="e#166557#166614#0" expanded="false" />
-            <element signature="e#166664#166957#0" expanded="false" />
-            <element signature="e#167007#167162#0" expanded="false" />
-            <element signature="e#167198#167514#0" expanded="false" />
-            <element signature="e#167550#167837#0" expanded="false" />
-            <element signature="e#167870#168191#0" expanded="false" />
-            <element signature="e#168228#168503#0" expanded="false" />
-            <element signature="e#168568#168729#0" expanded="false" />
-            <element signature="e#168772#168981#0" expanded="false" />
-            <element signature="e#169026#169159#0" expanded="false" />
-            <element signature="e#169189#169303#0" expanded="false" />
-            <element signature="e#169345#169859#0" expanded="false" />
-            <element signature="e#169889#172386#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -850,66 +703,112 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+    <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="548" column="0" selection-start-line="548" selection-start-column="0" selection-end-line="548" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="285">
+          <caret line="19" column="60" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js">
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelArea.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="48" column="61" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
-          <folding />
+        <state relative-caret-position="253">
+          <caret line="32" column="82" selection-start-line="32" selection-start-column="82" selection-end-line="32" selection-end-column="82" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js">
+    <entry file="file://$PROJECT_DIR$/src/html/Tester.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="86" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
+        <state relative-caret-position="270">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/Tester.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+        <state relative-caret-position="825">
+          <caret line="55" column="4" selection-start-line="55" selection-start-column="4" selection-end-line="56" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/GridLevelSquareTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="51" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="598" column="0" selection-start-line="598" selection-start-column="0" selection-end-line="598" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/three.js/build/three.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="40444" column="6" selection-start-line="40444" selection-start-column="6" selection-end-line="40444" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/GridLevelOctogonTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/GridLevelSectionTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
           <folding />
         </state>
       </provider>

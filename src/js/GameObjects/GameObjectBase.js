@@ -24,12 +24,9 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
             this._boundingBox.visible = false;
             this.add(this._boundingBox);
 
-            this._axes = this._createAxes(dims.x, dims.y, dims.z);
-            this._axes.visible = false;
-            this.add(this._axes);
-
             return this;
         },
+
         getBoundingBox3: function () {
             if (null === this._boundingBox3) {
                 this._boundingBox3 = new THREE.Box3();
@@ -51,11 +48,35 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
 
             return this._boundingBoxDimensions;
         },
-        setBoundingBoxVisible: function (visible) {
+        setBoundingBoxVisible: function (visible, recursive) {
             this._boundingBox.visible = visible;
+
+            if (recursive) {
+                this.traverse(function (child) {
+                    if (child instanceof toRet) {
+                        child.setBoundingBoxVisible(visible, false);
+                    }
+                });
+            }
         },
-        setAxesVisible: function (visible) {
+        setAxesVisible: function (visible, recursive) {
+            if (this._axes === null) {
+                var dims = this.getDims();
+
+                this._axes = this._createAxes(dims.x, dims.y, dims.z);
+                this._axes.visible = false;
+                this.add(this._axes);
+            }
+
             this._axes.visible = visible;
+
+            if (recursive) {
+                this.traverse(function (child) {
+                    if (child instanceof toRet) {
+                        child.setAxesVisible(visible, false);
+                    }
+                });
+            }
         },
 
         /**
