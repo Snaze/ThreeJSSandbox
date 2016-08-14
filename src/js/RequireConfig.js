@@ -2,14 +2,23 @@
 require.config({
     baseUrl: '/ThreeJSSandbox',
     paths: {
+        /** BOWER COMPONENTS **/
         'jquery': 'bower_components/jquery/dist/jquery',
         'THREE': 'bower_components/three.js/build/three',
         'OBJLoader': 'bower_components/three.js/examples/js/loaders/OBJLoader',
         'DDSLoader': 'bower_components/three.js/examples/js/loaders/DDSLoader',
         'MTLLoader': 'bower_components/three.js/examples/js/loaders/MTLLoader',
+        'gaussian': 'bower_components/gaussian/lib/gaussian',
+        'seedrandom': 'bower_components/seedrandom/seedrandom',
+        'xor4096': 'bower_components/seedrandom/lib/xor4096',
+        'noisejs': 'bower_components/noisejs/index',
+
+        /** JS **/
         'Tester': 'src/js/Tester',
         'ObjLoaderHelper': 'src/js/ObjLoaderHelper',
         'Level': 'src/js/GameObjects/Level',
+
+        /** JS / GAMEOBJECTS **/
         'GameObjectBase': 'src/js/GameObjects/GameObjectBase',
         'Axes': 'src/js/GameObjects/Axes',
         'BoundingBox': 'src/js/GameObjects/BoundingBox',
@@ -18,11 +27,11 @@ require.config({
         'GridLevelSection': 'src/js/GameObjects/GridLevelSection',
         'GridLevelOctogon': 'src/js/GameObjects/GridLevelOctogon',
         'GridLevelSquare': 'src/js/GameObjects/GridLevelSquare',
+        'TerrainBox': 'src/js/GameObjects/TerrainBox',
         'AugmentedExtrudedEllipse': 'src/js/GameObjects/AugmentedExtrudedEllipse',
-        'gaussian': 'bower_components/gaussian/lib/gaussian',
-        'seedrandom': 'bower_components/seedrandom/seedrandom',
-        'xor4096': 'bower_components/seedrandom/lib/xor4096',
-        'noisejs': 'bower_components/noisejs/index'
+
+        /** JS / UTILITY **/
+        "TerrainGenerator": 'src/js/Utility/TerrainGenerator'
     },
     shim: {
         'THREE': {

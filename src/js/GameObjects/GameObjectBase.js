@@ -15,6 +15,8 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
 
     toRet.prototype = Object.assign(Object.create(THREE.Object3D.prototype), {
         init: function () {
+            this._subInit();
+
             this._innerObject3D = this._createObject();
             this.add(this._innerObject3D);
 
@@ -86,6 +88,9 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
          * @private
          */
         _createObject: function () {
+            throw new Error("This method is not implemented");
+        },
+        _subInit: function () {
             throw new Error("This method is not implemented");
         },
         _createBoundingBox: function (width, height, depth) {

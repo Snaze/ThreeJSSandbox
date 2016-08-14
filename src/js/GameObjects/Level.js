@@ -11,6 +11,9 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
     };
 
     toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
+        _subInit: function () {
+        },
+
         createImperfectCircle: function (numSteps, variation, theRadius) {
             var theShape = new THREE.Shape();
 

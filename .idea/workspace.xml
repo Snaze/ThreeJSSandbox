@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27156f0a-5b77-4f7d-9fc1-292d83c5c864" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/html/AugmentedExtrudedEllipseTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/GameObjects/AugmentedExtrudedEllipse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/html/TerrainBoxTest.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/GameObjects/TerrainBox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/Utility/TerrainGenerator.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/AugmentedExtrudedEllipse.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/AugmentedExtrudedEllipse.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevelArea.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelArea.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevelLayer.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelLayer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/Level.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/Level.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/RequireConfig.js" afterPath="$PROJECT_DIR$/src/js/RequireConfig.js" />
     </list>
     <ignored path="ThreeJSSandbox.iws" />
@@ -28,11 +37,93 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="GridLevelSection.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GridLevelSquare.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameObjectBase.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Level.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/Level.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TerrainBox.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/TerrainBox.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TerrainGenerator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Utility/TerrainGenerator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="810">
+              <caret line="86" column="12" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TerrainBoxTest.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/html/TerrainBoxTest.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="RequireConfig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+            <state relative-caret-position="105">
+              <caret line="21" column="23" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GridLevelOctogon.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="32" selection-end-column="87" />
               <folding />
             </state>
           </provider>
@@ -41,80 +132,8 @@
       <file leaf-file-name="GridLevelLayer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelLayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GridLevelLayerTest.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/html/GridLevelLayerTest.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="35" column="72" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AugmentedExtrudedEllipse.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/AugmentedExtrudedEllipse.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="30" column="63" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="63" />
-              <folding>
-                <element signature="e#2759#3586#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Level.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/Level.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="51" column="43" selection-start-line="45" selection-start-column="12" selection-end-line="62" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AugmentedExtrudedEllipseTest.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/html/AugmentedExtrudedEllipseTest.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Axes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/Axes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="11" column="7" selection-start-line="9" selection-start-column="22" selection-end-line="11" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BoundingBox.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/BoundingBox.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="demo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bower_components/noisejs/demo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="51" column="38" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="38" />
+            <state relative-caret-position="128">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -149,25 +168,28 @@
         <option value="$PROJECT_DIR$/src/js/GridLevelSquare.js" />
         <option value="$PROJECT_DIR$/src/js/GridLevel.js" />
         <option value="$PROJECT_DIR$/src/js/Axes.js" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/Level.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/Axes.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/BoundingBox.js" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevel.js" />
         <option value="$PROJECT_DIR$/src/js/Tester.js" />
         <option value="$PROJECT_DIR$/src/html/GridLevelOctogonTest.html" />
         <option value="$PROJECT_DIR$/src/html/GridLevelOctogonSquare.html" />
         <option value="$PROJECT_DIR$/src/html/GridLevelSectionTest.html" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelArea.js" />
         <option value="$PROJECT_DIR$/src/html/GridLevelAreaTest.html" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelLayer.js" />
         <option value="$PROJECT_DIR$/src/html/GridLevelLayerTest.html" />
-        <option value="$PROJECT_DIR$/src/js/RequireConfig.js" />
         <option value="$PROJECT_DIR$/src/html/AugmentedExtrudedEllipseTest.html" />
+        <option value="$PROJECT_DIR$/src/js/Utility/TerrainGenerator.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/AugmentedExtrudedEllipse.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelArea.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelLayer.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/Level.js" />
+        <option value="$PROJECT_DIR$/src/js/RequireConfig.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/TerrainBox.js" />
+        <option value="$PROJECT_DIR$/src/html/TerrainBoxTest.html" />
       </list>
     </option>
   </component>
@@ -178,9 +200,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="111" />
-    <option name="y" value="61" />
-    <option name="width" value="1322" />
+    <option name="x" value="51" />
+    <option name="y" value="30" />
+    <option name="width" value="1362" />
     <option name="height" value="802" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -263,6 +285,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ThreeJSSandbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ThreeJSSandbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="GameObjects" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -315,10 +359,7 @@
       <recent name="$PROJECT_DIR$/lib/three" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.AugmentedExtrudedEllipseTest.html">
-    <configuration default="false" name="GridLevelAreaTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/src/html/GridLevelAreaTest.html">
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JavaScript Debug.TerrainBoxTest.html">
     <configuration default="false" name="demo.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/bower_components/noisejs/demo.html">
       <method />
     </configuration>
@@ -329,6 +370,9 @@
       <method />
     </configuration>
     <configuration default="false" name="AugmentedExtrudedEllipseTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/src/html/AugmentedExtrudedEllipseTest.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="TerrainBoxTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/src/html/TerrainBoxTest.html">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -385,19 +429,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.GridLevelAreaTest.html" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.demo.html" />
-      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.demo3d.html" />
-      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.GridLevelLayerTest.html" />
-      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.AugmentedExtrudedEllipseTest.html" />
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.demo.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.demo3d.html" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.GridLevelLayerTest.html" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.AugmentedExtrudedEllipseTest.html" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.TerrainBoxTest.html" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.AugmentedExtrudedEllipseTest.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.GridLevelLayerTest.html" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.demo.html" />
-        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.demo3d.html" />
-        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.GridLevelAreaTest.html" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.TerrainBoxTest.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.AugmentedExtrudedEllipseTest.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.GridLevelLayerTest.html" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.demo.html" />
+        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.demo3d.html" />
       </list>
     </recent_temporary>
   </component>
@@ -425,18 +469,18 @@
       <workItem from="1471121413153" duration="388000" />
       <workItem from="1471122128665" duration="374000" />
       <workItem from="1471122547848" duration="369000" />
-      <workItem from="1471122965946" duration="15085000" />
+      <workItem from="1471122965946" duration="21583000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89907000" />
+    <option name="totallyTimeSpent" value="96405000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="111" y="61" width="1322" height="802" extended-state="0" />
+    <frame x="51" y="30" width="1362" height="802" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24235645" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5149885" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -475,7 +519,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/js/GameObjects/Level.js</url>
-          <line>45</line>
+          <line>48</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -495,26 +539,52 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/js/GameObjects/GridLevelLayer.js</url>
-          <line>30</line>
+          <line>33</line>
           <properties />
           <option name="timeStamp" value="56" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/html/TerrainBoxTest.html</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/js/GameObjects/TerrainBox.js</url>
+          <line>7</line>
+          <properties />
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/js/GameObjects/TerrainBox.js</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/js/GameObjects/TerrainBox.js</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/js/Utility/TerrainGenerator.js</url>
+          <line>86</line>
+          <properties />
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/js/GameObjects/TerrainBox.js</url>
+          <line>34</line>
+          <properties />
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="61" />
+      <option name="time" value="69" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/js/Tree.js" />
-    <entry file="file://$PROJECT_DIR$/src/html/Tester.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/Tree.js" />
     <entry file="file://$PROJECT_DIR$/src/html/Tester.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -637,14 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/html/Tester.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -657,14 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
           <caret line="55" column="4" selection-start-line="55" selection-start-column="4" selection-end-line="56" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -701,22 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/html/GridLevelAreaTest.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -740,22 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelArea.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelLayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/noisejs/demo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
@@ -772,14 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/BoundingBox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/three.js/build/three.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
@@ -788,34 +802,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/Axes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" column="7" selection-start-line="9" selection-start-column="22" selection-end-line="11" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/Level.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="51" column="43" selection-start-line="45" selection-start-column="12" selection-end-line="62" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -836,13 +826,119 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/Axes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="78" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/BoundingBox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/GameObjects/AugmentedExtrudedEllipse.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="30" column="63" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="63" />
+        <state relative-caret-position="615">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="42" selection-end-column="14" />
           <folding>
-            <element signature="e#2759#3586#0" expanded="false" />
+            <element signature="e#2810#3637#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelArea.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelLayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/Level.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelSquare.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Utility/TerrainGenerator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="86" column="12" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GridLevelOctogon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="32" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/TerrainBox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/TerrainBoxTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>

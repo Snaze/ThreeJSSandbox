@@ -13,6 +13,8 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
     toRet.material = null;
 
     toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
+        _subInit: function () {
+        },
         getGeometry: function () {
             if (null === toRet.geometry) {
                 toRet.geometry = this._createGeometry();

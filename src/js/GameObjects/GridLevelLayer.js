@@ -15,6 +15,9 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase"],
     };
 
     toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
+        _subInit: function () {
+        },
+
         _createObject: function() {
 
             var object3D = new THREE.Object3D();

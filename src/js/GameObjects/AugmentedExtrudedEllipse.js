@@ -39,6 +39,8 @@ define(["THREE", "GameObjectBase", "xor4096"],
 
                 return this.xorRandom;
             },
+            _subInit: function () {
+            },
             _createImperfectCircle: function (numSteps, variation, theRadius) {
                 var theShape = new THREE.Shape();
 

@@ -14,6 +14,9 @@ define(["THREE", "GridLevelOctogon", "GridLevelSquare", "GameObjectBase", "GridL
     };
 
     toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
+        _subInit: function () {
+        },
+
         _createObject: function() {
 
             var object3D = new THREE.Object3D();

@@ -17,6 +17,8 @@ define(["THREE", "GridLevelOctogon", "GridLevelSquare", "GameObjectBase"],
     };
 
     toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
+        _subInit: function () {
+        },
 
         getHalfWidth: function () {
             return this.ud.cellRadius * Math.cos(22.5 * Math.PI / 180.0);
