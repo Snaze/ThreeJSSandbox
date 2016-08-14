@@ -1,57 +1,81 @@
 "use strict";
 
-define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase"],
-    function (THREE, GridLevelSection, Noise, GameObjectBase) {
+define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
+    function (THREE, GridLevelSection, Noise, GameObjectBase, Morph) {
 
-    var toRet = function (width, height, cellRadius, cellHeight, seed, continuity) {
-        GameObjectBase.call(this);
+        var classToRet = function (width, height, cellRadius, cellHeight, seed, continuity, numLevels) {
+            GameObjectBase.call(this);
 
-        this.ud.width = width;
-        this.ud.height = height;
-        this.ud.cellRadius = cellRadius || 10;
-        this.ud.cellHeight = cellHeight || 25;
-        this.ud.seed = seed || 0;
-        this.ud.continuity = continuity || 8.0;
-    };
+            this.ud.width = width;
+            this.ud.height = height;
+            this.ud.cellRadius = cellRadius || 10;
+            this.ud.cellHeight = cellHeight || 25;
+            this.ud.seed = seed || 0;
+            this.ud.continuity = continuity || 8.0;
+            this.ud.numLevels = numLevels || 6;
 
-    toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
-        _subInit: function () {
-        },
+            console.assert(width > 0);
+            console.assert(height > 0);
 
-        _createObject: function() {
+        };
 
-            var object3D = new THREE.Object3D();
-            var currentSection;
-            var increment = null;
-            var toSubtractX = null;
-            var toSubtractZ = null;
-            var noise = new Noise(this.ud.seed);
+        classToRet.SPACE = -1;
+        classToRet.MIN_VALUE = 0.0;
+        classToRet.MAX_VALUE = 2.0;
 
-            for (var z = 0; z < this.ud.height; z++) {
+        classToRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
+            _subInit: function () {
 
-                for (var x = 0; x < this.ud.width; x++) {
+            },
 
-                    if (noise.simplex2(x / this.ud.continuity, z / this.ud.continuity) <= 0.0) {
-                        continue;
+            _createObject: function () {
+
+                var object3D = new THREE.Object3D();
+                var currentSection;
+                var increment = null;
+                var toSubtractX = null;
+                var toSubtractZ = null;
+                var noise = new Noise(this.ud.seed);
+
+                for (var z = 0; z < this.ud.height; z++) {
+
+                    for (var x = 0; x < this.ud.width; x++) {
+
+                        var simplexValue = noise.simplex2(x / this.ud.continuity, z / this.ud.continuity);
+                        var discreteSimplexValue = this.ud.numLevels;
+
+                        if (simplexValue < 0.0) {
+                            discreteSimplexValue = this.ud.numLevels - Math.floor(-1 * simplexValue * this.ud.numLevels);
+                            // if (discreteSimplexValue === (this.ud.numLevels - 1)) {
+                            //     discreteSimplexValue = this.ud.numLevels + 1;
+                            // } else if (discreteSimplexValue === (this.ud.numLevels - 2)) {
+                            //     discreteSimplexValue = this.ud.numLevels + 2;
+                            // } else {
+                            //     continue;
+                            // }
+                            continue;
+                        }
+
+                        // console.assert (discreteSimplexValue >= 0 && discreteSimplexValue <= this.ud.numLevels);
+                        var levelHeight = this.ud.cellHeight * (discreteSimplexValue + 1);
+
+                        currentSection = new GridLevelSection(this.ud.cellRadius, levelHeight).init();
+                        object3D.add(currentSection);
+                        if (null === increment) {
+                            increment = currentSection.getIncrement();
+                            var halfInc = currentSection.getHalfIncrement();
+                            toSubtractX = ((increment * this.ud.width - 2 * halfInc) / 2.0);
+                            toSubtractZ = ((increment * this.ud.height - 2 * halfInc) / 2.0);
+                        }
+
+                        currentSection.position.x = (x * increment) - toSubtractX;
+                        currentSection.position.z = (z * increment) - toSubtractZ;
                     }
-
-                    currentSection = new GridLevelSection(this.ud.cellRadius, this.ud.cellHeight).init();
-                    object3D.add(currentSection);
-                    if (null === increment) {
-                        increment = currentSection.getIncrement();
-                        var halfInc = currentSection.getHalfIncrement();
-                        toSubtractX = ((increment * this.ud.width - 2 * halfInc) / 2.0);
-                        toSubtractZ = ((increment * this.ud.height - 2 * halfInc) / 2.0);
-                    }
-
-                    currentSection.position.x = (x * increment) - toSubtractX;
-                    currentSection.position.z = (z * increment) - toSubtractZ;
                 }
+
+                return object3D;
             }
+        });
 
-            return object3D;
-        }
+        return classToRet;
     });
-
-    return toRet;
-});

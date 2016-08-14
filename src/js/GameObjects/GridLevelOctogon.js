@@ -9,22 +9,29 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
         this.ud.height = height;
     };
 
-    toRet.geometry = null;
-    toRet.material = null;
+    toRet.geometry = {};
+    toRet.material = {};
 
     toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
         _subInit: function () {
         },
 
+        getKey: function () {
+            return "height_" + this.ud.height + "_radius_" + this.ud.radius;
+        },
+
         getGeometry: function () {
-            if (null === toRet.geometry) {
-                toRet.geometry = this._createGeometry();
+            var key = this.getKey();
+            if (!(key in toRet.geometry)) {
+                toRet.geometry[key] = this._createGeometry();
             }
 
-            return toRet.geometry;
+            return toRet.geometry[key];
         },
         getMaterial: function () {
-            if (toRet.material === null) {
+            var key = this.getKey();
+
+            if (!(key in toRet.material)) {
                 var textureLoader = new THREE.TextureLoader();
                 var dirtTexture = textureLoader.load('../../assets/textures/dirt1.jpg');
                 var grassTexture = textureLoader.load('../../assets/textures/grass1.jpg');
@@ -44,10 +51,10 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
                     }
                 }
 
-                toRet.material = new THREE.MeshFaceMaterial(mats);
+                toRet.material[key] = new THREE.MeshFaceMaterial(mats);
             }
 
-            return toRet.material;
+            return toRet.material[key];
         },
         _createObject: function () {
 

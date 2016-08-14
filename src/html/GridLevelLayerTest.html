@@ -33,7 +33,7 @@
             var ambient = new THREE.AmbientLight(0xFFFFFF);
             scene.add(ambient);
 
-            var area = new GridLevelLayer(32, 32, 2, 2, Math.random(), 7.0).init();
+            var area = new GridLevelLayer(32, 32, 2, 4, Math.random(), 50.0, 6).init();
 //            section.setAxesVisible(true, true);
             area.setBoundingBoxVisible(false, true);
             scene.add(area);

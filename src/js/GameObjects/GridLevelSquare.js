@@ -2,32 +2,38 @@
 
 define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
 
-    var toRet = function (width, height) {
+    var classToRet = function (width, height) {
         GameObjectBase.call(this);
 
         this.ud.width = width;
         this.ud.height = height;
     };
 
-    toRet.geometry = null;
-    toRet.material = null;
+    classToRet.geometry = {};
+    classToRet.material = {};
 
-    toRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
+    classToRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
         _subInit: function () {
         },
+        getKey: function () {
+            return "height_" + this.ud.height + "_width_" + this.ud.width;
+        },
         getGeometry: function () {
-            if (null === toRet.geometry) {
-                toRet.geometry = this._createGeometry();
+            var key = this.getKey();
+            if (!(key in classToRet.geometry)) {
+                classToRet.geometry[key] = this._createGeometry();
             }
 
-            return toRet.geometry;
+            return classToRet.geometry[key];
         },
         getMaterial: function () {
-            if (null === toRet.material) {
-                toRet.material = this._createMaterial();
+            var key = this.getKey();
+
+            if (!(key in classToRet.material)) {
+                classToRet.material[key] = this._createMaterial();
             }
 
-            return toRet.material;
+            return classToRet.material[key];
         },
         _createObject: function () {
             return new THREE.Mesh(this.getGeometry(), this.getMaterial());
@@ -59,5 +65,5 @@ define(["THREE", "GameObjectBase"], function (THREE, GameObjectBase) {
         }
     });
 
-    return toRet;
+    return classToRet;
 });

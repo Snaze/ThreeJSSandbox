@@ -31,7 +31,10 @@ require.config({
         'AugmentedExtrudedEllipse': 'src/js/GameObjects/AugmentedExtrudedEllipse',
 
         /** JS / UTILITY **/
-        "TerrainGenerator": 'src/js/Utility/TerrainGenerator'
+        "TerrainGenerator": 'src/js/Utility/TerrainGenerator',
+
+        /** LIB **/
+        "morph": "lib/morph/morph"
     },
     shim: {
         'THREE': {
@@ -51,6 +54,9 @@ require.config({
         },
         "noisejs": {
             exports: "Noise"
+        },
+        "morph": {
+            exports: "Morph"
         }
         // 'gaussian': {
         //     exports: 'gaussian'
