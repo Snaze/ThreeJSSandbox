@@ -18,7 +18,10 @@ require.config({
         'GridLevelSection': 'src/js/GameObjects/GridLevelSection',
         'GridLevelOctogon': 'src/js/GameObjects/GridLevelOctogon',
         'GridLevelSquare': 'src/js/GameObjects/GridLevelSquare',
+        'AugmentedExtrudedEllipse': 'src/js/GameObjects/AugmentedExtrudedEllipse',
         'gaussian': 'bower_components/gaussian/lib/gaussian',
+        'seedrandom': 'bower_components/seedrandom/seedrandom',
+        'xor4096': 'bower_components/seedrandom/lib/xor4096',
         'noisejs': 'bower_components/noisejs/index'
     },
     shim: {
