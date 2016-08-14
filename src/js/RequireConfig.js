@@ -14,10 +14,12 @@ require.config({
         'Axes': 'src/js/GameObjects/Axes',
         'BoundingBox': 'src/js/GameObjects/BoundingBox',
         'GridLevelArea': 'src/js/GameObjects/GridLevelArea',
+        'GridLevelLayer': 'src/js/GameObjects/GridLevelLayer',
         'GridLevelSection': 'src/js/GameObjects/GridLevelSection',
         'GridLevelOctogon': 'src/js/GameObjects/GridLevelOctogon',
         'GridLevelSquare': 'src/js/GameObjects/GridLevelSquare',
-        'gaussian': 'bower_components/gaussian/lib/gaussian'
+        'gaussian': 'bower_components/gaussian/lib/gaussian',
+        'noisejs': 'bower_components/noisejs/index'
     },
     shim: {
         'THREE': {
@@ -35,6 +37,9 @@ require.config({
             deps: ['THREE'],
             exports: 'THREE.MTLLoader'
         },
+        "noisejs": {
+            exports: "Noise"
+        }
         // 'gaussian': {
         //     exports: 'gaussian'
         // }
