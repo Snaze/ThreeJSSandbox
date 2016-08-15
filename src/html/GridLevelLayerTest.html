@@ -33,7 +33,7 @@
             var ambient = new THREE.AmbientLight(0xFFFFFF);
             scene.add(ambient);
 
-            var area = new GridLevelLayer(32, 32, 2, 4, Math.random(), 50.0, 6).init();
+            var area = new GridLevelLayer(32, 32, 2, 5, Math.random(), 8.0, 6).init();
 //            section.setAxesVisible(true, true);
             area.setBoundingBoxVisible(false, true);
             scene.add(area);
@@ -53,7 +53,7 @@
                 requestAnimationFrame(render);
                 var delta = clock.getDelta();
 
-                area.rotation.y += 50 * delta * Math.PI / 180.0;
+                area.rotation.y += 5 * delta * Math.PI / 180.0;
 
                 renderer.render(scene, camera);
             }

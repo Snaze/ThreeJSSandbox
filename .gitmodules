@@ -1,3 +1,6 @@
 [submodule "lib/morph"]
 	path = lib/morph
 	url = https://github.com/PorkShoulderHolder/morph
+[submodule "lib/ocean"]
+	path = lib/ocean
+	url = https://github.com/jbouny/ocean.git
