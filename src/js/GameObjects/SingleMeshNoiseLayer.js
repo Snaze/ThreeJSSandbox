@@ -3,7 +3,7 @@
 define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
     function (THREE, GridLevelSection, Noise, GameObjectBase, Morph) {
 
-        var classToRet = function (width, height, seed, continuity, numLevels, faceWidth, faceDepth) {
+        var classToRet = function (width, height, seed, continuity, numLevels, faceWidth, faceHeight, faceDepth) {
             GameObjectBase.call(this);
 
             this.ud.width = width;
@@ -12,6 +12,7 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
             this.ud.continuity = continuity || 8.0;
             this.ud.numLevels = numLevels || 6;
             this.ud.faceWidth = faceWidth || 1.0;
+            this.ud.faceHeight = faceHeight || 1.0;
             this.ud.faceDepth = faceDepth || 1.0;
             this.ud.totalWidth = 0;
             this.ud.totalDepth = 0;
@@ -25,6 +26,8 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
 
         classToRet.geometry = {};
         classToRet.material = {};
+        classToRet.GRASS_MATERIAL = 0;
+        classToRet.DIRT_MATERIAL = 1;
 
         classToRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
             getKey: function () {
@@ -51,8 +54,19 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
                     var textureLoader = new THREE.TextureLoader();
                     var grassTexture = textureLoader.load('../../assets/textures/grass1.jpg');
                     grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
-                    grassTexture.repeat.set( 2.0, 2.0 );
-                    classToRet.material[key] = new THREE.MeshPhongMaterial({map: grassTexture});
+                    grassTexture.repeat.set( 1.0, 1.0);
+
+                    var dirtTexture = textureLoader.load('../../assets/textures/dirt1.jpg');
+                    dirtTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
+                    dirtTexture.repeat.set( 1.0, 1.0);
+
+                    var grassMaterial = new THREE.MeshLambertMaterial({map: grassTexture });
+                    var dirtMaterial = new THREE.MeshLambertMaterial({map: dirtTexture});
+                    var materialArray = [];
+                    materialArray.push(grassMaterial);
+                    materialArray.push(dirtMaterial);
+
+                    classToRet.material[key] = new THREE.MeshFaceMaterial(materialArray);
                 }
 
                 return classToRet.material[key];
@@ -89,8 +103,39 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
                 geometry.vertices.push(vertex3);
                 var vertex3Index = geometry.vertices.length - 1;
 
-                geometry.faces.push(new THREE.Face3(vertex2Index, vertex1Index, vertex0Index));
-                geometry.faces.push(new THREE.Face3(vertex3Index, vertex2Index, vertex0Index));
+                var face0 = new THREE.Face3(vertex2Index, vertex1Index, vertex0Index);
+                if (vertex2.y === vertex1.y && vertex2.y === vertex0.y) {
+                    if (vertex2.y === this.ud.faceHeight) {
+                        face0 = null;
+                    } else {
+                        face0.materialIndex = classToRet.GRASS_MATERIAL;
+                    }
+                } else {
+                    face0.materialIndex = classToRet.DIRT_MATERIAL;
+                }
+
+                // face0.materialIndex = 0;
+                var face1 = new THREE.Face3(vertex3Index, vertex2Index, vertex0Index);
+                if (vertex3.y === vertex2.y && vertex3.y === vertex0.y) {
+                    if (vertex3.y === this.ud.faceHeight) {
+                        face1 = null;
+                    } else {
+                        face1.materialIndex = classToRet.GRASS_MATERIAL;
+                    }
+                } else {
+                    face1.materialIndex = classToRet.DIRT_MATERIAL;
+                }
+
+                if (face0) {
+                    geometry.faces.push(face0);
+                    geometry.faceVertexUvs[0].push([new THREE.Vector2(1, 1),new THREE.Vector2(1, 0),new THREE.Vector2(0, 0)]);
+                }
+
+                if (face1) {
+                    geometry.faces.push(face1);
+                    geometry.faceVertexUvs[0].push([new THREE.Vector2(0, 1),new THREE.Vector2(1, 1),new THREE.Vector2(0, 0)]);
+                }
+
             },
 
             _getYValueFromSimplexNoise: function (x, z) {
@@ -101,7 +146,7 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
                     levelNumber = this.ud.numLevels;
                 }
 
-                return levelNumber * this.ud.height;
+                return levelNumber * this.ud.faceHeight;
                 // return 0;
             },
 
@@ -146,7 +191,10 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
                     }
                 }
 
+                toRet.elementsNeedUpdate = true;
+                toRet.verticesNeedUpdate = true;
                 toRet.mergeVertices();
+                toRet.computeLineDistances();
                 toRet.computeVertexNormals();
                 toRet.computeFaceNormals();
 
@@ -162,6 +210,11 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
                 object3D.add(mesh);
                 mesh.position.x -= (this.ud.totalWidth / 2.0);
                 mesh.position.z -= (this.ud.totalDepth / 2.0);
+
+                object3D.traverse(function (child) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                });
 
                 return object3D;
             }
