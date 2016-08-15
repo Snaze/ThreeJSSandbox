@@ -22,7 +22,7 @@
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
-        requirejs(['THREE', "GridLevelLayer", "Axes"], function (THREE, GridLevelLayer, Axes) {
+        requirejs(['THREE', "SingleMeshNoiseLayer", "Axes"], function (THREE, SingleMeshNoiseLayer, Axes) {
             var scene = new THREE.Scene();
             var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -30,10 +30,13 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(renderer.domElement);
 
-            var ambient = new THREE.AmbientLight(0xFFFFFF);
-            scene.add(ambient);
+            var light = new THREE.DirectionalLight(0xFFFFFF, 2.0);
+            light.position.set(100, 100, 100);
+            light.target.position.set(0, 0, 0);
+//            light.lookAt(new THREE.Vector3(0, 0, 0));
+            scene.add(light);
 
-            var area = new GridLevelLayer(128, 128, 1, 1, Math.random(), 8.0, 6).init();
+            var area = new SingleMeshNoiseLayer(128, 128, Math.random(), 32.0, 2, 20.0, 20.0).init();
 //            section.setAxesVisible(true, true);
             area.setBoundingBoxVisible(false, true);
             scene.add(area);
@@ -41,9 +44,9 @@
             var axes = new Axes(500).init();
             scene.add(axes);
 
-            camera.position.x = 50;
-            camera.position.y = 10;
-            camera.position.z = 50;
+            camera.position.x = 500;
+            camera.position.y = 500;
+            camera.position.z = 500;
 
             camera.lookAt(new THREE.Vector3(0, 0, 0));
 
@@ -53,8 +56,8 @@
                 requestAnimationFrame(render);
                 var delta = clock.getDelta();
 
-                camera.position.z -= 0.5;
-//                area.rotation.y += 5 * delta * Math.PI / 180.0;
+//                camera.position.z -= 0.5;
+                area.rotation.y += 5.0 * delta * Math.PI / 180.0;
 
                 renderer.render(scene, camera);
             }

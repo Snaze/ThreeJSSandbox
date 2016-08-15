@@ -39,7 +39,7 @@
             scene.add(light);
 
             // numSplits, length, displacementScale, seed
-            var terrainBox = new TerrainBox(512, 512, 16, 256).init();
+            var terrainBox = new TerrainBox(1024, 1024, 128, 512).init();
 //            ellipse.setAxesVisible(true, true);
             terrainBox.setBoundingBoxVisible(false, true);
             scene.add(terrainBox);
@@ -48,7 +48,7 @@
             scene.add(axes);
 
             camera.position.x = 200;
-            camera.position.y = 200;
+            camera.position.y = 500;
             camera.position.z = 200;
 
 

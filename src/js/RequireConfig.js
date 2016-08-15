@@ -29,6 +29,7 @@ require.config({
         'GridLevelSquare': 'src/js/GameObjects/GridLevelSquare',
         'TerrainBox': 'src/js/GameObjects/TerrainBox',
         'AugmentedExtrudedEllipse': 'src/js/GameObjects/AugmentedExtrudedEllipse',
+        'SingleMeshNoiseLayer': 'src/js/GameObjects/SingleMeshNoiseLayer',
 
         /** JS / UTILITY **/
         "TerrainGenerator": 'src/js/Utility/TerrainGenerator',
