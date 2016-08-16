@@ -39,7 +39,7 @@
 //            light.lookAt(new THREE.Vector3(0, 0, 0));
             scene.add(light);
 
-            var area = new SingleMeshNoiseLayer(128, 128, Math.random(), 32.0, 4, 1.0, 5.0, 1.0).init();
+            var area = new SingleMeshNoiseLayer(128, 128, Math.random(), 32.0, 3, 1.0, 10.0, 1.0).init();
 //            section.setAxesVisible(true, true);
             area.setBoundingBoxVisible(false, true);
             scene.add(area);
@@ -48,7 +48,7 @@
             scene.add(axes);
 
             camera.position.x = 64;
-            camera.position.y = 1000;
+            camera.position.y = 300;
             camera.position.z = 64;
 
             camera.lookAt(new THREE.Vector3(0, 0, 0));

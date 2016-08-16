@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Morph Test</title>
+    <script src="../../../bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+
+    <script lang="javascript">
+        requirejs(['../../js/RequireConfig'], function (requireConfig) {
+            //js/common sets the baseUrl to be js/ so
+            //can just ask for 'app/main1' here instead
+            //of 'js/app/main1'
+            requirejs(["morph"], function (Morph) {
+                var morph = new Morph(5, 5, [0, 0, 1, 1, 1,
+                                             0, 0, 1, 1, 1,
+                                             1, 0, 0, 0, 0,
+                                             1, 1, 1, 0, 0,
+                                             1, 1, 1, 1, 1]);
+
+
+                var componentData = morph.labelConnectedComponents();
+                console.log(componentData.labeledMorph.data);
+//                componentData.contours.forEach(function(contour){
+//
+//                    console.log(contour);
+//
+//                    // returns an array of normalized x,y values [ [0.1,0.2], [0.8,0.1], .... ]
+//
+//                });
+            });
+
+
+        });
+    </script>
+</body>
+</html>

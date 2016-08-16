@@ -12,6 +12,7 @@ require.config({
         'seedrandom': 'bower_components/seedrandom/seedrandom',
         'xor4096': 'bower_components/seedrandom/lib/xor4096',
         'noisejs': 'bower_components/noisejs/index',
+        "QUnit": "bower_components/qunit/qunit/qunit",
 
         /** JS **/
         'Tester': 'src/js/Tester',
@@ -33,9 +34,12 @@ require.config({
 
         /** JS / UTILITY **/
         "TerrainGenerator": 'src/js/Utility/TerrainGenerator',
+        "util": 'src/js/Utility/',
 
         /** LIB **/
-        "morph": "lib/morph/morph"
+        "morph": "lib/morph/morph",
+
+        "UnitTests": "src/js/UnitTests/"
     },
     shim: {
         'THREE': {
@@ -58,6 +62,13 @@ require.config({
         },
         "morph": {
             exports: "Morph"
+        },
+        'QUnit': {
+            exports: 'QUnit',
+            init: function() {
+                QUnit.config.autoload = false;
+                QUnit.config.autostart = false;
+            }
         }
         // 'gaussian': {
         //     exports: 'gaussian'
