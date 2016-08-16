@@ -4,3 +4,6 @@
 [submodule "lib/ocean"]
 	path = lib/ocean
 	url = https://github.com/jbouny/ocean.git
+[submodule "lib/ConnectedComponentLabelling"]
+	path = lib/ConnectedComponentLabelling
+	url = https://github.com/bramp/Connected-component-labelling.git

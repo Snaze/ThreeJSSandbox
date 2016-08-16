@@ -38,6 +38,7 @@ require.config({
 
         /** LIB **/
         "morph": "lib/morph/morph",
+        "Immutable": "lib/Immutable/Immutable.min",
 
         "UnitTests": "src/js/UnitTests/"
     },

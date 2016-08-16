@@ -39,6 +39,55 @@ define(["QUnit", "util/ArrayUtils"], function (QUnit, ArrayUtils) {
             assert.ok(ArrayUtils.equals(flatArray, [1, 2, 3, 4, 5]), "Passed!");
             assert.ok(ArrayUtils.equals(flatArray2, [1, 2, 3, 4, 5]), "Passed!");
         });
+
+        QUnit.test("reshape", function (assert) {
+            // SETUP
+            var toReshape = [1, 2, 3, 4];
+
+            // CALL
+            var reshaped = ArrayUtils.reshape(toReshape, 2, 2);
+
+            // ASSERT
+            assert.ok(ArrayUtils.equals(reshaped[0], [1, 2]), "Passed!");
+            assert.ok(ArrayUtils.equals(reshaped[1], [3, 4]), "Passed!");
+        });
+
+        QUnit.test("addBorders", function (assert) {
+            // SETUP
+            var toReshape = [[1, 2, 3, 4], [5, 6, 7, 8]];
+
+            // CALL
+            var reshaped = ArrayUtils.addBorders(toReshape, 2);
+
+            // ASSERT
+            assert.ok(ArrayUtils.equals(reshaped[0], [0, 0, 0, 0, 0, 0, 0, 0]), "Passed!");
+            assert.ok(ArrayUtils.equals(reshaped[1], [0, 0, 0, 0, 0, 0, 0, 0]), "Passed!");
+            assert.ok(ArrayUtils.equals(reshaped[2], [0, 0, 1, 2, 3, 4, 0, 0]), "Passed!");
+            assert.ok(ArrayUtils.equals(reshaped[3], [0, 0, 5, 6, 7, 8, 0, 0]), "Passed!");
+            assert.ok(ArrayUtils.equals(reshaped[4], [0, 0, 0, 0, 0, 0, 0, 0]), "Passed!");
+            assert.ok(ArrayUtils.equals(reshaped[5], [0, 0, 0, 0, 0, 0, 0, 0]), "Passed!");
+        });
+
+        QUnit.test("removeBorders", function (assert) {
+            // SETUP
+            var toReshape = [
+                    [0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 1, 2, 3, 4, 0, 0],
+                    [0, 0, 5, 6, 7, 8, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0]];
+
+            // CALL
+            var reshaped = ArrayUtils.removeBorders(toReshape, 2);
+
+            // ASSERT
+            assert.ok(ArrayUtils.equals(reshaped[0], [1, 2, 3, 4]), "Passed!");
+            assert.ok(ArrayUtils.equals(reshaped[1], [5, 6, 7, 8]), "Passed!");
+
+        });
+
+
     };
 
     return classToRet;
