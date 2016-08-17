@@ -15,8 +15,6 @@ define([], function () {
 
     arrayUtils.removeBorders = function (array2D, numCells) {
         var toRet = [];
-        // var height = array2D.length;
-        // var width = array2D[0].length;
 
         for (var i = numCells; i < array2D.length - numCells; i++) {
             toRet.push(array2D[i].slice(numCells, array2D[i].length - numCells));
@@ -67,6 +65,26 @@ define([], function () {
             array1.every(function (this_i, i) {
                 return this_i === array2[i];
             });
+    };
+
+    arrayUtils.log2D = function (array2D) {
+
+        var theString = arrayUtils.convert2DArrayToString(array2D);
+        console.log(theString);
+
+    };
+
+    arrayUtils.convert2DArrayToString = function (array2D) {
+        var toRet = [];
+        toRet.push("[");
+
+        array2D.forEach(function (array) {
+            toRet.push(array.toString());
+        });
+
+        toRet.push("]");
+
+        return toRet.join("\n");
     };
 
     arrayUtils.reshape = function (flatArray, height, width) {

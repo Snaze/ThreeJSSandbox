@@ -68,6 +68,22 @@ define(["QUnit", "util/ArrayUtils"], function (QUnit, ArrayUtils) {
             assert.ok(ArrayUtils.equals(reshaped[5], [0, 0, 0, 0, 0, 0, 0, 0]), "Passed!");
         });
 
+        QUnit.test("addBordersWithOnes", function (assert) {
+            // SETUP
+            var toReshape = [[1, 2, 3, 4], [5, 6, 7, 8]];
+
+            // CALL
+            var reshaped = ArrayUtils.addBorders(toReshape, 2, 1);
+
+            // ASSERT
+            assert.ok(ArrayUtils.equals(reshaped[0], [1, 1, 1, 1, 1, 1, 1, 1]), "Passed!");
+            assert.ok(ArrayUtils.equals(reshaped[1], [1, 1, 1, 1, 1, 1, 1, 1]), "Passed!");
+            assert.ok(ArrayUtils.equals(reshaped[2], [1, 1, 1, 2, 3, 4, 1, 1]), "Passed!");
+            assert.ok(ArrayUtils.equals(reshaped[3], [1, 1, 5, 6, 7, 8, 1, 1]), "Passed!");
+            assert.ok(ArrayUtils.equals(reshaped[4], [1, 1, 1, 1, 1, 1, 1, 1]), "Passed!");
+            assert.ok(ArrayUtils.equals(reshaped[5], [1, 1, 1, 1, 1, 1, 1, 1]), "Passed!");
+        });
+
         QUnit.test("removeBorders", function (assert) {
             // SETUP
             var toReshape = [

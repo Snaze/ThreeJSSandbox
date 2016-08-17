@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Three JS Tester</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%
+        }
+    </style>
+    <script src="../../bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+<script>
+    requirejs(['../js/RequireConfig'], function (requireConfig) {
+        //js/common sets the baseUrl to be js/ so
+        //can just ask for 'app/main1' here instead
+        //of 'js/app/main1'
+        requirejs(['THREE', "WaterBox", "Axes"], function (THREE, WaterBox, Axes) {
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(55.0, window.innerWidth / window.innerHeight, 0.5, 3000000);
+            camera.position.set(256, 256, 256);
+            camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.shadowMap.enabled = true;
+            document.body.appendChild(renderer.domElement);
+
+            var directionalLight = new THREE.DirectionalLight(0xffff55, 3);
+            directionalLight.position.set(600, 300, 600);
+//            directionalLight.castShadow = true;
+            scene.add(directionalLight);
+
+            var dimension = 128;
+
+            var loadSkyBox = function loadSkyBox() {
+
+                var aCubeMap = THREE.ImageUtils.loadTextureCube([
+                    '../../lib/ocean/demo/assets/img/px.jpg',
+                    '../../lib/ocean/demo/assets/img/nx.jpg',
+                    '../../lib/ocean/demo/assets/img/py.jpg',
+                    '../../lib/ocean/demo/assets/img/ny.jpg',
+                    '../../lib/ocean/demo/assets/img/pz.jpg',
+                    '../../lib/ocean/demo/assets/img/nz.jpg'
+                ]);
+                aCubeMap.format = THREE.RGBFormat;
+
+                var aShader = THREE.ShaderLib['cube'];
+                aShader.uniforms['tCube'].value = aCubeMap;
+
+                var aSkyBoxMaterial = new THREE.ShaderMaterial({
+                    fragmentShader: aShader.fragmentShader,
+                    vertexShader: aShader.vertexShader,
+                    uniforms: aShader.uniforms,
+                    depthWrite: false,
+                    side: THREE.BackSide
+                });
+
+                var aSkybox = new THREE.Mesh(
+                        new THREE.BoxGeometry(1000000, 1000000, 1000000),
+                        aSkyBoxMaterial
+                );
+
+                scene.add(aSkybox);
+            };
+
+            var waterBox = new WaterBox(256, 64, 256,
+                    renderer, camera, scene, directionalLight.position.normalize()).init();
+            waterBox.setBoundingBoxVisible(false, true);
+            scene.add(waterBox);
+
+            loadSkyBox();
+
+//            var axes = new Axes(500).init();
+//            scene.add(axes);
+
+            var clock = new THREE.Clock();
+
+            function render() {
+                requestAnimationFrame(render);
+
+                var delta = clock.getDelta();
+                var actual = clock.getElapsedTime();
+
+                waterBox.rotation.y += delta * 0.5;
+                waterBox.update(delta, actual);
+
+                renderer.render(scene, camera);
+            }
+
+            render();
+        });
+    });
+
+
+</script>
+</body>
+</html>

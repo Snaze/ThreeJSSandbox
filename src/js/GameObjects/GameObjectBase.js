@@ -83,6 +83,10 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
             }
         },
 
+        update: function (deltaTime, actualTime) {
+
+        },
+
         /**
          * This method should be used to create the main object
          * @private

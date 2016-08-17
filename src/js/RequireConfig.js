@@ -8,6 +8,8 @@ require.config({
         'OBJLoader': 'bower_components/three.js/examples/js/loaders/OBJLoader',
         'DDSLoader': 'bower_components/three.js/examples/js/loaders/DDSLoader',
         'MTLLoader': 'bower_components/three.js/examples/js/loaders/MTLLoader',
+        "WaterShader": "bower_components/three.js/examples/js/WaterShader",
+        "Mirror": "bower_components/three.js/examples/js/Mirror",
         'gaussian': 'bower_components/gaussian/lib/gaussian',
         'seedrandom': 'bower_components/seedrandom/seedrandom',
         'xor4096': 'bower_components/seedrandom/lib/xor4096',
@@ -31,6 +33,7 @@ require.config({
         'TerrainBox': 'src/js/GameObjects/TerrainBox',
         'AugmentedExtrudedEllipse': 'src/js/GameObjects/AugmentedExtrudedEllipse',
         'SingleMeshNoiseLayer': 'src/js/GameObjects/SingleMeshNoiseLayer',
+        'WaterBox': 'src/js/GameObjects/WaterBox',
 
         /** JS / UTILITY **/
         "TerrainGenerator": 'src/js/Utility/TerrainGenerator',
@@ -57,6 +60,14 @@ require.config({
         'MTLLoader': {
             deps: ['THREE'],
             exports: 'THREE.MTLLoader'
+        },
+        'Mirror': {
+            deps: ['THREE'],
+            exports: 'THREE.Mirror'
+        },
+        'WaterShader': {
+            deps: ['THREE', 'Mirror'],
+            exports: 'THREE.Water'
         },
         "noisejs": {
             exports: "Noise"

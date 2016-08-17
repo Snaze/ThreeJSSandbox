@@ -1,7 +1,7 @@
 "use strict";
 
-define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
-    function (THREE, GridLevelSection, Noise, GameObjectBase, Morph) {
+define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util/ArrayUtils"],
+    function (THREE, GridLevelSection, Noise, GameObjectBase, Morph, ArrayUtils) {
 
         var classToRet = function (width, height, seed, continuity, numLevels, faceWidth, faceHeight, faceDepth) {
             GameObjectBase.call(this);
@@ -18,6 +18,9 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
             this.ud.totalDepth = 0;
 
             this.noise = new Noise(this.ud.seed);
+
+            this.binaryImages = [];
+            this.noiseImage = [];
 
             console.assert(width > 0);
             console.assert(height > 0);
@@ -73,7 +76,11 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
             },
 
             _subInit: function () {
+                for (var i = 0; i < this.ud.numLevels; i++) {
+                    this.binaryImages.push(ArrayUtils.create2DArray(this.ud.height, this.ud.width, 0));
+                }
 
+                this.noiseImage = ArrayUtils.create2DArray(this.ud.height, this.ud.width, 0);
             },
 
             _createSquare: function (geometry, xIndex, yValues, zIndex) {
@@ -106,7 +113,7 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
                 var face0 = new THREE.Face3(vertex2Index, vertex1Index, vertex0Index);
                 if (vertex2.y === vertex1.y && vertex2.y === vertex0.y) {
                     if (vertex2.y === this.ud.faceHeight) {
-                        face0 = null;
+                        // face0 = null;
                     } else {
                         face0.materialIndex = classToRet.GRASS_MATERIAL;
                     }
@@ -118,7 +125,7 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
                 var face1 = new THREE.Face3(vertex3Index, vertex2Index, vertex0Index);
                 if (vertex3.y === vertex2.y && vertex3.y === vertex0.y) {
                     if (vertex3.y === this.ud.faceHeight) {
-                        face1 = null;
+                        // face1 = null;
                     } else {
                         face1.materialIndex = classToRet.GRASS_MATERIAL;
                     }
@@ -140,14 +147,33 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph"],
 
             _getYValueFromSimplexNoise: function (x, z) {
                 var simplexValue = this.noise.simplex2(x / this.ud.continuity, z / this.ud.continuity);
+                this.noiseImage[z][x] = simplexValue;
+
                 var normalizedSimplexValue = (simplexValue + 1.0) / 2.0; // Bring into 0 to 1 range
                 var levelNumber = Math.floor(normalizedSimplexValue * this.ud.numLevels) + 1;
                 if (this.ud.numLevels < levelNumber) {
                     levelNumber = this.ud.numLevels;
                 }
 
+                this.binaryImages[levelNumber - 1][z][x] = 1;
+
                 return levelNumber * this.ud.faceHeight;
                 // return 0;
+            },
+
+            logMatrices: function () {
+                console.log("Noise Image");
+
+                var theString = ArrayUtils.convert2DArrayToString(this.noiseImage);
+                console.log(theString);
+
+                this.binaryImages.forEach(function (binaryImage, index) {
+                    console.log("");
+                    console.log("Binary Image - Level " + index);
+
+                    var theString = ArrayUtils.convert2DArrayToString(binaryImage);
+                    console.log(theString);
+                });
             },
 
             _createGeometry: function () {
