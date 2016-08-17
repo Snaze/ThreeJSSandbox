@@ -31,6 +31,7 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
         classToRet.material = {};
         classToRet.GRASS_MATERIAL = 0;
         classToRet.DIRT_MATERIAL = 1;
+        classToRet.TRANSPARENT_MATERIAL = 2;
 
         classToRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
             getKey: function () {
@@ -65,9 +66,14 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
 
                     var grassMaterial = new THREE.MeshLambertMaterial({map: grassTexture });
                     var dirtMaterial = new THREE.MeshLambertMaterial({map: dirtTexture});
+                    var transparentMaterial = new THREE.MeshBasicMaterial({transparent: true, opacity: 0});
                     var materialArray = [];
                     materialArray.push(grassMaterial);
                     materialArray.push(dirtMaterial);
+                    materialArray.push(transparentMaterial);
+
+                    // dirtMaterial.polygonOffset = true;
+                    // dirtMaterial.polygonOffsetFactor = 0.5;
 
                     classToRet.material[key] = new THREE.MeshFaceMaterial(materialArray);
                 }
@@ -146,7 +152,17 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
             },
 
             _getYValueFromSimplexNoise: function (x, z) {
-                var simplexValue = this.noise.simplex2(x / this.ud.continuity, z / this.ud.continuity);
+                var simplexValue;
+
+                if ((z === 0) ||
+                    (x === 0) ||
+                    (z >= (this.ud.height - 2)) ||
+                    (x >= (this.ud.width - 2))) {
+                    simplexValue = -1.0;
+                } else {
+                    simplexValue = this.noise.simplex2(x / this.ud.continuity, z / this.ud.continuity);
+                }
+
                 this.noiseImage[z][x] = simplexValue;
 
                 var normalizedSimplexValue = (simplexValue + 1.0) / 2.0; // Bring into 0 to 1 range
@@ -227,15 +243,49 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
                 return toRet;
             },
 
+            _mergeMeshes: function (meshes) {
+                var combined = new THREE.Geometry();
+
+                for (var i = 0; i < meshes.length; i++) {
+                    meshes[i].updateMatrix();
+                    combined.merge(meshes[i].geometry, meshes[i].matrix);
+                }
+
+                return combined;
+            },
+
             _createObject: function () {
 
                 var object3D = new THREE.Object3D();
 
-                var mesh = new THREE.Mesh(this.getGeometry(), this.getMaterial());
-                // mesh.doubleSided = true;
-                object3D.add(mesh);
-                mesh.position.x -= (this.ud.totalWidth / 2.0);
-                mesh.position.z -= (this.ud.totalDepth / 2.0);
+                var terrainMesh = new THREE.Mesh(this.getGeometry(), this.getMaterial());
+                terrainMesh.position.y -= this.ud.faceHeight;
+
+                var baseHeight = this.ud.faceHeight * 1;
+                var cubeGeom = new THREE.BoxGeometry(this.ud.totalWidth,
+                    baseHeight,
+                    this.ud.totalDepth,
+                    1, 1, 1);
+
+                // delete cubeGeom.faces[13];
+                cubeGeom.faces.forEach(function (face) {
+                    face.materialIndex = classToRet.DIRT_MATERIAL;
+                });
+                cubeGeom.faces[4].materialIndex = classToRet.TRANSPARENT_MATERIAL;
+                cubeGeom.faces[5].materialIndex = classToRet.TRANSPARENT_MATERIAL;
+
+                var baseBoxMesh = new THREE.Mesh(cubeGeom, this.getMaterial());
+                baseBoxMesh.position.set(this.ud.totalWidth / 2.0,
+                    -baseHeight / 2.0, this.ud.totalDepth / 2.0);
+
+                var masterGeometry = this._mergeMeshes([terrainMesh, baseBoxMesh]);
+                var toRet = new THREE.Mesh(masterGeometry, this.getMaterial());
+
+                // terrainMesh.doubleSided = true;
+                object3D.add(toRet);
+                toRet.position.x -= (this.ud.totalWidth / 2.0);
+                toRet.position.z -= (this.ud.totalDepth / 2.0);
+                toRet.position.y -= this.ud.faceHeight / 2.0;
 
                 object3D.traverse(function (child) {
                     child.castShadow = true;

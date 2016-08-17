@@ -31,6 +31,9 @@
             renderer.shadowMap.enabled = true;
             document.body.appendChild(renderer.domElement);
 
+            var ambient = new THREE.AmbientLight(0xFFFFFF, .5);
+            scene.add(ambient);
+
             var light = new THREE.DirectionalLight(0xFFFFFF, 1.5);
             light.position.set(0, 1, 0);
             light.castShadow = true;
@@ -39,11 +42,11 @@
 //            light.lookAt(new THREE.Vector3(0, 0, 0));
             scene.add(light);
 
-            var dimension = 128;
+            var dimension = 32;
 
             var noiseLayer = new SingleMeshNoiseLayer(dimension, dimension, Math.random(), 32.0, 3, 1.0, 10.0, 1.0).init();
 //            section.setAxesVisible(true, true);
-            noiseLayer.setBoundingBoxVisible(false, true);
+            noiseLayer.setBoundingBoxVisible(true, true);
             scene.add(noiseLayer);
 
 //            noiseLayer.logMatrices();
@@ -51,9 +54,9 @@
             var axes = new Axes(500).init();
             scene.add(axes);
 
-            camera.position.x = dimension / 4;
-            camera.position.y = dimension / 2;
-            camera.position.z = dimension / 4;
+            camera.position.x = 32;
+            camera.position.y = 0;
+            camera.position.z = 32;
 
             camera.lookAt(new THREE.Vector3(0, 0, 0));
 //            camera.target.set(0, 0, 0);
@@ -64,7 +67,7 @@
                 requestAnimationFrame(render);
                 var delta = clock.getDelta();
 
-                noiseLayer.rotation.y += 0.05 * delta;
+                noiseLayer.rotation.y += 0.25 * delta;
                 if (camera.position.y < 100) {
 //                    camera.lookAt(new THREE.Vector3(0, 0, 0));
 //                    camera.position.y = 20;
