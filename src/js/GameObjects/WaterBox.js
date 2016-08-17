@@ -53,7 +53,7 @@ define(["THREE", "WaterShader", "GameObjectBase"],
                         alpha: 	1.0,
                         sunDirection: this.sunDirection,
                         sunColor: 0xFFFFFF,
-                        waterColor: 0x001e0f,
+                        waterColor: 0x54bbfe,
                         betaVersion: 0,
                         side: THREE.DoubleSide
                     });
@@ -86,7 +86,7 @@ define(["THREE", "WaterShader", "GameObjectBase"],
             },
             update: function (deltaTime, actualTime) {
                 var theMaterial = this.getMaterial().material;
-                var time = theMaterial.uniforms.time.value + 1.0 / 60.0;
+                var time = theMaterial.uniforms.time.value + 1.0 / 600.0;
                 theMaterial.uniforms.time.value = time;
 
                 this.getMaterial().render();

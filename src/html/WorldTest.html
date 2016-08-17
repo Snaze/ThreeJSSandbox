@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Three JS Tester</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%
+        }
+    </style>
+    <script src="../../bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+<script>
+    requirejs(['../js/RequireConfig'], function (requireConfig) {
+        //js/common sets the baseUrl to be js/ so
+        //can just ask for 'app/main1' here instead
+        //of 'js/app/main1'
+        requirejs(['THREE', "GameObjects/World", "Axes"], function (THREE, World, Axes) {
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(55.0, window.innerWidth / window.innerHeight, 0.5, 3000000);
+            camera.position.set(64, 32, 64);
+            camera.lookAt(new THREE.Vector3(0, 0, 0));
+            camera.up.set(0, 1, 0);
+
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.shadowMap.enabled = true;
+            document.body.appendChild(renderer.domElement);
+
+            var directionalLight = new THREE.DirectionalLight(0xffff55, 1.0);
+            directionalLight.position.set(0, 1, 0);
+            scene.add(directionalLight);
+
+            var sunDirection = new THREE.Vector3();
+            sunDirection.copy(directionalLight.position);
+            sunDirection.normalize();
+
+            var world = new World({
+                renderer: renderer,
+                camera: camera,
+                scene: scene,
+                sunDirection: sunDirection
+            }).init();
+            world.setBoundingBoxVisible(true, true);
+            scene.add(world);
+
+            var clock = new THREE.Clock();
+
+            function render() {
+                requestAnimationFrame(render);
+
+                var delta = clock.getDelta();
+                var actual = clock.getElapsedTime();
+
+                world.update(delta, actual);
+//                world.rotation.y += delta * 0.15;
+
+                renderer.render(scene, camera);
+            }
+
+            render();
+        });
+    });
+
+
+</script>
+</body>
+</html>

@@ -35,6 +35,7 @@ require.config({
         'SingleMeshNoiseLayer': 'src/js/GameObjects/SingleMeshNoiseLayer',
         'WaterBox': 'src/js/GameObjects/WaterBox',
         'SkyBox': 'src/js/GameObjects/SkyBox',
+        'GameObjects': 'src/js/GameObjects/',
 
         /** JS / UTILITY **/
         "TerrainGenerator": 'src/js/Utility/TerrainGenerator',
