@@ -42,11 +42,13 @@
 //            light.lookAt(new THREE.Vector3(0, 0, 0));
             scene.add(light);
 
-            var dimension = 32;
+            var dimension = 256;
 
-            var noiseLayer = new SingleMeshNoiseLayer(dimension, dimension, Math.random(), 32.0, 3, 1.0, 10.0, 1.0).init();
+            var height = 10.0;
+            var numLevels = 3;
+            var noiseLayer = new SingleMeshNoiseLayer(dimension, dimension, Math.random(), 32.0, numLevels, 1.0, height, 1.0).init();
 //            section.setAxesVisible(true, true);
-            noiseLayer.setBoundingBoxVisible(true, true);
+            noiseLayer.setBoundingBoxVisible(false, true);
             scene.add(noiseLayer);
 
 //            noiseLayer.logMatrices();
@@ -54,9 +56,9 @@
             var axes = new Axes(500).init();
             scene.add(axes);
 
-            camera.position.x = 32;
-            camera.position.y = 0;
-            camera.position.z = 32;
+            camera.position.x = dimension / 2;
+            camera.position.y = height * numLevels + 16;
+            camera.position.z = dimension / 2;
 
             camera.lookAt(new THREE.Vector3(0, 0, 0));
 //            camera.target.set(0, 0, 0);

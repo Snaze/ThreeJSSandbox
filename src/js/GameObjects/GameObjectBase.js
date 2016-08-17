@@ -104,7 +104,13 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
             var size = Math.max(width, height, depth);
 
             return new Axes(size + 16).init();
-        }
+        },
+        // _onProgress: function (progress) {
+        //     console.log(progress);
+        // },
+        // _onError: function (error) {
+        //     console.log(error);
+        // }
     });
 
     return toRet;

@@ -34,6 +34,7 @@ require.config({
         'AugmentedExtrudedEllipse': 'src/js/GameObjects/AugmentedExtrudedEllipse',
         'SingleMeshNoiseLayer': 'src/js/GameObjects/SingleMeshNoiseLayer',
         'WaterBox': 'src/js/GameObjects/WaterBox',
+        'SkyBox': 'src/js/GameObjects/SkyBox',
 
         /** JS / UTILITY **/
         "TerrainGenerator": 'src/js/Utility/TerrainGenerator',
