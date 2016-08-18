@@ -3,7 +3,7 @@ require.config({
     baseUrl: '/ThreeJSSandbox',
     paths: {
         /** BOWER COMPONENTS **/
-        'jquery': 'bower_components/jquery/dist/jquery',
+        'jquery': 'bower_components/jquery/dist/jquery.min',
         'THREE': 'bower_components/three.js/build/three',
         'OBJLoader': 'bower_components/three.js/examples/js/loaders/OBJLoader',
         'DDSLoader': 'bower_components/three.js/examples/js/loaders/DDSLoader',
@@ -15,6 +15,7 @@ require.config({
         'xor4096': 'bower_components/seedrandom/lib/xor4096',
         'noisejs': 'bower_components/noisejs/index',
         "QUnit": "bower_components/qunit/qunit/qunit",
+        "PointerLockControls": "bower_components/three.js/examples/js/controls/PointerLockControls",
 
         /** JS **/
         'Tester': 'src/js/Tester',
@@ -66,6 +67,10 @@ require.config({
         'Mirror': {
             deps: ['THREE'],
             exports: 'THREE.Mirror'
+        },
+        'PointerLockControls': {
+            deps: ['THREE'],
+            exports: 'THREE.PointerLockControls'
         },
         'WaterShader': {
             deps: ['THREE', 'Mirror'],

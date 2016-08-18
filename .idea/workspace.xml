@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27156f0a-5b77-4f7d-9fc1-292d83c5c864" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/html/WorldTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/GameObjects/World.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/GameObjects/config/WorldConfig.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/html/ControlHelperTest.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/Utility/Console.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/Utility/ControlHelper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/Utility/Document.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/Utility/config/ControlHelperConfig.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/WaterBox.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/WaterBox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/WorldTest.html" afterPath="$PROJECT_DIR$/src/html/WorldTest.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/RequireConfig.js" afterPath="$PROJECT_DIR$/src/js/RequireConfig.js" />
     </list>
     <ignored path="ThreeJSSandbox.iws" />
@@ -31,71 +33,94 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SkyBox.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/SkyBox.js">
+      <file leaf-file-name="RequireConfig.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+            <state relative-caret-position="255">
+              <caret line="72" column="47" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SkyBoxTest.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/html/SkyBoxTest.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="101" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SingleMeshNoiseLayerTest.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/html/SingleMeshNoiseLayerTest.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="48" column="125" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="125" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="World.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/World.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="62" column="36" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorldTest.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WorldTest.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/html/WorldTest.html">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-421">
+              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControlHelper.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Utility/ControlHelper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="246" column="49" selection-start-line="246" selection-start-column="49" selection-end-line="246" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Console.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Utility/Console.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Document.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Utility/Document.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower_components/jquery/dist/jquery.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="1" column="3696" selection-start-line="1" selection-start-column="3696" selection-end-line="1" selection-end-column="3696" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControlHelperConfig.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Utility/config/ControlHelperConfig.js">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WaterBox.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/WaterBox.js">
+      <file leaf-file-name="ControlHelperTest.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/html/ControlHelperTest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="82" column="35" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="239">
+              <caret line="148" column="76" selection-start-line="148" selection-start-column="76" selection-end-line="148" selection-end-column="76" />
+              <folding>
+                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#inp#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WaterBoxTest.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/html/WaterBoxTest.html">
+      <file leaf-file-name="ArrayUtils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Utility/ArrayUtils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="74" column="82" selection-start-line="73" selection-start-column="40" selection-end-line="74" selection-end-column="82" />
+            <state relative-caret-position="1155">
+              <caret line="80" column="42" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -104,18 +129,8 @@
       <file leaf-file-name="WorldConfig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/GameObjects/config/WorldConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="three.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bower_components/three.js/build/three.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="18545" column="26" selection-start-line="18545" selection-start-column="26" selection-end-line="18545" selection-end-column="26" />
+            <state relative-caret-position="135">
+              <caret line="9" column="29" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -136,11 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/js/ObjLoaderHelper.js" />
-        <option value="$PROJECT_DIR$/src/js/Level.js" />
-        <option value="$PROJECT_DIR$/src/js/GridLevelOctogon.js" />
-        <option value="$PROJECT_DIR$/src/js/GridLevelSquare.js" />
-        <option value="$PROJECT_DIR$/src/js/GridLevel.js" />
         <option value="$PROJECT_DIR$/src/js/Axes.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/Axes.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/BoundingBox.js" />
@@ -182,11 +192,16 @@
         <option value="$PROJECT_DIR$/src/other/SkyboxSplitter.py" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/SkyBox.js" />
         <option value="$PROJECT_DIR$/src/html/SkyBoxTest.html" />
-        <option value="$PROJECT_DIR$/src/js/RequireConfig.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/config/WorldConfig.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/World.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/WaterBox.js" />
         <option value="$PROJECT_DIR$/src/html/WorldTest.html" />
+        <option value="$PROJECT_DIR$/src/js/RequireConfig.js" />
+        <option value="$PROJECT_DIR$/src/js/Utility/config/ControlHelperConfig.js" />
+        <option value="$PROJECT_DIR$/src/js/Utility/Document.js" />
+        <option value="$PROJECT_DIR$/src/js/Utility/Console.js" />
+        <option value="$PROJECT_DIR$/src/js/Utility/ControlHelper.js" />
+        <option value="$PROJECT_DIR$/src/html/ControlHelperTest.html" />
       </list>
     </option>
   </component>
@@ -297,7 +312,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GameObjects" />
+              <option name="myItemId" value="Utility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -319,7 +334,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GameObjects" />
+              <option name="myItemId" value="Utility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -342,20 +357,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ThreeJSSandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ThreeJSSandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -383,26 +384,26 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/html" />
-      <recent name="$PROJECT_DIR$/src/js/GameObjects" />
       <recent name="$PROJECT_DIR$/src/js/Utility" />
+      <recent name="$PROJECT_DIR$/src/js/GameObjects" />
       <recent name="$PROJECT_DIR$/src/js/UnitTests" />
       <recent name="$PROJECT_DIR$/src/js" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.WorldTest.html">
+  <component name="RunManager" selected="JavaScript Debug.ControlHelperTest.html">
     <configuration default="false" name="SingleMeshNoiseLayerTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/src/html/SingleMeshNoiseLayerTest.html">
       <method />
     </configuration>
     <configuration default="false" name="WaterBoxTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/src/html/WaterBoxTest.html">
       <method />
     </configuration>
-    <configuration default="false" name="index.html (2)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/lib/ocean/demo_test/index.html">
-      <method />
-    </configuration>
     <configuration default="false" name="SkyBoxTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/src/html/SkyBoxTest.html">
       <method />
     </configuration>
     <configuration default="false" name="WorldTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/src/html/WorldTest.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="ControlHelperTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/src/html/ControlHelperTest.html">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -461,17 +462,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.SingleMeshNoiseLayerTest.html" />
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.WaterBoxTest.html" />
-      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
-      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.SkyBoxTest.html" />
-      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.WorldTest.html" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.SkyBoxTest.html" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.WorldTest.html" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.ControlHelperTest.html" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.WorldTest.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.SkyBoxTest.html" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.WaterBoxTest.html" />
-        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.SingleMeshNoiseLayerTest.html" />
-        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.ControlHelperTest.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.WorldTest.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.SkyBoxTest.html" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.WaterBoxTest.html" />
+        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.SingleMeshNoiseLayerTest.html" />
       </list>
     </recent_temporary>
   </component>
@@ -503,12 +504,12 @@
       <workItem from="1471273885506" duration="23589000" />
       <workItem from="1471346241960" duration="33865000" />
       <workItem from="1471437816442" duration="4614000" />
-      <workItem from="1471443182222" duration="7960000" />
+      <workItem from="1471443182222" duration="20081000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180144000" />
+    <option name="totallyTimeSpent" value="192265000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="33" y="23" width="1387" height="830" extended-state="0" />
@@ -550,102 +551,26 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/html/SkyBoxTest.html</url>
-          <line>41</line>
-          <option name="timeStamp" value="121" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/js/Utility/CustomLoadingManager.js</url>
-          <line>13</line>
-          <option name="timeStamp" value="124" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/js/Utility/CustomLoadingManager.js</url>
-          <line>17</line>
-          <option name="timeStamp" value="125" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/html/WorldTest.html</url>
-          <line>25</line>
+          <url>file://$PROJECT_DIR$/src/js/Utility/ControlHelper.js</url>
+          <line>116</line>
           <properties />
-          <option name="timeStamp" value="128" />
+          <option name="timeStamp" value="143" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/html/WorldTest.html</url>
-          <line>41</line>
+          <url>file://$PROJECT_DIR$/src/js/Utility/ControlHelper.js</url>
+          <line>203</line>
           <properties />
-          <option name="timeStamp" value="129" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/html/WorldTest.html</url>
-          <line>61</line>
-          <properties />
-          <option name="timeStamp" value="130" />
+          <option name="timeStamp" value="144" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="132" />
+      <option name="time" value="145" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/ocean/LICENSE">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ocean/water-material.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-585">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ocean/README.md">
-      <provider selected="true" editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/Mirror.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/shaders/MirrorShader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ocean/demo_basic/assets/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ocean/demo_basic/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/ocean/demo_basic/assets/js/demo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -699,14 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
           <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/Utility/ArrayUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="80" column="42" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -832,14 +749,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/GameObjects/SingleMeshNoiseLayer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -876,14 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
           <caret line="74" column="82" selection-start-line="73" selection-start-column="40" selection-end-line="74" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/config/WorldConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -928,11 +829,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/jquery/dist/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="72" column="47" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/config/WorldConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="29" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Utility/ArrayUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1155">
+          <caret line="80" column="42" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Utility/Document.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Utility/Console.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/jquery/dist/jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="1" column="3696" selection-start-line="1" selection-start-column="3696" selection-end-line="1" selection-end-column="3696" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/html/WorldTest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+        <state relative-caret-position="-421">
+          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Utility/config/ControlHelperConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Utility/ControlHelper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="246" column="49" selection-start-line="246" selection-start-column="49" selection-end-line="246" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/ControlHelperTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="148" column="76" selection-start-line="148" selection-start-column="76" selection-end-line="148" selection-end-column="76" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#inp#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
