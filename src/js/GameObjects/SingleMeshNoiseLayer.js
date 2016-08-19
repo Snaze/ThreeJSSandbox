@@ -41,9 +41,14 @@ define(["THREE",
             this.physicsVertices = [];
             this.physicsBody = null;
             this.physicsShape = null;
+            this.heightFieldMatrix = null;
 
             console.assert(width > 0);
             console.assert(height > 0);
+
+            if (faceWidth !== faceDepth) {
+                throw new Error("faceWidth and faceDepth must have the same value.  I need to fix this.");
+            }
 
         };
 
@@ -211,14 +216,17 @@ define(["THREE",
                 var yValueGrid = [];
                 var cellBelow;
                 var cellLeft;
+                this.heightFieldMatrix = [];
 
                 for (var z = 0; z < this.ud.height; z++) {
 
                     yValueGrid[z] = [];
+                    this.heightFieldMatrix[z] = [];
 
                     for (var x = 0; x < this.ud.width; x++) {
 
                         yValue = this._getYValueFromSimplexNoise(x, z);
+                        this.heightFieldMatrix[z][x] = yValue;
 
                         if ((x === 0) && (z === 0)) {
                             yValues = [yValue, yValue, yValue, yValue];
@@ -286,11 +294,11 @@ define(["THREE",
                 // terrainMesh.doubleSided = true;
                 object3D.add(toRet);
                 // toRet.position.x -= (this.ud.totalWidth / 2.0);
-                var deltaX = -(this.ud.totalWidth / 2.0);
-                var deltaY = -(this.ud.faceHeight / 2.0);
-                var deltaZ = -(this.ud.totalDepth / 2.0);
+                toRet.position.x += -(this.ud.totalWidth / 2.0);
+                toRet.position.y += -(this.ud.faceHeight / 2.0);
+                toRet.position.z += -(this.ud.totalDepth / 2.0);
 
-                this.incrementPosition(deltaX, deltaY, deltaZ);
+                // this.incrementPosition(deltaX, deltaY, deltaZ);
 
                 object3D.traverse(function (child) {
                     child.castShadow = true;
@@ -310,6 +318,31 @@ define(["THREE",
             },
             _getPhysicsZDiff: function () {
                 return 0;
+            },
+            _getPhysicsBody: function () {
+                if (null === this.physicsBody) {
+                    // Create hightfield
+                    var self = this;
+                    var hfShape = new CANNON.Heightfield(this.heightFieldMatrix, {
+                        elementSize: self.ud.faceWidth
+                    });
+                    var hfBody = new CANNON.Body({ mass: 0 });
+                    hfBody.addShape(hfShape);
+
+                    hfBody.quaternion.setFromEuler(-90 * Math.PI / 180, 0, -90 * Math.PI / 180);
+
+                    hfBody.position.x += -(this.ud.totalWidth / 2.0) + this.ud.faceWidth;
+                    hfBody.position.y += -(this.ud.faceHeight / 2.0) - this.ud.faceHeight;
+                    hfBody.position.z += -(this.ud.totalDepth / 2.0) + this.ud.faceDepth;
+
+                    // hfBody.quaternion.setFromAxisAngle(new THREE.Vector3(1, 0, 0), this._innerObject3D.rotation.x);
+                    // hfBody.quaternion.setFromAxisAngle(new THREE.Vector3(0, 1, 0), this._innerObject3D.rotation.y);
+                    // hfBody.quaternion.setFromAxisAngle(new THREE.Vector3(0, 0, 1), this._innerObject3D.rotation.z);
+
+                    this.physicsBody = hfBody;
+                }
+
+                return this.physicsBody;
             }
         });
 

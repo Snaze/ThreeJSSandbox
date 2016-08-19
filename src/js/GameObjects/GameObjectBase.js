@@ -65,15 +65,15 @@ define(["THREE", "Axes", "cannon", "util/TrimeshCreator"], function (THREE, Axes
 
         update: function (deltaTime, actualTime) {
 
-            if (!this._innerObject3D) {
-                return;
-            }
-
-            var physicsBody = this._getPhysicsBody();
-            if (physicsBody) {
-                this.position.copy(physicsBody.position);
-                this.quaternion.copy(physicsBody.quaternion);
-            }
+            // if (!this._innerObject3D) {
+            //     return;
+            // }
+            //
+            // var physicsBody = this._getPhysicsBody();
+            // if (physicsBody) {
+            //     this.position.copy(physicsBody.position);
+            //     this.quaternion.copy(physicsBody.quaternion);
+            // }
 
         },
 
@@ -88,31 +88,11 @@ define(["THREE", "Axes", "cannon", "util/TrimeshCreator"], function (THREE, Axes
             throw new Error("This method is not implemented");
         },
         _getPhysicsBody: function () {
-            if (null === this.physicsBody) {
-
-                if (null === this._innerObject3D) {
-                    throw new Error("Cannot create physics body until inner object is created");
-                }
-
-                // This hierarchy is kind of crazy now that I look at it.
-                // Hope it doesn't kill performance.
-                var geometry = this.children[0].children[0].geometry;
-                var trimeshCreator = new TrimeshCreator(geometry,
-                    this._getNumPhysicsMeshSubDivisions(), this._getPhysicsXDiff(),
-                    this._getPhysicsYDiff(), this._getPhysicsZDiff());
-
-                var shape = trimeshCreator.create();
-                var mass = this._getMass();
-                var body = new CANNON.Body({
-                    mass: mass
-                });
-                body.addShape(shape);
-                body.position.copy(this.physicsPosition);
-
-                this.physicsBody = body;
+            if (this._isPhysicsObject()) {
+                throw new Error("You need to implement this in your subclass");
             }
 
-            return this.physicsBody;
+            return null;
         },
         _createAxes: function (width, height, depth) {
             var size = Math.max(width, height, depth);
