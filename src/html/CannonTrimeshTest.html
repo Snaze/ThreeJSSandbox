@@ -22,7 +22,16 @@
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
-        requirejs(['THREE', "SingleMeshNoiseLayer", "Axes", "cannon"], function (THREE, SingleMeshNoiseLayer, Axes, CANNON) {
+        requirejs(['THREE',
+            "SingleMeshNoiseLayer",
+            "Axes",
+            "cannon",
+            "CannonDebugRenderer"],
+                function (THREE,
+                          SingleMeshNoiseLayer,
+                          Axes,
+                          CANNON,
+                          CannonDebugRenderer) {
 
             var world = new CANNON.World();
             world.gravity.set(0,-16,0);
@@ -61,17 +70,20 @@
 
             var terrainMesh = new THREE.Mesh(terrain, material);
             scene.add(terrainMesh);
+//            terrainMesh.position.y = 25;
 
             var shape = new CANNON.Trimesh([0, 0, 100, //
                                             0, 0, 0, //
                                             100, 0, 0], [2, 1, 0]);// ], this.physicsVertexIndices);
-            shape.updateEdges();
-            shape.updateNormals();
+//            shape.updateEdges();
+//            shape.updateNormals();
             var terrainBody = new CANNON.Body({
                 mass: 0
             });
             terrainBody.addShape(shape);
+//            terrainBody.position.y = 10;
             world.add(terrainBody);
+
 
             var cubeGeom = new THREE.BoxGeometry(10, 10, 10, 1, 1, 1);
             var cubeMat = new THREE.MeshBasicMaterial({color: 0xCC0000});
@@ -91,7 +103,7 @@
             scene.add(axes);
 
             camera.position.x = 100;
-            camera.position.y = 0;
+            camera.position.y = 25;
             camera.position.z = 100;
             camera.up.set(0, 1, 0);
 
@@ -123,6 +135,7 @@
 //                demo.removeEventListener('destroy', destroyer);
 //            };
 //            demo.addEventListener('destroy', destroyer);
+            var cannonDebugRenderer = new CannonDebugRenderer(scene, world);
 
             function render() {
                 requestAnimationFrame(render);
@@ -140,6 +153,8 @@
 //                } else {
 //                    console.log("has hit");
 //                }
+
+                cannonDebugRenderer.update();
 
                 renderer.render(scene, camera);
             }

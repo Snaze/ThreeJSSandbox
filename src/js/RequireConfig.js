@@ -17,6 +17,7 @@ require.config({
         "QUnit": "bower_components/qunit/qunit/qunit",
         "PointerLockControls": "bower_components/three.js/examples/js/controls/PointerLockControls",
         "cannon": "bower_components/cannon.js/build/cannon",
+        "CannonDebugRenderer" : "bower_components/cannon.js/tools/threejs/CannonDebugRenderer",
 
         /** JS **/
         'Tester': 'src/js/Tester',
@@ -81,7 +82,12 @@ require.config({
             exports: "Noise"
         },
         "cannon": {
+            deps: ['THREE'],
             exports: "CANNON"
+        },
+        "CannonDebugRenderer": {
+            deps: ['THREE', 'cannon'],
+            exports: "THREE.CannonDebugRenderer"
         },
         "morph": {
             exports: "Morph"

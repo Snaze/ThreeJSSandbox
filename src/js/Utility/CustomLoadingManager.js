@@ -1,6 +1,8 @@
-"use strict";
+
 
 define(["THREE"], function (THREE) {
+    "use strict";
+
 
     var classToRet = function () {
         THREE.LoadingManager.call(this);

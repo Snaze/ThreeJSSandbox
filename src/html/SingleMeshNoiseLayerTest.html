@@ -22,7 +22,8 @@
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
-        requirejs(['THREE', "SingleMeshNoiseLayer", "Axes", "cannon"], function (THREE, SingleMeshNoiseLayer, Axes, CANNON) {
+        requirejs(['THREE', "SingleMeshNoiseLayer", "Axes", "cannon", "CannonDebugRenderer"],
+                function (THREE, SingleMeshNoiseLayer, Axes, CANNON, CannonDebugRenderer) {
 
             var world = new CANNON.World();
             world.gravity.set(0,-9.8,0);
@@ -48,7 +49,7 @@
 //            light.lookAt(new THREE.Vector3(0, 0, 0));
             scene.add(light);
 
-            var dimension = 256;
+            var dimension = 64;
 
             var height = 10.0;
             var numLevels = 3;
@@ -58,13 +59,13 @@
             scene.add(noiseLayer);
             noiseLayer.addPhysicsBodyToWorld(world);
 
-            var geometry = new THREE.BoxGeometry( 2, 2, 2 );
+            var geometry = new THREE.BoxGeometry( 16, 16, 16 );
             var material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
             var mesh = new THREE.Mesh( geometry, material );
             mesh.position.set(0, 100, 0);
             scene.add(mesh);
 
-            var shape = new CANNON.Box(new CANNON.Vec3(1,1,1));
+            var shape = new CANNON.Sphere(8);
             var body = new CANNON.Body({
                 mass: 1
             });
@@ -78,12 +79,14 @@
             scene.add(axes);
 
             camera.position.x = 0;
-            camera.position.y = height * numLevels + 16;
+            camera.position.y = 50;
             camera.position.z = 0;
 
             camera.lookAt(new THREE.Vector3(0, 0, 0));
 //            camera.target.set(0, 0, 0);
 
+
+            var cannonDebugRenderer = new CannonDebugRenderer(scene, world);
             var clock = new THREE.Clock();
 
             function render() {
@@ -96,6 +99,8 @@
                 noiseLayer.update(delta, actualTime);
                 mesh.position.copy(body.position);
                 mesh.quaternion.copy(body.quaternion);
+
+                cannonDebugRenderer.update();
 
                 renderer.render(scene, camera);
             }

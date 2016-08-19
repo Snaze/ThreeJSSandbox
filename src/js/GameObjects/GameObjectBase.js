@@ -11,6 +11,10 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
         this._axes = null;
         this.ud = this.userData;
 
+        this.physicsVertices = [];
+        this.physicsVertexIndices = [];
+        this.physicsPosition = null;
+
     };
 
     toRet.prototype = Object.assign(Object.create(THREE.Object3D.prototype), {
@@ -83,7 +87,41 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
             }
         },
 
+        _recordPhysicsData: function (vertices, face, xDiff, yDiff, zDiff) {
+
+            if (!xDiff) {
+                xDiff = 0;
+            }
+
+            if (!yDiff) {
+                yDiff = 0;
+            }
+
+            if (!zDiff) {
+                zDiff = 0;
+            }
+
+            var vertexA = vertices[face.a];
+            var vertexB = vertices[face.b];
+            var vertexC = vertices[face.c];
+
+            this.physicsVertices.push(vertexA.x + xDiff, vertexA.y + yDiff, vertexA.z + zDiff);
+            var vertexAIndex = this.physicsVertices.length - 1;
+
+            this.physicsVertices.push(vertexB.x + xDiff, vertexB.y + yDiff, vertexB.z + zDiff);
+            var vertexBIndex = this.physicsVertices.length - 1;
+
+            this.physicsVertices.push(vertexC.x + xDiff, vertexC.y + yDiff, vertexC.z + zDiff);
+            var vertexCIndex = this.physicsVertices.length - 1;
+
+            this.physicsVertexIndices.push(vertexAIndex, vertexBIndex, vertexCIndex);
+        },
+
         update: function (deltaTime, actualTime) {
+
+            if (!this._innerObject3D) {
+                return;
+            }
 
             var physicsBody = this._getPhysicsBody();
             if (physicsBody) {
@@ -104,7 +142,28 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
             throw new Error("This method is not implemented");
         },
         _getPhysicsBody: function () {
-            return null;
+            if (null === this.physicsBody) {
+
+                if (null === this._innerObject3D) {
+                    throw new Error("Cannot create physics body until inner object is created");
+                }
+
+                if (this.physicsVertices.length === 0 ||
+                    this.physicsVertexIndices.length === 0 ||
+                    this.physicsPosition === null) {
+
+                    return null; // Not a physics object
+                }
+
+                var shape = new CANNON.Trimesh(this.physicsVertices, this.physicsVertexIndices);
+                var body = new CANNON.Body({mass: 0});
+                body.addShape(shape);
+                body.position.copy(this.physicsPosition);
+
+                this.physicsBody = body;
+            }
+
+            return this.physicsBody;
         },
         _createBoundingBox: function (width, height, depth) {
             return new BoundingBox(width, height, depth).init();

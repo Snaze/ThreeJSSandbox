@@ -1,7 +1,3 @@
-/*
- * @author Sann-Remy Chea / http://srchea.com/
- * Generate a random terrain using the diamond-square algorithm
- */
 
 define([], function () {
     "use strict";

@@ -1,7 +1,23 @@
 "use strict";
 
-define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util/ArrayUtils", "cannon", "util/Console"],
-    function (THREE, GridLevelSection, Noise, GameObjectBase, Morph, ArrayUtils, CANNON, console) {
+define(["THREE",
+        "GridLevelSection",
+        "noisejs",
+        "GameObjectBase",
+        "morph",
+        "util/ArrayUtils",
+        "cannon",
+        "util/Console",
+        "util/MeshHelper"],
+    function (THREE,
+              GridLevelSection,
+              Noise,
+              GameObjectBase,
+              Morph,
+              ArrayUtils,
+              CANNON,
+              console,
+              MeshHelper) {
 
         var classToRet = function (width, height, seed, continuity, numLevels, faceWidth, faceHeight, faceDepth) {
             GameObjectBase.call(this);
@@ -93,28 +109,6 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
                 this.noiseImage = ArrayUtils.create2DArray(this.ud.height, this.ud.width, 0);
             },
 
-            _getPhysicsBody: function () {
-                if (null === this.physicsBody) {
-
-                    if (this.physicsVertices.length === 0 ||
-                        this.physicsVertexIndices.length === 0) {
-
-                        this.getGeometry(); // This should create the physics data
-
-                        console.assert(this.physicsVertexIndices.length > 0);
-                        console.assert(this.physicsVertices.length > 0);
-                    }
-
-                    var shape = new CANNON.Trimesh(this.physicsVertices, this.physicsVertexIndices);
-                    var body = new CANNON.Body({});
-                    body.addShape(shape);
-
-                    this.physicsBody = body;
-                }
-
-                return this.physicsBody;
-            },
-
             _createSquare: function (geometry, xIndex, yValues, zIndex) {
                 var xValue = xIndex * this.ud.faceWidth;
                 var zValue = zIndex * this.ud.faceDepth;
@@ -168,26 +162,8 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
                 geometry.faces.push(face1);
                 geometry.faceVertexUvs[0].push([new THREE.Vector2(0, 1),new THREE.Vector2(1, 1),new THREE.Vector2(0, 0)]);
 
-                this._recordPhysicsData(geometry.vertices, face0);
-                this._recordPhysicsData(geometry.vertices, face1);
-            },
-
-            _recordPhysicsData: function (vertices, face) {
-
-                var vertexA = vertices[face.a];
-                var vertexB = vertices[face.b];
-                var vertexC = vertices[face.c];
-
-                this.physicsVertices.push(vertexA.x, vertexA.y, vertexA.z);
-                var vertexAIndex = this.physicsVertices.length - 1;
-
-                this.physicsVertices.push(vertexB.x, vertexB.y, vertexB.z);
-                var vertexBIndex = this.physicsVertices.length - 1;
-
-                this.physicsVertices.push(vertexC.x, vertexC.y, vertexC.z);
-                var vertexCIndex = this.physicsVertices.length - 1;
-
-                this.physicsVertexIndices.push(vertexAIndex, vertexBIndex, vertexCIndex);
+                this._recordPhysicsData(geometry.vertices, face0, 0, -1 * this.ud.faceHeight, 0);
+                this._recordPhysicsData(geometry.vertices, face1, 0, -1 * this.ud.faceHeight, 0);
             },
 
             _getYValueFromSimplexNoise: function (x, z) {
@@ -282,23 +258,15 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
                 return toRet;
             },
 
-            _mergeMeshes: function (meshes) {
-                var combined = new THREE.Geometry();
-
-                for (var i = 0; i < meshes.length; i++) {
-                    meshes[i].updateMatrix();
-                    combined.merge(meshes[i].geometry, meshes[i].matrix);
-                }
-
-                return combined;
-            },
-
             _createObject: function () {
 
                 var object3D = new THREE.Object3D();
+                this.physicsPosition = new THREE.Vector3(0, 0, 0);
 
                 var terrainMesh = new THREE.Mesh(this.getGeometry(), this.getMaterial());
+                this.physicsPosition.copy(terrainMesh.position);
                 terrainMesh.position.y -= this.ud.faceHeight;
+                // this.physicsPosition.y -= this.ud.faceHeight;
 
                 var baseHeight = this.ud.faceHeight * 1;
                 var cubeGeom = new THREE.BoxGeometry(this.ud.totalWidth,
@@ -316,14 +284,19 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
                 baseBoxMesh.position.set(this.ud.totalWidth / 2.0,
                     -baseHeight / 2.0, this.ud.totalDepth / 2.0);
 
-                var masterGeometry = this._mergeMeshes([terrainMesh, baseBoxMesh]);
+                var masterGeometry = MeshHelper.mergeMeshes([terrainMesh, baseBoxMesh]);
                 var toRet = new THREE.Mesh(masterGeometry, this.getMaterial());
 
                 // terrainMesh.doubleSided = true;
                 object3D.add(toRet);
-                toRet.position.x -= (this.ud.totalWidth / 2.0);
-                toRet.position.z -= (this.ud.totalDepth / 2.0);
-                toRet.position.y -= this.ud.faceHeight / 2.0;
+                // toRet.position.x -= (this.ud.totalWidth / 2.0);
+                this.physicsPosition.x -= (this.ud.totalWidth / 2.0);
+
+                // toRet.position.z -= (this.ud.totalDepth / 2.0);
+                this.physicsPosition.z -= (this.ud.totalDepth / 2.0);
+
+                // toRet.position.y -= this.ud.faceHeight / 2.0;
+                this.physicsPosition.y -= (this.ud.faceHeight / 2.0);
 
                 object3D.traverse(function (child) {
                     child.castShadow = true;
