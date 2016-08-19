@@ -22,7 +22,13 @@
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
-        requirejs(['THREE', "SingleMeshNoiseLayer", "Axes"], function (THREE, SingleMeshNoiseLayer, Axes) {
+        requirejs(['THREE', "SingleMeshNoiseLayer", "Axes", "cannon"], function (THREE, SingleMeshNoiseLayer, Axes, CANNON) {
+
+            var world = new CANNON.World();
+            world.gravity.set(0,-9.8,0);
+            world.broadphase = new CANNON.NaiveBroadphase();
+            world.solver.iterations = 10;
+
             var scene = new THREE.Scene();
             var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -50,15 +56,30 @@
 //            section.setAxesVisible(true, true);
             noiseLayer.setBoundingBoxVisible(false, true);
             scene.add(noiseLayer);
+            noiseLayer.addPhysicsBodyToWorld(world);
+
+            var geometry = new THREE.BoxGeometry( 2, 2, 2 );
+            var material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+            var mesh = new THREE.Mesh( geometry, material );
+            mesh.position.set(0, 100, 0);
+            scene.add(mesh);
+
+            var shape = new CANNON.Box(new CANNON.Vec3(1,1,1));
+            var body = new CANNON.Body({
+                mass: 1
+            });
+            body.position.set(0, 100, 0);
+            body.addShape(shape);
+            world.add(body);
 
 //            noiseLayer.logMatrices();
 
             var axes = new Axes(500).init();
             scene.add(axes);
 
-            camera.position.x = dimension / 2;
+            camera.position.x = 0;
             camera.position.y = height * numLevels + 16;
-            camera.position.z = dimension / 2;
+            camera.position.z = 0;
 
             camera.lookAt(new THREE.Vector3(0, 0, 0));
 //            camera.target.set(0, 0, 0);
@@ -68,18 +89,13 @@
             function render() {
                 requestAnimationFrame(render);
                 var delta = clock.getDelta();
+                var actualTime = clock.getElapsedTime();
 
-                noiseLayer.rotation.y += 0.25 * delta;
-                if (camera.position.y < 100) {
-//                    camera.lookAt(new THREE.Vector3(0, 0, 0));
-//                    camera.position.y = 20;
+                world.step(delta);
 
-//                    camera.up.set(0, 1, 0);
-//                    camera.rotation.y += 50.0 * delta * Math.PI / 180.0;
-                } else {
-//                    camera.position.y -= 54.0 * delta;
-                }
-//                noiseLayer.rotation.y += 5.0 * delta * Math.PI / 180.0;
+                noiseLayer.update(delta, actualTime);
+                mesh.position.copy(body.position);
+                mesh.quaternion.copy(body.quaternion);
 
                 renderer.render(scene, camera);
             }

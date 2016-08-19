@@ -1,7 +1,7 @@
 "use strict";
 
-define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util/ArrayUtils"],
-    function (THREE, GridLevelSection, Noise, GameObjectBase, Morph, ArrayUtils) {
+define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util/ArrayUtils", "cannon", "util/Console"],
+    function (THREE, GridLevelSection, Noise, GameObjectBase, Morph, ArrayUtils, CANNON, console) {
 
         var classToRet = function (width, height, seed, continuity, numLevels, faceWidth, faceHeight, faceDepth) {
             GameObjectBase.call(this);
@@ -21,6 +21,10 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
 
             this.binaryImages = [];
             this.noiseImage = [];
+            this.physicsVertexIndices = [];
+            this.physicsVertices = [];
+            this.physicsBody = null;
+            this.physicsShape = null;
 
             console.assert(width > 0);
             console.assert(height > 0);
@@ -89,6 +93,28 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
                 this.noiseImage = ArrayUtils.create2DArray(this.ud.height, this.ud.width, 0);
             },
 
+            _getPhysicsBody: function () {
+                if (null === this.physicsBody) {
+
+                    if (this.physicsVertices.length === 0 ||
+                        this.physicsVertexIndices.length === 0) {
+
+                        this.getGeometry(); // This should create the physics data
+
+                        console.assert(this.physicsVertexIndices.length > 0);
+                        console.assert(this.physicsVertices.length > 0);
+                    }
+
+                    var shape = new CANNON.Trimesh(this.physicsVertices, this.physicsVertexIndices);
+                    var body = new CANNON.Body({});
+                    body.addShape(shape);
+
+                    this.physicsBody = body;
+                }
+
+                return this.physicsBody;
+            },
+
             _createSquare: function (geometry, xIndex, yValues, zIndex) {
                 var xValue = xIndex * this.ud.faceWidth;
                 var zValue = zIndex * this.ud.faceDepth;
@@ -117,10 +143,9 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
                 var vertex3Index = geometry.vertices.length - 1;
 
                 var face0 = new THREE.Face3(vertex2Index, vertex1Index, vertex0Index);
+
                 if (vertex2.y === vertex1.y && vertex2.y === vertex0.y) {
-                    if (vertex2.y === this.ud.faceHeight) {
-                        // face0 = null;
-                    } else {
+                    if (vertex2.y !== this.ud.faceHeight) {
                         face0.materialIndex = classToRet.GRASS_MATERIAL;
                     }
                 } else {
@@ -130,25 +155,39 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
                 // face0.materialIndex = 0;
                 var face1 = new THREE.Face3(vertex3Index, vertex2Index, vertex0Index);
                 if (vertex3.y === vertex2.y && vertex3.y === vertex0.y) {
-                    if (vertex3.y === this.ud.faceHeight) {
-                        // face1 = null;
-                    } else {
+                    if (vertex3.y !== this.ud.faceHeight) {
                         face1.materialIndex = classToRet.GRASS_MATERIAL;
                     }
                 } else {
                     face1.materialIndex = classToRet.DIRT_MATERIAL;
                 }
 
-                if (face0) {
-                    geometry.faces.push(face0);
-                    geometry.faceVertexUvs[0].push([new THREE.Vector2(1, 1),new THREE.Vector2(1, 0),new THREE.Vector2(0, 0)]);
-                }
+                geometry.faces.push(face0);
+                geometry.faceVertexUvs[0].push([new THREE.Vector2(1, 1),new THREE.Vector2(1, 0),new THREE.Vector2(0, 0)]);
 
-                if (face1) {
-                    geometry.faces.push(face1);
-                    geometry.faceVertexUvs[0].push([new THREE.Vector2(0, 1),new THREE.Vector2(1, 1),new THREE.Vector2(0, 0)]);
-                }
+                geometry.faces.push(face1);
+                geometry.faceVertexUvs[0].push([new THREE.Vector2(0, 1),new THREE.Vector2(1, 1),new THREE.Vector2(0, 0)]);
 
+                this._recordPhysicsData(geometry.vertices, face0);
+                this._recordPhysicsData(geometry.vertices, face1);
+            },
+
+            _recordPhysicsData: function (vertices, face) {
+
+                var vertexA = vertices[face.a];
+                var vertexB = vertices[face.b];
+                var vertexC = vertices[face.c];
+
+                this.physicsVertices.push(vertexA.x, vertexA.y, vertexA.z);
+                var vertexAIndex = this.physicsVertices.length - 1;
+
+                this.physicsVertices.push(vertexB.x, vertexB.y, vertexB.z);
+                var vertexBIndex = this.physicsVertices.length - 1;
+
+                this.physicsVertices.push(vertexC.x, vertexC.y, vertexC.z);
+                var vertexCIndex = this.physicsVertices.length - 1;
+
+                this.physicsVertexIndices.push(vertexAIndex, vertexBIndex, vertexCIndex);
             },
 
             _getYValueFromSimplexNoise: function (x, z) {
@@ -267,7 +306,6 @@ define(["THREE", "GridLevelSection", "noisejs", "GameObjectBase", "morph", "util
                     this.ud.totalDepth,
                     1, 1, 1);
 
-                // delete cubeGeom.faces[13];
                 cubeGeom.faces.forEach(function (face) {
                     face.materialIndex = classToRet.DIRT_MATERIAL;
                 });

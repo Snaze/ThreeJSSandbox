@@ -85,6 +85,12 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
 
         update: function (deltaTime, actualTime) {
 
+            var physicsBody = this._getPhysicsBody();
+            if (physicsBody) {
+                this.position.copy(physicsBody.position);
+                this.quaternion.copy(physicsBody.quaternion);
+            }
+
         },
 
         /**
@@ -97,6 +103,9 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
         _subInit: function () {
             throw new Error("This method is not implemented");
         },
+        _getPhysicsBody: function () {
+            return null;
+        },
         _createBoundingBox: function (width, height, depth) {
             return new BoundingBox(width, height, depth).init();
         },
@@ -105,6 +114,12 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
 
             return new Axes(size + 16).init();
         },
+        addPhysicsBodyToWorld: function (world) {
+            var physicsBody = this._getPhysicsBody();
+            if (physicsBody) {
+                world.add(physicsBody);
+            }
+        }
         // _onProgress: function (progress) {
         //     console.log(progress);
         // },

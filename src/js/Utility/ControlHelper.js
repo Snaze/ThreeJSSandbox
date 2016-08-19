@@ -191,18 +191,18 @@ define(["jquery",
         _mouseMove: function (event) {
             event.preventDefault();
 
-            var movementX = event.movementX ||
-                    event.mozMovementX      ||
-                    event.webkitMovementX   ||
+            var movementX = event.originalEvent.movementX ||
+                    event.originalEvent.mozMovementX      ||
+                    event.originalEvent.webkitMovementX   ||
                     0;
 
-            var movementY = event.movementY ||
-                    event.mozMovementY      ||
-                    event.webkitMovementY   ||
+            var movementY = event.originalEvent.movementY ||
+                    event.originalEvent.mozMovementY      ||
+                    event.originalEvent.webkitMovementY   ||
                     0;
 
-            this.state.mouseDeltaX += event.originalEvent.movementX;
-            this.state.mouseDeltaY += event.originalEvent.movementY;
+            this.state.mouseDeltaX += movementX;
+            this.state.mouseDeltaY += movementY;
         },
         _pointerLockChange: function (event) {
             if (document.pointerLockElement === this.element ||

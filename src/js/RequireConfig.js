@@ -16,6 +16,7 @@ require.config({
         'noisejs': 'bower_components/noisejs/index',
         "QUnit": "bower_components/qunit/qunit/qunit",
         "PointerLockControls": "bower_components/three.js/examples/js/controls/PointerLockControls",
+        "cannon": "bower_components/cannon.js/build/cannon",
 
         /** JS **/
         'Tester': 'src/js/Tester',
@@ -78,6 +79,9 @@ require.config({
         },
         "noisejs": {
             exports: "Noise"
+        },
+        "cannon": {
+            exports: "CANNON"
         },
         "morph": {
             exports: "Morph"
