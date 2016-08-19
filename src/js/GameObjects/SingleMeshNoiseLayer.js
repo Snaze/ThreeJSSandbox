@@ -161,9 +161,6 @@ define(["THREE",
 
                 geometry.faces.push(face1);
                 geometry.faceVertexUvs[0].push([new THREE.Vector2(0, 1),new THREE.Vector2(1, 1),new THREE.Vector2(0, 0)]);
-
-                this._recordPhysicsData(geometry.vertices, face0, 0, -1 * this.ud.faceHeight, 0);
-                this._recordPhysicsData(geometry.vertices, face1, 0, -1 * this.ud.faceHeight, 0);
             },
 
             _getYValueFromSimplexNoise: function (x, z) {
@@ -261,7 +258,6 @@ define(["THREE",
             _createObject: function () {
 
                 var object3D = new THREE.Object3D();
-                this.physicsPosition = new THREE.Vector3(0, 0, 0);
 
                 var terrainMesh = new THREE.Mesh(this.getGeometry(), this.getMaterial());
                 this.physicsPosition.copy(terrainMesh.position);
@@ -290,13 +286,11 @@ define(["THREE",
                 // terrainMesh.doubleSided = true;
                 object3D.add(toRet);
                 // toRet.position.x -= (this.ud.totalWidth / 2.0);
-                this.physicsPosition.x -= (this.ud.totalWidth / 2.0);
+                var deltaX = -(this.ud.totalWidth / 2.0);
+                var deltaY = -(this.ud.faceHeight / 2.0);
+                var deltaZ = -(this.ud.totalDepth / 2.0);
 
-                // toRet.position.z -= (this.ud.totalDepth / 2.0);
-                this.physicsPosition.z -= (this.ud.totalDepth / 2.0);
-
-                // toRet.position.y -= this.ud.faceHeight / 2.0;
-                this.physicsPosition.y -= (this.ud.faceHeight / 2.0);
+                this.incrementPosition(deltaX, deltaY, deltaZ);
 
                 object3D.traverse(function (child) {
                     child.castShadow = true;
@@ -304,6 +298,18 @@ define(["THREE",
                 });
 
                 return object3D;
+            },
+            _isPhysicsObject: function () {
+                return true;
+            },
+            _getPhysicsXDiff: function () {
+                return 0;
+            },
+            _getPhysicsYDiff: function () {
+                return 0;
+            },
+            _getPhysicsZDiff: function () {
+                return 0;
             }
         });
 

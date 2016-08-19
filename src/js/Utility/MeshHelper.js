@@ -1,5 +1,5 @@
-define(["THREE"],
-    function (THREE) {
+define(["THREE", "util/Console", "util/GeometryHelper"],
+    function (THREE, console, GeometryHelper) {
         "use strict";
 
         var meshHelper = {};
@@ -13,6 +13,10 @@ define(["THREE"],
             }
 
             return combined;
+        };
+
+        meshHelper.subdivideFaces = function (mesh) {
+            return GeometryHelper.subdivideFaces(mesh.geometry);
         };
 
         return meshHelper;

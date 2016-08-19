@@ -27,7 +27,6 @@ require.config({
         /** JS / GAMEOBJECTS **/
         'GameObjectBase': 'src/js/GameObjects/GameObjectBase',
         'Axes': 'src/js/GameObjects/Axes',
-        'BoundingBox': 'src/js/GameObjects/BoundingBox',
         'GridLevelArea': 'src/js/GameObjects/GridLevelArea',
         'GridLevelLayer': 'src/js/GameObjects/GridLevelLayer',
         'GridLevelSection': 'src/js/GameObjects/GridLevelSection',

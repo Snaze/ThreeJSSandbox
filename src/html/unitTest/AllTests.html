@@ -15,18 +15,24 @@
     requirejs(['../../js/RequireConfig'], function (requireConfig) {
 
         requirejs(["QUnit",
-            "UnitTests/ArrayUtilsTest",
-            "UnitTests/MorphUtilsTest"],
+                    "UnitTests/ArrayUtilsTest",
+                    "UnitTests/MorphUtilsTest",
+                    "UnitTests/GeometryHelperTest",
+                    "UnitTests/TrimeshCreatorTest"],
                 function (QUnit,
                           ArrayUtilsTest,
-                          MorphUtilsTest) {
+                          MorphUtilsTest,
+                          GeometryHelperTest,
+                          TrimeshCreatorTest) {
 
-            ArrayUtilsTest.run();
-            MorphUtilsTest.run();
+                    ArrayUtilsTest.run();
+                    MorphUtilsTest.run();
+                    GeometryHelperTest.run();
+                    TrimeshCreatorTest.run();
 
-            QUnit.load();
-            QUnit.start();
-        });
+                    QUnit.load();
+                    QUnit.start();
+                });
 
     });
 

@@ -1,19 +1,15 @@
 "use strict";
 
-define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
+define(["THREE", "Axes", "cannon", "util/TrimeshCreator"], function (THREE, Axes, CANNON, TrimeshCreator) {
     var toRet = function () {
         THREE.Object3D.call(this);
 
         this._innerObject3D = null;
         this._boundingBox = null;
-        this._boundingBox3 = null;
-        this._boundingBoxDimensions = null;
         this._axes = null;
         this.ud = this.userData;
 
-        this.physicsVertices = [];
-        this.physicsVertexIndices = [];
-        this.physicsPosition = null;
+        this.physicsPosition = new THREE.Vector3(0, 0, 0);
 
     };
 
@@ -26,36 +22,16 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
 
             // I want to create the bounding box buffer adding the axes because
             // the axes make the bounding box too big.
-            var dims = this.getDims();
+            var helper = new THREE.BoundingBoxHelper(this, 0xFF0000);
+            helper.update();
 
-            this._boundingBox = this._createBoundingBox(dims.x, dims.y, dims.z);
+            this._boundingBox = helper;
             this._boundingBox.visible = false;
             this.add(this._boundingBox);
 
             return this;
         },
 
-        getBoundingBox3: function () {
-            if (null === this._boundingBox3) {
-                this._boundingBox3 = new THREE.Box3();
-                this._boundingBox3.setFromObject(this);
-            }
-
-            return this._boundingBox3;
-        },
-        getDims: function () {
-            if (null === this._boundingBoxDimensions) {
-                var box = this.getBoundingBox3();
-
-                var width = Math.abs(box.max.x - box.min.x);
-                var height = Math.abs(box.max.y - box.min.y);
-                var depth = Math.abs(box.max.z - box.min.z);
-
-                this._boundingBoxDimensions = new THREE.Vector3(width, height, depth);
-            }
-
-            return this._boundingBoxDimensions;
-        },
         setBoundingBoxVisible: function (visible, recursive) {
             this._boundingBox.visible = visible;
 
@@ -85,36 +61,6 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
                     }
                 });
             }
-        },
-
-        _recordPhysicsData: function (vertices, face, xDiff, yDiff, zDiff) {
-
-            if (!xDiff) {
-                xDiff = 0;
-            }
-
-            if (!yDiff) {
-                yDiff = 0;
-            }
-
-            if (!zDiff) {
-                zDiff = 0;
-            }
-
-            var vertexA = vertices[face.a];
-            var vertexB = vertices[face.b];
-            var vertexC = vertices[face.c];
-
-            this.physicsVertices.push(vertexA.x + xDiff, vertexA.y + yDiff, vertexA.z + zDiff);
-            var vertexAIndex = this.physicsVertices.length - 1;
-
-            this.physicsVertices.push(vertexB.x + xDiff, vertexB.y + yDiff, vertexB.z + zDiff);
-            var vertexBIndex = this.physicsVertices.length - 1;
-
-            this.physicsVertices.push(vertexC.x + xDiff, vertexC.y + yDiff, vertexC.z + zDiff);
-            var vertexCIndex = this.physicsVertices.length - 1;
-
-            this.physicsVertexIndices.push(vertexAIndex, vertexBIndex, vertexCIndex);
         },
 
         update: function (deltaTime, actualTime) {
@@ -148,15 +94,18 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
                     throw new Error("Cannot create physics body until inner object is created");
                 }
 
-                if (this.physicsVertices.length === 0 ||
-                    this.physicsVertexIndices.length === 0 ||
-                    this.physicsPosition === null) {
+                // This hierarchy is kind of crazy now that I look at it.
+                // Hope it doesn't kill performance.
+                var geometry = this.children[0].children[0].geometry;
+                var trimeshCreator = new TrimeshCreator(geometry,
+                    this._getNumPhysicsMeshSubDivisions(), this._getPhysicsXDiff(),
+                    this._getPhysicsYDiff(), this._getPhysicsZDiff());
 
-                    return null; // Not a physics object
-                }
-
-                var shape = new CANNON.Trimesh(this.physicsVertices, this.physicsVertexIndices);
-                var body = new CANNON.Body({mass: 0});
+                var shape = trimeshCreator.create();
+                var mass = this._getMass();
+                var body = new CANNON.Body({
+                    mass: mass
+                });
                 body.addShape(shape);
                 body.position.copy(this.physicsPosition);
 
@@ -164,9 +113,6 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
             }
 
             return this.physicsBody;
-        },
-        _createBoundingBox: function (width, height, depth) {
-            return new BoundingBox(width, height, depth).init();
         },
         _createAxes: function (width, height, depth) {
             var size = Math.max(width, height, depth);
@@ -178,13 +124,48 @@ define(["THREE", "Axes", "BoundingBox"], function (THREE, Axes, BoundingBox) {
             if (physicsBody) {
                 world.add(physicsBody);
             }
+        },
+        _isPhysicsObject: function () {
+            return false;
+        },
+        _getPhysicsXDiff: function () {
+            return 0;
+        },
+        _getPhysicsYDiff: function () {
+            return 0;
+        },
+        _getPhysicsZDiff: function () {
+            return 0;
+        },
+        _getNumPhysicsMeshSubDivisions: function () {
+            return 0;
+        },
+        _getMass: function () {
+            return 0;
+        },
+        getPosition: function () {
+            if (this._isPhysicsObject()) {
+                return this.physicsPosition;
+            }
+
+            return this.position;
+        },
+        setPosition: function (x, y, z) {
+            if (this._isPhysicsObject()) {
+                this.physicsPosition.set(x, y, z);
+            } else {
+                this.position.set(x, y, z);
+            }
+        },
+        incrementPosition: function (deltaX, deltaY, deltaZ) {
+            if (this._isPhysicsObject()) {
+                this.physicsPosition.set(this.physicsPosition.x + deltaX,
+                    this.physicsPosition.y + deltaY, this.physicsPosition.z + deltaZ);
+            } else {
+                this.position.set(this.position.x + deltaX,
+                    this.position.y + deltaY, this.position.z + deltaZ);
+            }
         }
-        // _onProgress: function (progress) {
-        //     console.log(progress);
-        // },
-        // _onError: function (error) {
-        //     console.log(error);
-        // }
     });
 
     return toRet;
