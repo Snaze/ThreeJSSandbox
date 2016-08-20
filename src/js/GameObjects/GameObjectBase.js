@@ -10,6 +10,8 @@ define(["THREE", "Axes", "cannon", "util/TrimeshCreator"], function (THREE, Axes
         this.ud = this.userData;
 
         this.physicsPosition = new THREE.Vector3(0, 0, 0);
+        this.physicsBody = null;
+        this.rotationEuler = new THREE.Euler();
 
     };
 
@@ -65,15 +67,15 @@ define(["THREE", "Axes", "cannon", "util/TrimeshCreator"], function (THREE, Axes
 
         update: function (deltaTime, actualTime) {
 
-            // if (!this._innerObject3D) {
-            //     return;
-            // }
-            //
-            // var physicsBody = this._getPhysicsBody();
-            // if (physicsBody) {
-            //     this.position.copy(physicsBody.position);
-            //     this.quaternion.copy(physicsBody.quaternion);
-            // }
+            if (!this._innerObject3D) {
+                return;
+            }
+
+            var physicsBody = this._getPhysicsBody();
+            if (physicsBody) {
+                this.position.copy(physicsBody.position);
+                this.quaternion.copy(physicsBody.quaternion);
+            }
 
         },
 
@@ -125,17 +127,36 @@ define(["THREE", "Axes", "cannon", "util/TrimeshCreator"], function (THREE, Axes
         },
         getPosition: function () {
             if (this._isPhysicsObject()) {
-                return this.physicsPosition;
+                return this._getPhysicsBody().position;
             }
 
             return this.position;
         },
         setPosition: function (x, y, z) {
             if (this._isPhysicsObject()) {
-                this.physicsPosition.set(x, y, z);
+                this._getPhysicsBody().position.set(x, y, z);
             } else {
                 this.position.set(x, y, z);
             }
+        },
+        setRotation: function (x, y, z, order) {
+            this.rotationEuler.set(x, y, z, order);
+
+            if (this._isPhysicsObject()) {
+                this._getPhysicsBody().quaternion.setFromEuler(x, y, z, order);
+            } else {
+                this.quaternion.setFromEuler(x, y, z, order);
+            }
+        },
+        getRotation: function () {
+            if (this._isPhysicsObject()) {
+                var physicsBody = this._getPhysicsBody();
+                this.rotationEuler.setFromQuaternion(physicsBody.quaternion);
+            } else {
+                this.rotationEuler.setFromQuaternion(this.quaternion);
+            }
+
+            return this.rotationEuler;
         },
         incrementPosition: function (deltaX, deltaY, deltaZ) {
             if (this._isPhysicsObject()) {

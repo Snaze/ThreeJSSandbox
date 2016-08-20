@@ -52,9 +52,9 @@
 
             var dimension = 64;
 
-            var height = 10.0;
+            var height = 40.0;
             var numLevels = 3;
-            var noiseLayer = new SingleMeshNoiseLayer(dimension, dimension, Math.random(), 32.0, numLevels, 1.0, height, 1.0).init();
+            var noiseLayer = new SingleMeshNoiseLayer(dimension, dimension, Math.random(), 32.0, numLevels, 4.0, height, 4.0).init();
 //            section.setAxesVisible(true, true);
             noiseLayer.setBoundingBoxVisible(true, true);
 //            noiseLayer.visible = false;
@@ -81,9 +81,9 @@
             var axes = new Axes(500).init();
             scene.add(axes);
 
-            camera.position.x = 0;
+            camera.position.x = -50;
             camera.position.y = 100;
-            camera.position.z = -45;
+            camera.position.z = 50;
 
             camera.lookAt(new THREE.Vector3(0, 0, 0));
 //            camera.target.set(0, 0, 0);

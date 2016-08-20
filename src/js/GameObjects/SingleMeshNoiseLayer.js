@@ -222,6 +222,7 @@ define(["THREE",
 
                     yValueGrid[z] = [];
                     this.heightFieldMatrix[z] = [];
+                    // this.heightFieldMatrix[z].push(this.ud.faceHeight, this.ud.faceHeight, this.ud.faceHeight);
 
                     for (var x = 0; x < this.ud.width; x++) {
 
@@ -251,6 +252,8 @@ define(["THREE",
 
                         this._createSquare(toRet, x, yValues, z);
                     }
+
+
                 }
 
                 toRet.elementsNeedUpdate = true;
@@ -268,9 +271,7 @@ define(["THREE",
                 var object3D = new THREE.Object3D();
 
                 var terrainMesh = new THREE.Mesh(this.getGeometry(), this.getMaterial());
-                this.physicsPosition.copy(terrainMesh.position);
                 terrainMesh.position.y -= this.ud.faceHeight;
-                // this.physicsPosition.y -= this.ud.faceHeight;
 
                 var baseHeight = this.ud.faceHeight * 1;
                 var cubeGeom = new THREE.BoxGeometry(this.ud.totalWidth,
@@ -291,9 +292,8 @@ define(["THREE",
                 var masterGeometry = MeshHelper.mergeMeshes([terrainMesh, baseBoxMesh]);
                 var toRet = new THREE.Mesh(masterGeometry, this.getMaterial());
 
-                // terrainMesh.doubleSided = true;
                 object3D.add(toRet);
-                // toRet.position.x -= (this.ud.totalWidth / 2.0);
+
                 toRet.position.x += -(this.ud.totalWidth / 2.0);
                 toRet.position.y += -(this.ud.faceHeight / 2.0);
                 toRet.position.z += -(this.ud.totalDepth / 2.0);
@@ -306,6 +306,10 @@ define(["THREE",
                 });
 
                 return object3D;
+            },
+            update: function (deltaTime, actualTime) {
+
+
             },
             _isPhysicsObject: function () {
                 return true;
@@ -321,7 +325,7 @@ define(["THREE",
             },
             _getPhysicsBody: function () {
                 if (null === this.physicsBody) {
-                    // Create hightfield
+                    // Create heightfield
                     var self = this;
                     var hfShape = new CANNON.Heightfield(this.heightFieldMatrix, {
                         elementSize: self.ud.faceWidth
@@ -334,10 +338,6 @@ define(["THREE",
                     hfBody.position.x += -(this.ud.totalWidth / 2.0) + this.ud.faceWidth;
                     hfBody.position.y += -(this.ud.faceHeight / 2.0) - this.ud.faceHeight;
                     hfBody.position.z += -(this.ud.totalDepth / 2.0) + this.ud.faceDepth;
-
-                    // hfBody.quaternion.setFromAxisAngle(new THREE.Vector3(1, 0, 0), this._innerObject3D.rotation.x);
-                    // hfBody.quaternion.setFromAxisAngle(new THREE.Vector3(0, 1, 0), this._innerObject3D.rotation.y);
-                    // hfBody.quaternion.setFromAxisAngle(new THREE.Vector3(0, 0, 1), this._innerObject3D.rotation.z);
 
                     this.physicsBody = hfBody;
                 }
