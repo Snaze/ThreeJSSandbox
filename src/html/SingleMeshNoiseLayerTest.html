@@ -89,8 +89,8 @@
                     scene.add(axes);
 
                     camera.position.x = 0;
-                    camera.position.y = 20;
-                    camera.position.z = 0;
+                    camera.position.y = 15;
+                    camera.position.z = 10;
 
                     camera.lookAt(new THREE.Vector3(0, 0, 0));
 //            camera.target.set(0, 0, 0);
@@ -116,7 +116,7 @@
                         cannonDebugRenderer.update();
 
                         renderer.render(scene, camera);
-//                        noiseLayer.setRotation(0, 0, degrees++ * Math.PI / 180.0);
+                        noiseLayer.setRotation(0, degrees++ * Math.PI / 180.0, 0);
                     }
 
                     render();

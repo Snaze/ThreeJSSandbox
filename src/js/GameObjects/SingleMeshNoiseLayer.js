@@ -322,22 +322,31 @@ define(["THREE",
                         elementSize: self.ud.faceWidth
                     });
                     var hfBody = new CANNON.Body({ mass: 0 });
-                    hfBody.addShape(hfShape);
+                    var quat = new CANNON.Quaternion();
+                    quat.setFromEuler(-90 * Math.PI / 180, 0, -90 * Math.PI / 180);
+                    hfBody.addShape(hfShape
+                        , new CANNON.Vec3(
+                        -(this.ud.totalWidth / 2.0) + this.ud.faceWidth,
+                        -(this.ud.faceHeight / 2.0) - this.ud.faceHeight,
+                        -(this.ud.totalDepth / 2.0) + this.ud.faceDepth
+                    ), quat);
 
-                    hfBody.quaternion.setFromEuler(-90 * Math.PI / 180, 0, -90 * Math.PI / 180);
-
-                    hfBody.position.x += -(this.ud.totalWidth / 2.0) + this.ud.faceWidth;
-                    hfBody.position.y += -(this.ud.faceHeight / 2.0) - this.ud.faceHeight;
-                    hfBody.position.z += -(this.ud.totalDepth / 2.0) + this.ud.faceDepth;
+                    // hfBody.quaternion.setFromEuler(-90 * Math.PI / 180, 0, -90 * Math.PI / 180);
 
                     this.physicsBody = hfBody;
 
-                    this.physicsBodyEulerOffset.set(-90.0 * Math.PI / 180.0, 0.0, -90 * Math.PI / 180);
-                    this.physicsBodyPositionOffset.set(
-                        -(this.ud.totalWidth / 2.0) + this.ud.faceWidth,
-                        -(this.ud.faceHeight / 2.0) - this.ud.faceHeight,
-                        -(this.ud.totalDepth / 2.0) + this.ud.faceDepth // -6
-                    );
+                    // hfBody.position.x += -(this.ud.totalWidth / 2.0) + this.ud.faceWidth;
+                    // hfBody.position.y += -(this.ud.faceHeight / 2.0) - this.ud.faceHeight;
+                    // hfBody.position.z += -(this.ud.totalDepth / 2.0) + this.ud.faceDepth;
+                    //
+
+                    //
+                    // this.physicsBodyEulerOffset.set(-90.0 * Math.PI / 180.0, 0.0, -90 * Math.PI / 180);
+                    // this.physicsBodyPositionOffset.set(
+                    //     -(this.ud.totalWidth / 2.0) + this.ud.faceWidth,
+                    //     -(this.ud.faceHeight / 2.0) - this.ud.faceHeight,
+                    //     -(this.ud.totalDepth / 2.0) + this.ud.faceDepth // -6
+                    // );
                 }
 
                 return this.physicsBody;
