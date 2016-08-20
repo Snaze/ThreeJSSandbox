@@ -9,10 +9,12 @@ define(["THREE", "Axes", "cannon", "util/TrimeshCreator"], function (THREE, Axes
         this._axes = null;
         this.ud = this.userData;
 
-        this.physicsPosition = new THREE.Vector3(0, 0, 0);
         this.physicsBody = null;
         this.rotationEuler = new THREE.Euler();
-
+        this.physicsBodyPositionOffset = new THREE.Vector3(0, 0, 0);
+        this.physicsBodyEulerOffset = new THREE.Euler(0, 0, 0);
+        this._physicsBodyQuaternionOffset = new THREE.Quaternion(0, 0, 0, 0);
+        this._tempQuaternion = new THREE.Quaternion(0, 0, 0, 0);
     };
 
     toRet.prototype = Object.assign(Object.create(THREE.Object3D.prototype), {
@@ -73,8 +75,25 @@ define(["THREE", "Axes", "cannon", "util/TrimeshCreator"], function (THREE, Axes
 
             var physicsBody = this._getPhysicsBody();
             if (physicsBody) {
-                this.position.copy(physicsBody.position);
-                this.quaternion.copy(physicsBody.quaternion);
+                // Rotate
+                if (this._physicsBodyQuaternionOffset) {
+                    this._physicsBodyQuaternionOffset.setFromEuler(this.physicsBodyEulerOffset);
+                    this._tempQuaternion.copy(physicsBody.quaternion);
+                    this._tempQuaternion.multiply(this._physicsBodyQuaternionOffset.inverse());
+
+                    this.quaternion.copy(this._tempQuaternion);
+                } else {
+                    this.quaternion.copy(physicsBody.quaternion);
+                }
+
+                // Transform
+                if (this.physicsBodyPositionOffset) {
+                    this.position.set(physicsBody.position.x - this.physicsBodyPositionOffset.x,
+                        physicsBody.position.y - this.physicsBodyPositionOffset.y,
+                        physicsBody.position.z - this.physicsBodyPositionOffset.z);
+                } else {
+                    this.position.copy(physicsBody.position);
+                }
             }
 
         },
@@ -133,8 +152,10 @@ define(["THREE", "Axes", "cannon", "util/TrimeshCreator"], function (THREE, Axes
             return this.position;
         },
         setPosition: function (x, y, z) {
+
             if (this._isPhysicsObject()) {
-                this._getPhysicsBody().position.set(x, y, z);
+                var body = this._getPhysicsBody();
+                body.position.set(x, y, z);
             } else {
                 this.position.set(x, y, z);
             }
@@ -160,8 +181,9 @@ define(["THREE", "Axes", "cannon", "util/TrimeshCreator"], function (THREE, Axes
         },
         incrementPosition: function (deltaX, deltaY, deltaZ) {
             if (this._isPhysicsObject()) {
-                this.physicsPosition.set(this.physicsPosition.x + deltaX,
-                    this.physicsPosition.y + deltaY, this.physicsPosition.z + deltaZ);
+                var currentPosition = this.getPosition();
+                this.setPosition(currentPosition.x + deltaX,
+                    currentPosition.y + deltaY, currentPosition.z + deltaZ);
             } else {
                 this.position.set(this.position.x + deltaX,
                     this.position.y + deltaY, this.position.z + deltaZ);

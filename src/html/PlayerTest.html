@@ -22,11 +22,16 @@
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
-        requirejs(['THREE', "GameObjects/Player", "Axes", "cannon", "CannonDebugRenderer"],
-                function (THREE, Player, Axes, CANNON, CannonDebugRenderer) {
+        requirejs(['THREE',
+                    "GameObjects/PhysicsBox",
+                    "Axes",
+                    "cannon",
+                    "CannonDebugRenderer",
+                    "GameObjects/Player"],
+                function (THREE, PhysicsBox, Axes, CANNON, CannonDebugRenderer, Player) {
 
                     var world = new CANNON.World();
-                    world.gravity.set(0, -9.8, 0);
+                    world.gravity.set(0, -20, 0.0);
 //            world.broadphase = new CANNON.SAPBroadphase(world);//NaiveBroadphase
                     world.broadphase = new CANNON.NaiveBroadphase();
                     world.solver.iterations = 10;
@@ -34,12 +39,15 @@
                     var scene = new THREE.Scene();
                     var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
+                    camera.position.set(50, 50, 100);
+                    camera.lookAt(new THREE.Vector3(0, 0, 0));
+
                     var renderer = new THREE.WebGLRenderer();
                     renderer.setSize(window.innerWidth, window.innerHeight);
                     renderer.shadowMap.enabled = true;
                     document.body.appendChild(renderer.domElement);
 
-                    var ambient = new THREE.AmbientLight(0xFFFFFF, .5);
+                    var ambient = new THREE.AmbientLight(0xFFFFFF, 0.5);
                     scene.add(ambient);
 
                     var light = new THREE.DirectionalLight(0xFFFFFF, 1.5);
@@ -49,13 +57,16 @@
                     light.target.position.set(0, 0, 0);
                     scene.add(light);
 
-                    var dimension = 64;
+                    var box = new Player().init();
+                    scene.add(box);
+                    box.addPhysicsBodyToWorld(world);
+//                    box.setRotation(0, 45 * Math.PI / 180, 0);
+                    box.setPosition(30, 100, 0);
 
-
-                    // ground plane
                     var groundShape = new CANNON.Plane();
                     var groundBody = new CANNON.Body({mass: 0});
                     groundBody.addShape(groundShape);
+                    groundBody.quaternion.setFromEuler(-90 * Math.PI / 180, 0, 0);
                     world.add(groundBody);
 
                     var geometry = new THREE.PlaneGeometry(10, 10, 4, 4);
@@ -64,17 +75,9 @@
                     var ground = new THREE.Mesh(geometry, this.currentMaterial);
                     ground.scale.set(100, 100, 100);
                     submesh.add(ground);
+
                     scene.add(submesh);
-
-                    ground.castShadow = true;
-                    ground.receiveShadow = true;
-
-                    mesh.add(submesh);
-
-                    var player = new Player(camera).init();
-                    scene.add(player);
-                    player.addPhysicsBodyToWorld(world);
-                    player.setPosition(0, 100, 0);
+                    submesh.position.set(0, 0, 0);
 
 
                     var axes = new Axes(500).init();
@@ -91,8 +94,10 @@
                         var actualTime = clock.getElapsedTime();
 
                         world.step(delta);
-//                        player.update(delta, actualTime);
+                        box.update(delta, actualTime);
 
+                        ground.position.copy(groundBody.position);
+                        ground.quaternion.copy(groundBody.quaternion);
 
                         cannonDebugRenderer.update();
 

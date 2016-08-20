@@ -92,14 +92,20 @@ define(["THREE",
 
                 var physicsBody = this._getPhysicsBody();
                 if (physicsBody) {
-                    this._setDisplacementVector();
-                    this._setHorizontalQuaternion();
+                    // this._setDisplacementVector();
+                    // this._setHorizontalQuaternion();
+                    //
+                    // this.displacementVector.applyQuaternion(this.horizontalQuaternion);
+                    // physicsBody.velocity.set(this.displacementVector.x,
+                    //     this.displacementVector.y, this.displacementVector.z);
 
-                    this.displacementVector.applyQuaternion(this.horizontalQuaternion);
-                    physicsBody.velocity.set(this.displacementVector.x,
-                        this.displacementVector.y, this.displacementVector.z);
-
-                    this.position.copy(physicsBody.position);
+                    if (this.physicsBodyPositionOffset) {
+                        this.position.set(physicsBody.position.x - this.physicsBodyPositionOffset.x,
+                                            physicsBody.position.y - this.physicsBodyPositionOffset.y,
+                                            physicsBody.position.z - this.physicsBodyPositionOffset.z);
+                    } else {
+                        this.position.copy(physicsBody.position);
+                    }
                     // We only want the updated position
                     // this.quaternion.copy(physicsBody.quaternion);
                 }
@@ -109,15 +115,6 @@ define(["THREE",
             _isPhysicsObject: function () {
                 return true;
             },
-            _getPhysicsXDiff: function () {
-                return 0;
-            },
-            _getPhysicsYDiff: function () {
-                return 0;
-            },
-            _getPhysicsZDiff: function () {
-                return 0;
-            },
             _getPhysicsBody: function () {
                 if (null === this.physicsBody) {
                     var self = this;
@@ -125,12 +122,14 @@ define(["THREE",
                     var hfBody = new CANNON.Body({
                         mass: 81,
                         type: CANNON.DYNAMIC,
-                        angularDamping: 1.0,
-                        linearDamping: 0.9
+                        // angularDamping: 1.0,
+                        // linearDamping: 0.9
                     });
                     hfBody.addShape(shape);
 
                     this.physicsBody = hfBody;
+                    this.physicsBodyPositionOffset.set(0, -4, 0);
+                    this.physicsBodyEulerOffset.set(0, 0, 0);
                 }
 
                 return this.physicsBody;

@@ -41,15 +41,6 @@ define(["THREE",
             _isPhysicsObject: function () {
                 return true;
             },
-            _getPhysicsXDiff: function () {
-                return 0;
-            },
-            _getPhysicsYDiff: function () {
-                return 0;
-            },
-            _getPhysicsZDiff: function () {
-                return 0;
-            },
             _getPhysicsBody: function () {
                 if (null === this.physicsBody) {
                     var self = this;
@@ -63,6 +54,7 @@ define(["THREE",
 
                     this.physicsBody = hfBody;
                     this.physicsBody.position.set(0, 0, 0);
+                    this.physicsBodyEulerOffset.set(0, 0, -90 * Math.PI / 180.0);
                 }
 
                 return this.physicsBody;

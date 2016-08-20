@@ -81,6 +81,7 @@
 
                     var cannonDebugRenderer = new CannonDebugRenderer(scene, world);
                     var clock = new THREE.Clock();
+                    var degrees = 0;
 
                     function render() {
                         requestAnimationFrame(render);
@@ -96,6 +97,7 @@
                         cannonDebugRenderer.update();
 
                         renderer.render(scene, camera);
+                        box.setRotation(0, degrees++ * Math.PI / 180, 0);
                     }
 
                     render();

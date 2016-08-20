@@ -307,21 +307,12 @@ define(["THREE",
 
                 return object3D;
             },
-            update: function (deltaTime, actualTime) {
-
-
-            },
+            // update: function (deltaTime, actualTime) {
+            //
+            //
+            // },
             _isPhysicsObject: function () {
                 return true;
-            },
-            _getPhysicsXDiff: function () {
-                return 0;
-            },
-            _getPhysicsYDiff: function () {
-                return 0;
-            },
-            _getPhysicsZDiff: function () {
-                return 0;
             },
             _getPhysicsBody: function () {
                 if (null === this.physicsBody) {
@@ -340,10 +331,27 @@ define(["THREE",
                     hfBody.position.z += -(this.ud.totalDepth / 2.0) + this.ud.faceDepth;
 
                     this.physicsBody = hfBody;
+
+                    this.physicsBodyEulerOffset.set(-90.0 * Math.PI / 180.0, 0.0, -90 * Math.PI / 180);
+                    this.physicsBodyPositionOffset.set(
+                        -(this.ud.totalWidth / 2.0) + this.ud.faceWidth,
+                        -(this.ud.faceHeight / 2.0) - this.ud.faceHeight,
+                        -(this.ud.totalDepth / 2.0) + this.ud.faceDepth // -6
+                    );
                 }
 
                 return this.physicsBody;
             }
+            // ,
+            // center: function () {
+            //     var temp = new THREE.Euler(-90 * Math.PI / 180.0, 0, 0);
+            //     var quat = new THREE.Quaternion();
+            //     quat.setFromEuler(temp);
+            //     var quat2 = new THREE.Quaternion();
+            //     quat2.setFromEuler(this.physicsBodyEulerOffset);
+            //     quat2.multiply(quat);
+            //     this.physicsBody.quaternion.copy(quat);
+            // }
         });
 
         return classToRet;
