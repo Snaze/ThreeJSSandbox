@@ -17,7 +17,7 @@ define(["THREE",
               window,
               ModalDialog) {
 
-        var classToRet = function (speed) {
+        var classToRet = function (speed, mouseSensitivity, jumpVelocity) {
             GameObjectBase.call(this);
 
             this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -28,8 +28,20 @@ define(["THREE",
             this.displacementVector = new THREE.Vector3(0, 0, 0);
             this.horizontalQuaternion = new THREE.Quaternion();
             this.horizontalEuler = new THREE.Euler();
-            this.speed = speed || 50;
+
+            this.verticalQuaternion = new THREE.Quaternion();
+            this.verticalEuler = new THREE.Euler();
+
+            this.speed = speed || 100;
             this.modalDialog = null;
+            this.clock = new THREE.Clock();
+            this.jumpFrequency = 3;
+            this.lastJumpTime = this.clock.getElapsedTime();
+            this.mouseSensitivity = mouseSensitivity || 0.25;
+            this.jumpVelocity = jumpVelocity || 10.0;
+            this.canJump = false;
+            this.contactNormal = new CANNON.Vec3();
+            this.upAxis = new CANNON.Vec3(0,1,0);
         };
 
         classToRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
@@ -100,18 +112,33 @@ define(["THREE",
                     this.displacementVector.x += 1.0;
                 }
 
-                return this.displacementVector.normalize().multiplyScalar(this.speed);
+                this.displacementVector.normalize();
+                this.displacementVector.multiplyScalar(this.speed);
+                this.displacementVector.applyQuaternion(this.horizontalQuaternion);
+
+                var elapsedTime = this.clock.getElapsedTime();
+                if (this.controlHelper.state.jump &&
+                    (elapsedTime - this.lastJumpTime) > this.jumpFrequency) {
+                    this.displacementVector.y += this.jumpVelocity;
+                    this.lastJumpTime = elapsedTime;
+                    this.canJump = false;
+                }
             },
             _setHorizontalRotation: function () {
 
                 // This is a bad name "mouseDeltaX".  I don't think it's really a delta
-                var toSet = (this.controlHelper.state.mouseDeltaX % 360) * Math.PI / 180.0;
+                var toSet = (-1 * this.controlHelper.state.mouseDeltaX * this.mouseSensitivity % 360) *
+                    Math.PI / 180.0;
                 this.horizontalEuler.set(0, toSet, 0);
                 this.horizontalQuaternion.setFromEuler(this.horizontalEuler);
             },
-            _getVerticalRotationAngleRadians: function () {
+            _setVerticalRotation: function () {
 
-                return (this.controlHelper.state.mouseDeltaY % 180) * Math.PI / 180.0;
+                var toSet = (-1 * (this.controlHelper.state.mouseDeltaY + 90.0) *
+                    this.mouseSensitivity % 180) * Math.PI / 180.0;
+
+                this.verticalEuler.set(toSet, 0, 0);
+                this.verticalQuaternion.setFromEuler(this.verticalEuler);
 
             },
             update: function (deltaTime, actualTime) {
@@ -123,14 +150,17 @@ define(["THREE",
 
                 var physicsBody = this._getPhysicsBody();
                 if (physicsBody) {
-                    this._setDisplacementVector();
                     this._setHorizontalRotation();
+                    this._setVerticalRotation();
+                    this._setDisplacementVector();
 
-                    // this.setRotation(0, -1.0 * Math.PI / 180.0, 0);
+                    this.verticalObject3D.quaternion.copy(this.verticalQuaternion);
 
-                    this._getPhysicsBody().velocity.set(this.displacementVector.x * 10,
-                        this.displacementVector.y * 10, this.displacementVector.z * 10);
+                    physicsBody.velocity.x = this.displacementVector.x;
+                    physicsBody.velocity.z = this.displacementVector.z;
+                    physicsBody.velocity.y += this.displacementVector.y;
 
+                    /** THIS IS UPDATE CODE THAT TIES THE PHYSICS BODY TO THE THREEJS MODEL **/
                     if (this.physicsBodyPositionOffset) {
                         this.position.set(physicsBody.position.x - this.physicsBodyPositionOffset.x,
                                             physicsBody.position.y - this.physicsBodyPositionOffset.y,
@@ -152,8 +182,8 @@ define(["THREE",
                     var self = this;
                     var shape = new CANNON.Sphere(2);
                     var hfBody = new CANNON.Body({
-                        mass: 81,
-                        type: CANNON.DYNAMIC,
+                        mass: 81
+                        // type: CANNON.DYNAMIC,
                         // angularDamping: 1.0,
                         // linearDamping: 0.9
                     });
@@ -162,9 +192,26 @@ define(["THREE",
                     this.physicsBody = hfBody;
                     this.physicsBodyPositionOffset.set(0, -4, 0);
                     this.physicsBodyEulerOffset.set(0, 0, 0);
+
+                    this.physicsBody.addEventListener("collide", $.proxy(this._collide_event, this));
+                    this.physicsBody.id = this.id;
                 }
 
                 return this.physicsBody;
+            },
+            _collide_event: function (e) {
+                var contact = e.contact;
+
+                // contact.bi and contact.bj are the colliding bodies, and contact.ni is the collision normal.
+                // We do not yet know which one is which! Let's check.
+                if(contact.bi.id == this.physicsBody.id)  // bi is the player body, flip the contact normal
+                    contact.ni.negate(this.contactNormal);
+                else
+                    this.contactNormal.copy(contact.ni); // bi is something else. Keep the normal as it is
+
+                // If contactNormal.dot(upAxis) is between 0 and 1, we know that the contact normal is somewhat in the up direction.
+                if(this.contactNormal.dot(this.upAxis) > 0.5) // Use a "good" threshold value between 0 and 1 here!
+                    this.canJump = true;
             }
         });
 

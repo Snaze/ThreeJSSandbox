@@ -38,7 +38,7 @@
                 function (THREE, PhysicsBox, Axes, CANNON, CannonDebugRenderer, Player, $, jqueryUI) {
 
                     var world = new CANNON.World();
-                    world.gravity.set(0, -20, 0.0);
+                    world.gravity.set(0, -9.8, 0.0);
 //            world.broadphase = new CANNON.SAPBroadphase(world);//NaiveBroadphase
                     world.broadphase = new CANNON.NaiveBroadphase();
                     world.solver.iterations = 10;
@@ -64,7 +64,7 @@
                     var player = new Player().init();
                     scene.add(player);
                     player.addPhysicsBodyToWorld(world);
-                    player.setPosition(30, 30, 0);
+                    player.setPosition(30, 50, 0);
 
                     var groundShape = new CANNON.Plane();
                     var groundBody = new CANNON.Body({mass: 0});
@@ -87,7 +87,7 @@
                     scene.add(axes);
 
 
-                    var cannonDebugRenderer = new CannonDebugRenderer(scene, world);
+//                    var cannonDebugRenderer = new CannonDebugRenderer(scene, world);
                     var clock = new THREE.Clock();
 
                     function render() {
@@ -96,13 +96,13 @@
                         var delta = clock.getDelta();
                         var actualTime = clock.getElapsedTime();
 
-                        world.step(1/60);
+                        world.step(delta);
                         player.update(delta, actualTime);
 
                         ground.position.copy(groundBody.position);
                         ground.quaternion.copy(groundBody.quaternion);
 
-                        cannonDebugRenderer.update();
+//                        cannonDebugRenderer.update();
 
                         renderer.render(scene, player.camera);
                     }
