@@ -13,7 +13,7 @@
             height: 100%
         }
     </style>
-    <script src="../../bower_components/requirejs/require.js"></script>
+    <script src="../../../bower_components/requirejs/require.js"></script>
 </head>
 <body>
 
@@ -22,38 +22,33 @@
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
-        requirejs(['THREE', "GameObjects/World", "Axes"], function (THREE, World, Axes) {
+        requirejs(['THREE', "SkyBox", "Axes"], function (THREE, SkyBox, Axes) {
             var scene = new THREE.Scene();
             var camera = new THREE.PerspectiveCamera(55.0, window.innerWidth / window.innerHeight, 0.5, 3000000);
-            camera.position.set(32, 16, 32);
-            camera.lookAt(new THREE.Vector3(0, 0, 0));
+            camera.position.set(0, 0, 0);
             camera.up.set(0, 1, 0);
+            camera.lookAt(new THREE.Vector3(1, 1, 1));
 
             var renderer = new THREE.WebGLRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.shadowMap.enabled = true;
             document.body.appendChild(renderer.domElement);
 
-            var directionalLight = new THREE.DirectionalLight(0xffff55, 1.0);
-            directionalLight.position.set(0, 1, 0);
+            var directionalLight = new THREE.DirectionalLight(0xffff55, 3);
+            directionalLight.position.set(600, 300, 600);
+//            directionalLight.castShadow = true;
             scene.add(directionalLight);
 
-            var sunDirection = new THREE.Vector3();
-            sunDirection.copy(directionalLight.position);
-            sunDirection.normalize();
+            var skyBox = new SkyBox(100000, 100000, 100000, "/assets/textures/LostAtSeaSkybox", "jpg").init();
+            scene.add(skyBox);
 
-            var world = new World({
-                renderer: renderer,
-                camera: camera,
-                scene: scene,
-                sunDirection: sunDirection,
-                seed: Math.random(),
-                continuity: 16.0
-            }).init();
-            world.setBoundingBoxVisible(false, true);
-            scene.add(world);
+            var axes = new Axes(500).init();
+            scene.add(axes);
 
             var clock = new THREE.Clock();
+
+            var angle = 0;
+            var radius = 500;
 
             function render() {
                 requestAnimationFrame(render);
@@ -61,8 +56,11 @@
                 var delta = clock.getDelta();
                 var actual = clock.getElapsedTime();
 
-                world.update(delta, actual);
-//                world.rotation.y += delta * 0.15;
+//                skyBox.rotation.y += delta * 0.5;
+//                waterBox.update(delta, actual);
+//                camera.position.x = radius * Math.cos( angle );
+                camera.rotation.x += delta * 0.25;
+                angle += 0.1;
 
                 renderer.render(scene, camera);
             }

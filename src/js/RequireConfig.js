@@ -19,6 +19,8 @@ require.config({
         "cannon": "bower_components/cannon.js/build/cannon",
         "CannonDebugRenderer" : "bower_components/cannon.js/tools/threejs/CannonDebugRenderer",
         "jquery-ui" : "bower_components/jquery-ui/jquery-ui.min",
+        "text" : "bower_components/text/text",
+        "css" : "bower_components/require-css/css",
 
         /** JS **/
         'Tester': 'src/js/Tester',
@@ -38,17 +40,20 @@ require.config({
         'SingleMeshNoiseLayer': 'src/js/GameObjects/SingleMeshNoiseLayer',
         'WaterBox': 'src/js/GameObjects/WaterBox',
         'SkyBox': 'src/js/GameObjects/SkyBox',
-        'GameObjects': 'src/js/GameObjects/',
+        'GameObjects': 'src/js/GameObjects',
 
         /** JS / UTILITY **/
         "TerrainGenerator": 'src/js/Utility/TerrainGenerator',
-        "util": 'src/js/Utility/',
+        "util": 'src/js/Utility',
+
+        /** WEB **/
+        "web": 'src/js/Web',
 
         /** LIB **/
         "morph": "lib/morph/morph",
         "Immutable": "lib/Immutable/Immutable.min",
 
-        "UnitTests": "src/js/UnitTests/"
+        "UnitTests": "src/js/UnitTests"
     },
     shim: {
         'THREE': {
@@ -100,4 +105,9 @@ require.config({
             }
         }
     }
+    // map: {
+    //     '*': {
+    //         'css': 'bower_components/require-css/css' // or whatever the path to require-css is
+    //     }
+    // }
 });

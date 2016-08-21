@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modal Dialog Test</title>
+    <script src="../../../bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+<input type="button" value="Show Modal Dialog"/>
+
+<script>
+    requirejs(['../../js/RequireConfig'], function (requireConfig) {
+        //js/common sets the baseUrl to be js/ so
+        //can just ask for 'app/main1' here instead
+        //of 'js/app/main1'
+        requirejs(['web/ModalDialog', 'jquery', 'util/Console'],
+                function (ModalDialog, $, console) {
+                    var callback = function (theDialog) {
+                        console.log("Modal Dialog Closed!");
+                    };
+
+                    var modalDialog = new ModalDialog("Title", "Inner Text", callback);
+
+                    $('input').click(function () {
+                        modalDialog.open();
+                    });
+
+                });
+    });
+
+
+</script>
+</body>
+</html>

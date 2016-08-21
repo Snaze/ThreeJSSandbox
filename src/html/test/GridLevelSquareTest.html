@@ -13,7 +13,7 @@
             height: 100%
         }
     </style>
-    <script src="../../bower_components/requirejs/require.js"></script>
+    <script src="../../../bower_components/requirejs/require.js"></script>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
-        requirejs(['THREE', "AugmentedExtrudedEllipse", "Axes"], function (THREE, AugmentedExtrudedEllipse, Axes) {
+        requirejs(['THREE', "GridLevelSquare", "Axes"], function (THREE, GridLevelSquare, Axes) {
             var scene = new THREE.Scene();
             var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -30,19 +30,13 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(renderer.domElement);
 
-//            var ambient = new THREE.AmbientLight(0xFFFFFF);
-//            scene.add(ambient);
-            var light = new THREE.DirectionalLight(0xFFFFFF, 1.0);
-            light.position.set(100, 100, 100);
-            light.target.position.set(0, 0, 0);
-//            light.lookAt(new THREE.Vector3(0, 0, 0));
-            scene.add(light);
+            var ambient = new THREE.AmbientLight(0xFFFFFF);
+            scene.add(ambient);
 
-            // numSplits, length, displacementScale, seed
-            var ellipse = new AugmentedExtrudedEllipse(50, 100.0, 10.0, Math.floor(Math.random() * 100.0)).init();
-//            ellipse.setAxesVisible(true, true);
-            ellipse.setBoundingBoxVisible(true, true);
-            scene.add(ellipse);
+            var square = new GridLevelSquare(10, 50).init();
+            square.setAxesVisible(true);
+            square.setBoundingBoxVisible(true);
+            scene.add(square);
 
             var axes = new Axes(500).init();
             scene.add(axes);
@@ -50,8 +44,6 @@
             camera.position.x = 100;
             camera.position.y = 100;
             camera.position.z = 100;
-
-
 
             camera.lookAt(new THREE.Vector3(0, 0, 0));
 
@@ -61,7 +53,7 @@
                 requestAnimationFrame(render);
                 var delta = clock.getDelta();
 
-                ellipse.rotation.x += 50 * delta * Math.PI / 180.0;
+                square.rotation.y += 50 * delta * Math.PI / 180.0;
 
                 renderer.render(scene, camera);
             }

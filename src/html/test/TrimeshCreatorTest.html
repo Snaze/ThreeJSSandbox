@@ -13,7 +13,7 @@
             height: 100%
         }
     </style>
-    <script src="../../bower_components/requirejs/require.js"></script>
+    <script src="../../../bower_components/requirejs/require.js"></script>
 </head>
 <body>
 
@@ -27,13 +27,13 @@
                     "Axes",
                     "cannon",
                     "CannonDebugRenderer",
-                    "util/GeometryHelper"],
+                    "util/TrimeshCreator"],
                 function (THREE,
                           SingleMeshNoiseLayer,
                           Axes,
                           CANNON,
                           CannonDebugRenderer,
-                          GeometryHelper) {
+                          TrimeshCreator) {
 
                     var world = new CANNON.World();
                     world.gravity.set(0, -16, 0);
@@ -68,7 +68,8 @@
                     terrain.vertices.push(new THREE.Vector3(0, 0, 0));
                     terrain.vertices.push(new THREE.Vector3(100, 0, 0));
                     terrain.faces.push(new THREE.Face3(2, 1, 0));
-                    terrain = GeometryHelper.subdivideFaces(terrain, 2);
+
+
 //                    terrain = GeometryHelper.subdivideFaces(terrain);
 
                     var material = new THREE.MeshBasicMaterial({color: 0x00FF00});
@@ -77,11 +78,8 @@
                     scene.add(terrainMesh);
 //            terrainMesh.position.y = 25;
 
-                    var shape = new CANNON.Trimesh([0, 0, 100, //
-                        0, 0, 0, //
-                        100, 0, 0], [2, 1, 0]);// ], this.physicsVertexIndices);
-//            shape.updateEdges();
-//            shape.updateNormals();
+                    var tc = new TrimeshCreator(terrainMesh.geometry, 2);
+                    var shape = tc.create();
                     var terrainBody = new CANNON.Body({
                         mass: 0
                     });

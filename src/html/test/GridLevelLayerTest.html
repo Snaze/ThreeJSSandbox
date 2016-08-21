@@ -13,7 +13,7 @@
             height: 100%
         }
     </style>
-    <script src="../../bower_components/requirejs/require.js"></script>
+    <script src="../../../bower_components/requirejs/require.js"></script>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
-        requirejs(['THREE', "GridLevelSquare", "Axes"], function (THREE, GridLevelSquare, Axes) {
+        requirejs(['THREE', "GridLevelLayer", "Axes"], function (THREE, GridLevelLayer, Axes) {
             var scene = new THREE.Scene();
             var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -33,17 +33,17 @@
             var ambient = new THREE.AmbientLight(0xFFFFFF);
             scene.add(ambient);
 
-            var square = new GridLevelSquare(10, 50).init();
-            square.setAxesVisible(true);
-            square.setBoundingBoxVisible(true);
-            scene.add(square);
+            var area = new GridLevelLayer(128, 128, 1, 1, Math.random(), 8.0, 6).init();
+//            section.setAxesVisible(true, true);
+            area.setBoundingBoxVisible(false, true);
+            scene.add(area);
 
             var axes = new Axes(500).init();
             scene.add(axes);
 
-            camera.position.x = 100;
-            camera.position.y = 100;
-            camera.position.z = 100;
+            camera.position.x = 50;
+            camera.position.y = 10;
+            camera.position.z = 50;
 
             camera.lookAt(new THREE.Vector3(0, 0, 0));
 
@@ -53,7 +53,8 @@
                 requestAnimationFrame(render);
                 var delta = clock.getDelta();
 
-                square.rotation.y += 50 * delta * Math.PI / 180.0;
+                camera.position.z -= 0.5;
+//                area.rotation.y += 5 * delta * Math.PI / 180.0;
 
                 renderer.render(scene, camera);
             }

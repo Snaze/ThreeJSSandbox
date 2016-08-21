@@ -13,7 +13,7 @@
             height: 100%
         }
     </style>
-    <script src="../../bower_components/requirejs/require.js"></script>
+    <script src="../../../bower_components/requirejs/require.js"></script>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
-        requirejs(['THREE', "GridLevelOctogon", "Axes"], function (THREE, GridLevelOctogon, Axes) {
+        requirejs(['THREE', "GridLevelSection", "Axes"], function (THREE, GridLevelSection, Axes) {
             var scene = new THREE.Scene();
             var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -33,10 +33,10 @@
             var ambient = new THREE.AmbientLight(0xFFFFFF);
             scene.add(ambient);
 
-            var octogon = new GridLevelOctogon(10, 50).init();
-            octogon.setAxesVisible(true);
-            octogon.setBoundingBoxVisible(true);
-            scene.add(octogon);
+            var section = new GridLevelSection(25, 50).init();
+//            section.setAxesVisible(true, true);
+            section.setBoundingBoxVisible(true, true);
+            scene.add(section);
 
             var axes = new Axes(500).init();
             scene.add(axes);
@@ -53,7 +53,7 @@
                 requestAnimationFrame(render);
                 var delta = clock.getDelta();
 
-                octogon.rotation.y += 50 * delta * Math.PI / 180.0;
+                section.rotation.y += 50 * delta * Math.PI / 180.0;
 
                 renderer.render(scene, camera);
             }
