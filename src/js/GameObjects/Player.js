@@ -17,7 +17,7 @@ define(["THREE",
               window,
               ModalDialog) {
 
-        var classToRet = function (speed, mouseSensitivity, jumpVelocity) {
+        var classToRet = function (speed, mouseSensitivity, jumpVelocity, faceDimension) {
             GameObjectBase.call(this);
 
             this.camera = new THREE.PerspectiveCamera(55.0, window.innerWidth / window.innerHeight, 0.5, 3000000);
@@ -31,17 +31,22 @@ define(["THREE",
 
             this.verticalQuaternion = new THREE.Quaternion();
             this.verticalEuler = new THREE.Euler();
+            this.faceDimension = faceDimension || 1;
 
-            this.speed = speed || 100;
+            this.speed = (speed || 8) * this.faceDimension;
             this.modalDialog = null;
             this.clock = new THREE.Clock();
-            this.jumpFrequency = 3;
+            this.jumpFrequency = 1;
             this.lastJumpTime = this.clock.getElapsedTime();
-            this.mouseSensitivity = mouseSensitivity || 0.25;
-            this.jumpVelocity = jumpVelocity || 10.0;
+            this.mouseSensitivity = mouseSensitivity || 0.22;
+            this.jumpVelocity = (jumpVelocity || 4.0) * this.faceDimension;
             this.canJump = false;
             this.contactNormal = new CANNON.Vec3();
             this.upAxis = new CANNON.Vec3(0,1,0);
+
+            this.boxWidth = null;
+            this.boxHeight = null;
+            this.boxDepth = null;
         };
 
         classToRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
@@ -76,14 +81,22 @@ define(["THREE",
 
                 var object3D = new THREE.Object3D();
 
-                var shape = new THREE.BoxGeometry(2, 8, 1, 1, 1, 1);
+                this.boxWidth = 0.25 * this.faceDimension;
+                this.boxHeight = 1 * this.faceDimension;
+                this.boxDepth = 0.25 * this.faceDimension;
+                var cameraPosition = this.boxHeight - (this.boxHeight / 4);
+
+                var shape = new THREE.BoxGeometry(this.boxWidth,
+                    this.boxHeight,
+                    this.boxDepth,
+                    1, 1, 1);
                 var material = new THREE.MeshLambertMaterial({color: 0x00FF0F});
                 var mesh = new THREE.Mesh(shape, material);
                 shape.center();
 
                 if (this.camera) {
                     this.verticalObject3D = new THREE.Object3D();
-                    this.verticalObject3D.position.set(0, 7.5, 0);
+                    this.verticalObject3D.position.set(0, cameraPosition, 0);
                     this.verticalObject3D.add(this.camera);
                     object3D.add(this.verticalObject3D);
                 }
@@ -117,7 +130,7 @@ define(["THREE",
                 this.displacementVector.applyQuaternion(this.horizontalQuaternion);
 
                 var elapsedTime = this.clock.getElapsedTime();
-                if (this.controlHelper.state.jump &&
+                if (this.controlHelper.state.jump && this.canJump &&
                     (elapsedTime - this.lastJumpTime) > this.jumpFrequency) {
                     this.displacementVector.y += this.jumpVelocity;
                     this.lastJumpTime = elapsedTime;
@@ -170,6 +183,7 @@ define(["THREE",
                     }
 
                     this.quaternion.copy(this.horizontalQuaternion);
+
                 }
 
 
@@ -180,7 +194,7 @@ define(["THREE",
             _getPhysicsBody: function () {
                 if (null === this.physicsBody) {
                     var self = this;
-                    var shape = new CANNON.Sphere(2);
+                    var shape = new CANNON.Sphere(this.boxHeight);
                     var hfBody = new CANNON.Body({
                         mass: 81
                         // type: CANNON.DYNAMIC,
@@ -190,7 +204,7 @@ define(["THREE",
                     hfBody.addShape(shape);
 
                     this.physicsBody = hfBody;
-                    this.physicsBodyPositionOffset.set(0, -4, 0);
+                    this.physicsBodyPositionOffset.set(0, 0, 0);
                     this.physicsBodyEulerOffset.set(0, 0, 0);
 
                     this.physicsBody.addEventListener("collide", $.proxy(this._collide_event, this));

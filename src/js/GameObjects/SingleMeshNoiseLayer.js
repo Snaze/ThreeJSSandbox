@@ -93,9 +93,12 @@ define(["THREE",
                     dirtTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
                     dirtTexture.repeat.set( 1.0, 1.0);
 
-                    var grassMaterial = new THREE.MeshLambertMaterial({map: grassTexture });
-                    var dirtMaterial = new THREE.MeshLambertMaterial({map: dirtTexture});
-                    var transparentMaterial = new THREE.MeshBasicMaterial({transparent: true, opacity: 0});
+                    var grassMaterial = new THREE.MeshLambertMaterial({map: grassTexture, side: THREE.FrontSide });
+                    var dirtMaterial = new THREE.MeshLambertMaterial({map: dirtTexture, side: THREE.FrontSide });
+                    var transparentMaterial = new THREE.MeshBasicMaterial({transparent: true,
+                        opacity: 0,
+                        side: THREE.DoubleSide
+                    });
                     var materialArray = [];
                     materialArray.push(grassMaterial);
                     materialArray.push(dirtMaterial);
@@ -171,6 +174,11 @@ define(["THREE",
                 geometry.faces.push(face1);
                 geometry.faceVertexUvs[0].push([new THREE.Vector2(0, 1),new THREE.Vector2(1, 1),new THREE.Vector2(0, 0)]);
             },
+            // _mapTexture: function (geometry, vertex0, vertex1, vertex2) {
+            //     var vertex1 = geometry.vertices[face.a];
+            //     var vertex2 = geometry.vertices[face.b];
+            //     var vertex3 = geometry.vertices[face.c];
+            // },
 
             _getYValueFromSimplexNoise: function (x, z) {
                 var simplexValue;

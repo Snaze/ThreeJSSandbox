@@ -41,7 +41,7 @@ define([
             this.sunDirection = args.sunDirection || WorldConfig.sunDirection;
             this.gravity = args.gravity || WorldConfig.gravity;
 
-            this.player = new Player();
+            this.player = new Player(8, 0.22, 4.0, this.faceWidth);
             this.camera = this.player.camera;
 
             this.singleMeshNoiseLayer = new SingleMeshNoiseLayer(this.width, this.depth, this.seed,
@@ -60,6 +60,7 @@ define([
             this.physicsWorld.gravity.set(0, this.gravity, 0.0);
             this.physicsWorld.broadphase = new CANNON.NaiveBroadphase();
             this.physicsWorld.solver.iterations = 10;
+
         };
 
 
@@ -67,7 +68,7 @@ define([
 
             _subInit: function () {
                 this.player.init();
-                this.player.setPosition(0, 200, 0);
+                this.player.setPosition(0, 50, 0);
                 this.singleMeshNoiseLayer.init();
                 this.skyBox.init();
                 this.waterBox.init();
