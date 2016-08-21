@@ -22,21 +22,6 @@
 </head>
 <body>
 
-<!-- ui-dialog -->
-<div class="ui-widget-overlay ui-front">Play!</div>
-<div id="dialogPointerLock" class="ui-widget ui-front ui-widget-content ui-corner-all ui-widget-shadow no-close">
-    W = Forward<br/>
-    S = Back<br/>
-    A = Left<br/>
-    D = Right<br/>
-    SPACE = Jump<br/>
-    Right-Click = Use<br/>
-    Left-Click = Shoot<br/>
-    <br />
-    <br/>
-    Click the button below to play!
-</div>
-
 <script>
     requirejs(['../../js/RequireConfig'], function (requireConfig) {
         //js/common sets the baseUrl to be js/ so
@@ -59,11 +44,7 @@
                     world.solver.iterations = 10;
 
                     var scene = new THREE.Scene();
-                    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-                    camera.position.set(50, 50, 100);
-//                    camera.lookAt(new THREE.Vector3(0, 0, 0));
-                    camera.up.set(0, 1, 0);
 
                     var renderer = new THREE.WebGLRenderer();
                     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -80,10 +61,9 @@
                     light.target.position.set(0, 0, 0);
                     scene.add(light);
 
-                    var player = new Player(camera).init();
+                    var player = new Player().init();
                     scene.add(player);
                     player.addPhysicsBodyToWorld(world);
-//                    player.setRotation(0, 45 * Math.PI / 180, 0);
                     player.setPosition(30, 30, 0);
 
                     var groundShape = new CANNON.Plane();
@@ -124,31 +104,10 @@
 
                         cannonDebugRenderer.update();
 
-                        renderer.render(scene, camera);
+                        renderer.render(scene, player.camera);
                     }
 
                     render();
-
-                    var openDialog = function () {
-                        $('#dialogPointerLock').dialog("open");
-//                        player.unBindControls();
-                    };
-
-                    $('#dialogPointerLock').dialog({
-                        buttons: [
-                            {
-                                dialogClass: "no-close",
-                                title: "Play!",
-                                text: "OK",
-                                click: function() {
-                                    player.bindControls(openDialog);
-                                    $( this ).dialog( "close" );
-                                }
-                            }
-                        ],
-                        autoOpen: true
-                    });
-
 
                 });
 

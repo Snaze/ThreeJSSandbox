@@ -5,18 +5,23 @@ define(["THREE",
         "util/ArrayUtils",
         "cannon",
         "util/Console",
-        "util/ControlHelper"],
+        "util/ControlHelper",
+        "util/Window",
+        "web/ModalDialog"],
     function (THREE,
               GameObjectBase,
               ArrayUtils,
               CANNON,
               console,
-              ControlHelper) {
+              ControlHelper,
+              window,
+              ModalDialog) {
 
-        var classToRet = function (camera, speed) {
+        var classToRet = function (speed) {
             GameObjectBase.call(this);
 
-            this.camera = camera;
+            this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            this.camera.up.set(0, 1, 0);
             this.verticalObject3D = null;
             this.controlHelper = new ControlHelper();
 
@@ -24,20 +29,35 @@ define(["THREE",
             this.horizontalQuaternion = new THREE.Quaternion();
             this.horizontalEuler = new THREE.Euler();
             this.speed = speed || 50;
+            this.modalDialog = null;
         };
 
         classToRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
 
+            _modalDialogClosed: function (theDialog) {
+                this.controlHelper.bindEvents($.proxy(this._unBindControls, this));
+            },
+
             _subInit: function () {
+                this.modalDialog = new ModalDialog("Get Ready to Play!",
+                                                    "W = Forward<br/>" +
+                                                    "S = Back<br/>" +
+                                                    "A = Left<br/>" +
+                                                    "D = Right<br/>" +
+                                                    "SPACE = Jump<br/>" +
+                                                    "Right-Click = Use<br/>" +
+                                                    "Left-Click = Shoot<br/>" +
+                                                    "<br/>" +
+                                                    "<br/>" +
+                                                    "Click the button below to play!",
+                                                    $.proxy(this._modalDialogClosed, this));
 
+                this.modalDialog.open();
             },
 
-            bindControls: function (unbindCallback) {
-                this.controlHelper.bindEvents(unbindCallback);
-            },
-
-            unBindControls: function () {
+            _unBindControls: function () {
                 this.controlHelper.unbindEvents();
+                this.modalDialog.open();
             },
 
             _createObject: function () {

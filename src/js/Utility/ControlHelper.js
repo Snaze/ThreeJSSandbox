@@ -255,7 +255,9 @@ define(["jquery",
             }
 
             if (this.unbindCallback) {
-                this.unbindCallback();
+                var temp = this.unbindCallback;
+                this.unbindCallback = null;
+                temp();
             }
         }
     };
