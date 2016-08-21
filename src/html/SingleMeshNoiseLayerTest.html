@@ -116,6 +116,11 @@
                         cannonDebugRenderer.update();
 
                         renderer.render(scene, camera);
+
+                        if (degrees >= 360) {
+                            degrees = 0;
+                        }
+
                         noiseLayer.setRotation(0, degrees++ * Math.PI / 180.0, 0);
                     }
 

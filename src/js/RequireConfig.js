@@ -18,6 +18,7 @@ require.config({
         "PointerLockControls": "bower_components/three.js/examples/js/controls/PointerLockControls",
         "cannon": "bower_components/cannon.js/build/cannon",
         "CannonDebugRenderer" : "bower_components/cannon.js/tools/threejs/CannonDebugRenderer",
+        "jquery-ui" : "bower_components/jquery-ui/jquery-ui.min",
 
         /** JS **/
         'Tester': 'src/js/Tester',
@@ -98,8 +99,5 @@ require.config({
                 QUnit.config.autostart = false;
             }
         }
-        // 'gaussian': {
-        //     exports: 'gaussian'
-        // }
     }
 });

@@ -180,7 +180,9 @@ define(["THREE",
                     simplexValue = this.noise.simplex2(x / this.ud.continuity, z / this.ud.continuity);
                 }
 
-                this.noiseImage[z][x] = simplexValue;
+                if (z < this.noiseImage.length && x < this.noiseImage[0].length) {
+                    this.noiseImage[z][x] = simplexValue;
+                }
 
                 var normalizedSimplexValue = (simplexValue + 1.0) / 2.0; // Bring into 0 to 1 range
                 var levelNumber = Math.floor(normalizedSimplexValue * this.ud.numLevels) + 1;
@@ -188,7 +190,9 @@ define(["THREE",
                     levelNumber = this.ud.numLevels;
                 }
 
-                this.binaryImages[levelNumber - 1][z][x] = 1;
+                if (z < this.binaryImages.length && x < this.binaryImages[0].length) {
+                    this.binaryImages[levelNumber - 1][z][x] = 1;
+                }
 
                 return levelNumber * this.ud.faceHeight;
                 // return 0;
@@ -217,17 +221,21 @@ define(["THREE",
                 var cellBelow;
                 var cellLeft;
                 this.heightFieldMatrix = [];
+                // var baseSimplexValue = this._getYValueFromSimplexNoise(0, 0);
+
 
                 for (var z = 0; z < this.ud.height; z++) {
 
                     yValueGrid[z] = [];
                     this.heightFieldMatrix[z] = [];
+
                     // this.heightFieldMatrix[z].push(this.ud.faceHeight, this.ud.faceHeight, this.ud.faceHeight);
 
                     for (var x = 0; x < this.ud.width; x++) {
 
                         yValue = this._getYValueFromSimplexNoise(x, z);
-                        this.heightFieldMatrix[z][x] = yValue;
+
+                        this.heightFieldMatrix[z].push(yValue);
 
                         if ((x === 0) && (z === 0)) {
                             yValues = [yValue, yValue, yValue, yValue];
@@ -250,7 +258,9 @@ define(["THREE",
                             yValueGrid[z][x] = yValues;
                         }
 
-                        this._createSquare(toRet, x, yValues, z);
+                        if (z < this.ud.height && x < this.ud.width) {
+                            this._createSquare(toRet, x, yValues, z);
+                        }
                     }
 
 
@@ -307,10 +317,6 @@ define(["THREE",
 
                 return object3D;
             },
-            // update: function (deltaTime, actualTime) {
-            //
-            //
-            // },
             _isPhysicsObject: function () {
                 return true;
             },
@@ -331,36 +337,13 @@ define(["THREE",
                         -(this.ud.totalDepth / 2.0) + this.ud.faceDepth
                     ), quat);
 
-                    // hfBody.quaternion.setFromEuler(-90 * Math.PI / 180, 0, -90 * Math.PI / 180);
-
                     this.physicsBody = hfBody;
 
-                    // hfBody.position.x += -(this.ud.totalWidth / 2.0) + this.ud.faceWidth;
-                    // hfBody.position.y += -(this.ud.faceHeight / 2.0) - this.ud.faceHeight;
-                    // hfBody.position.z += -(this.ud.totalDepth / 2.0) + this.ud.faceDepth;
-                    //
-
-                    //
-                    // this.physicsBodyEulerOffset.set(-90.0 * Math.PI / 180.0, 0.0, -90 * Math.PI / 180);
-                    // this.physicsBodyPositionOffset.set(
-                    //     -(this.ud.totalWidth / 2.0) + this.ud.faceWidth,
-                    //     -(this.ud.faceHeight / 2.0) - this.ud.faceHeight,
-                    //     -(this.ud.totalDepth / 2.0) + this.ud.faceDepth // -6
-                    // );
                 }
 
                 return this.physicsBody;
             }
-            // ,
-            // center: function () {
-            //     var temp = new THREE.Euler(-90 * Math.PI / 180.0, 0, 0);
-            //     var quat = new THREE.Quaternion();
-            //     quat.setFromEuler(temp);
-            //     var quat2 = new THREE.Quaternion();
-            //     quat2.setFromEuler(this.physicsBodyEulerOffset);
-            //     quat2.multiply(quat);
-            //     this.physicsBody.quaternion.copy(quat);
-            // }
+
         });
 
         return classToRet;

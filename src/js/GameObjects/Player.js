@@ -13,7 +13,7 @@ define(["THREE",
               console,
               ControlHelper) {
 
-        var classToRet = function (camera) {
+        var classToRet = function (camera, speed) {
             GameObjectBase.call(this);
 
             this.camera = camera;
@@ -22,12 +22,22 @@ define(["THREE",
 
             this.displacementVector = new THREE.Vector3(0, 0, 0);
             this.horizontalQuaternion = new THREE.Quaternion();
+            this.horizontalEuler = new THREE.Euler();
+            this.speed = speed || 50;
         };
 
         classToRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
 
             _subInit: function () {
 
+            },
+
+            bindControls: function (unbindCallback) {
+                this.controlHelper.bindEvents(unbindCallback);
+            },
+
+            unBindControls: function () {
+                this.controlHelper.unbindEvents();
             },
 
             _createObject: function () {
@@ -43,6 +53,7 @@ define(["THREE",
                     this.verticalObject3D = new THREE.Object3D();
                     this.verticalObject3D.position.set(0, 7.5, 0);
                     this.verticalObject3D.add(this.camera);
+                    object3D.add(this.verticalObject3D);
                 }
 
                 object3D.add(mesh);
@@ -69,18 +80,18 @@ define(["THREE",
                     this.displacementVector.x += 1.0;
                 }
 
-                return this.displacementVector.normalize();
+                return this.displacementVector.normalize().multiplyScalar(this.speed);
             },
-            _setHorizontalQuaternion: function () {
+            _setHorizontalRotation: function () {
 
                 // This is a bad name "mouseDeltaX".  I don't think it's really a delta
-                var toSet = (this.controlHelper.mouseDeltaX % 360) * Math.PI / 180.0;
-                this.horizontalQuaternion.setFromEuler(new THREE.Euler(0, toSet, 0));
-
+                var toSet = (this.controlHelper.state.mouseDeltaX % 360) * Math.PI / 180.0;
+                this.horizontalEuler.set(0, toSet, 0);
+                this.horizontalQuaternion.setFromEuler(this.horizontalEuler);
             },
             _getVerticalRotationAngleRadians: function () {
 
-                return (this.controlHelper.mouseDeltaY % 180) * Math.PI / 180.0;
+                return (this.controlHelper.state.mouseDeltaY % 180) * Math.PI / 180.0;
 
             },
             update: function (deltaTime, actualTime) {
@@ -92,12 +103,13 @@ define(["THREE",
 
                 var physicsBody = this._getPhysicsBody();
                 if (physicsBody) {
-                    // this._setDisplacementVector();
-                    // this._setHorizontalQuaternion();
-                    //
-                    // this.displacementVector.applyQuaternion(this.horizontalQuaternion);
-                    // physicsBody.velocity.set(this.displacementVector.x,
-                    //     this.displacementVector.y, this.displacementVector.z);
+                    this._setDisplacementVector();
+                    this._setHorizontalRotation();
+
+                    // this.setRotation(0, -1.0 * Math.PI / 180.0, 0);
+
+                    this._getPhysicsBody().velocity.set(this.displacementVector.x * 10,
+                        this.displacementVector.y * 10, this.displacementVector.z * 10);
 
                     if (this.physicsBodyPositionOffset) {
                         this.position.set(physicsBody.position.x - this.physicsBodyPositionOffset.x,
@@ -106,8 +118,8 @@ define(["THREE",
                     } else {
                         this.position.copy(physicsBody.position);
                     }
-                    // We only want the updated position
-                    // this.quaternion.copy(physicsBody.quaternion);
+
+                    this.quaternion.copy(this.horizontalQuaternion);
                 }
 
 

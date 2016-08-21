@@ -66,6 +66,8 @@ define(["jquery",
         document.exitPointerLock = document.exitPointerLock ||
             document.mozExitPointerLock ||
             document.webkitExitPointerLock;
+
+        this.unbindCallback = null;
     };
 
     controlHelper.FORWARD = "forward";
@@ -218,7 +220,7 @@ define(["jquery",
             console.log("Pointer Lock Error");
             console.log(event);
         },
-        bindEvents: function () {
+        bindEvents: function (unbindCallback) {
             $(document).on("keydown", $.proxy(this._keyDown, this));
             $(document).on("keyup", $.proxy(this._keyUp, this));
             $(document).on("mousedown", $.proxy(this._mouseDown, this));
@@ -233,6 +235,8 @@ define(["jquery",
             } else {
                 console.log("this.element.requestPointerLock does not exist.");
             }
+
+            this.unbindCallback = unbindCallback;
         },
         unbindEvents: function () {
             $(document).off("keydown");
@@ -248,6 +252,10 @@ define(["jquery",
                 document.exitPointerLock();
             } else {
                 console.log("this.element.exitPointerLock does not exist.");
+            }
+
+            if (this.unbindCallback) {
+                this.unbindCallback();
             }
         }
     };
