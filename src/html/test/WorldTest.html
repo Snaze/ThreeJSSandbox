@@ -18,16 +18,12 @@
 <body>
 
 <script>
-    requirejs(['../js/RequireConfig'], function (requireConfig) {
+    requirejs(['../../js/RequireConfig'], function (requireConfig) {
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
         requirejs(['THREE', "GameObjects/World", "Axes"], function (THREE, World, Axes) {
             var scene = new THREE.Scene();
-            var camera = new THREE.PerspectiveCamera(55.0, window.innerWidth / window.innerHeight, 0.5, 3000000);
-            camera.position.set(32, 16, 32);
-            camera.lookAt(new THREE.Vector3(0, 0, 0));
-            camera.up.set(0, 1, 0);
 
             var renderer = new THREE.WebGLRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
@@ -44,16 +40,15 @@
 
             var world = new World({
                 renderer: renderer,
-                camera: camera,
                 scene: scene,
                 sunDirection: sunDirection,
-                seed: Math.random(),
-                continuity: 16.0
+                seed: Math.random()
             }).init();
             world.setBoundingBoxVisible(false, true);
             scene.add(world);
 
             var clock = new THREE.Clock();
+            var camera = world.player.camera;
 
             function render() {
                 requestAnimationFrame(render);

@@ -1,7 +1,7 @@
 "use strict";
 
-define(["THREE", "WaterShader", "GameObjectBase"],
-    function (THREE, WaterShader, GameObjectBase) {
+define(["THREE", "WaterShader", "GameObjectBase", "util/PathHelper"],
+    function (THREE, WaterShader, GameObjectBase, PathHelper) {
 
         var classToRet = function (width, height, depth, renderer, camera, scene, sunDirection) {
             GameObjectBase.call(this);
@@ -41,7 +41,8 @@ define(["THREE", "WaterShader", "GameObjectBase"],
                 if (!(key in classToRet.material)) {
                     // Load textures
                     var textureLoader = new THREE.TextureLoader();
-                    var waterNormals = textureLoader.load('../../lib/ocean/assets/img/waternormals.jpg');
+                    var waterNormalPath = PathHelper.absolutePath('lib/ocean/assets/img/waternormals.jpg');
+                    var waterNormals = textureLoader.load(waterNormalPath);
                     waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
                     var self = this;
 

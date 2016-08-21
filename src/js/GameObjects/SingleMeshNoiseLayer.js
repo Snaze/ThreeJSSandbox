@@ -8,7 +8,8 @@ define(["THREE",
         "util/ArrayUtils",
         "cannon",
         "util/Console",
-        "util/MeshHelper"],
+        "util/MeshHelper",
+        "util/PathHelper"],
     function (THREE,
               GridLevelSection,
               Noise,
@@ -17,7 +18,8 @@ define(["THREE",
               ArrayUtils,
               CANNON,
               console,
-              MeshHelper) {
+              MeshHelper,
+              PathHelper) {
 
         var classToRet = function (width, height, seed, continuity, numLevels, faceWidth, faceHeight, faceDepth) {
             GameObjectBase.call(this);
@@ -81,11 +83,13 @@ define(["THREE",
 
                 if (!(key in classToRet.material)) {
                     var textureLoader = new THREE.TextureLoader();
-                    var grassTexture = textureLoader.load('../../assets/textures/grass1.jpg');
+                    var grassPath = PathHelper.absolutePath('assets/textures/grass1.jpg');
+                    var grassTexture = textureLoader.load(grassPath);
                     grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
                     grassTexture.repeat.set( 1.0, 1.0);
 
-                    var dirtTexture = textureLoader.load('../../assets/textures/dirt1.jpg');
+                    var dirtPath = PathHelper.absolutePath('assets/textures/dirt1.jpg');
+                    var dirtTexture = textureLoader.load(dirtPath);
                     dirtTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
                     dirtTexture.repeat.set( 1.0, 1.0);
 

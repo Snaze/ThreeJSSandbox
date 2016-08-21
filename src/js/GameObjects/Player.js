@@ -20,7 +20,7 @@ define(["THREE",
         var classToRet = function (speed, mouseSensitivity, jumpVelocity) {
             GameObjectBase.call(this);
 
-            this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            this.camera = new THREE.PerspectiveCamera(55.0, window.innerWidth / window.innerHeight, 0.5, 3000000);
             this.camera.up.set(0, 1, 0);
             this.verticalObject3D = null;
             this.controlHelper = new ControlHelper();
