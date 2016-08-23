@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UVs Debug Test</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%
+        }
+    </style>
+    <script src="../../../bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+<script>
+    requirejs(['../../js/RequireConfig'], function (requireConfig) {
+        //js/common sets the baseUrl to be js/ so
+        //can just ask for 'app/main1' here instead
+        //of 'js/app/main1'
+        requirejs(['THREE', "SingleMeshNoiseLayer", "UVsDebug"],
+                function (THREE, SingleMeshNoiseLayer, UVsDebug) {
+
+                    function test(name, geometry) {
+
+                        var d = document.createElement( 'div' );
+
+                        d.innerHTML = '<br><br>' + name + '<br>';
+
+                        d.appendChild( UVsDebug( geometry ) );
+
+                        document.body.appendChild( d );
+
+                    }
+
+                    var dimension = 3;
+
+                    var height = 4.0;
+                    var numLevels = 3;
+                    var noiseLayer = new SingleMeshNoiseLayer(dimension, dimension, 1, 32.0, numLevels, 1.0, height, 1.0).init();
+                    var geometry = noiseLayer.children[0].children[0].geometry;
+
+                    test("SingleMeshNoiseLayer", geometry);
+                });
+    });
+
+
+</script>
+</body>
+</html>

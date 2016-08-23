@@ -9,6 +9,8 @@ require.config({
         'DDSLoader': 'bower_components/three.js/examples/js/loaders/DDSLoader',
         'MTLLoader': 'bower_components/three.js/examples/js/loaders/MTLLoader',
         "WaterShader": "bower_components/three.js/examples/js/WaterShader",
+        "UVsDebug": "bower_components/three.js/examples/js/utils/UVsDebug",
+        "hull": "bower_components/hull-js/dist/hull",
         "Mirror": "bower_components/three.js/examples/js/Mirror",
         'gaussian': 'bower_components/gaussian/lib/gaussian',
         'seedrandom': 'bower_components/seedrandom/seedrandom',
@@ -82,6 +84,10 @@ require.config({
         'WaterShader': {
             deps: ['THREE', 'Mirror'],
             exports: 'THREE.Water'
+        },
+        'UVsDebug': {
+            deps: ['THREE'],
+            exports: 'THREE.UVsDebug'
         },
         "noisejs": {
             exports: "Noise"

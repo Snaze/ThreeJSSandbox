@@ -18,7 +18,7 @@
 <body>
 
 <script>
-    requirejs(['../js/RequireConfig'], function (requireConfig) {
+    requirejs(['../../js/RequireConfig'], function (requireConfig) {
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
@@ -55,11 +55,11 @@
 //            light.lookAt(new THREE.Vector3(0, 0, 0));
                     scene.add(light);
 
-                    var dimension = 8;
+                    var dimension = 4;
 
                     var height = 4.0;
                     var numLevels = 3;
-                    var noiseLayer = new SingleMeshNoiseLayer(dimension, dimension, Math.random(), 32.0, numLevels, 1.0, height, 1.0).init();
+                    var noiseLayer = new SingleMeshNoiseLayer(dimension, dimension, 1.0, 32.0, numLevels, 1.0, height, 1.0).init();
 //            section.setAxesVisible(true, true);
                     noiseLayer.setBoundingBoxVisible(true, true);
 //            noiseLayer.visible = false;

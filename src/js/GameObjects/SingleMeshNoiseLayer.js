@@ -21,7 +21,7 @@ define(["THREE",
               MeshHelper,
               PathHelper) {
 
-        var classToRet = function (width, height, seed, continuity, numLevels, faceWidth, faceHeight, faceDepth) {
+        var SingleMeshNoiseLayer = function (width, height, seed, continuity, numLevels, faceWidth, faceHeight, faceDepth) {
             GameObjectBase.call(this);
 
             this.ud.width = width;
@@ -54,13 +54,13 @@ define(["THREE",
 
         };
 
-        classToRet.geometry = {};
-        classToRet.material = {};
-        classToRet.GRASS_MATERIAL = 0;
-        classToRet.DIRT_MATERIAL = 1;
-        classToRet.TRANSPARENT_MATERIAL = 2;
+        SingleMeshNoiseLayer.geometry = {};
+        SingleMeshNoiseLayer.material = {};
+        SingleMeshNoiseLayer.GRASS_MATERIAL = 0;
+        SingleMeshNoiseLayer.DIRT_MATERIAL = 1;
+        SingleMeshNoiseLayer.TRANSPARENT_MATERIAL = 2;
 
-        classToRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
+        SingleMeshNoiseLayer.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
             getKey: function () {
                 return this.ud.width.toString() +
                     " " + this.ud.height.toString() +
@@ -71,27 +71,28 @@ define(["THREE",
 
             getGeometry: function () {
                 var key = this.getKey();
-                if (!(key in classToRet.geometry)) {
-                    classToRet.geometry[key] = this._createGeometry();
+                if (!(key in SingleMeshNoiseLayer.geometry)) {
+                    SingleMeshNoiseLayer.geometry[key] = this._createGeometry();
                 }
 
-                return classToRet.geometry[key];
+                return SingleMeshNoiseLayer.geometry[key];
             },
 
             getMaterial: function () {
                 var key = this.getKey();
 
-                if (!(key in classToRet.material)) {
+                if (!(key in SingleMeshNoiseLayer.material)) {
                     var textureLoader = new THREE.TextureLoader();
                     var grassPath = PathHelper.absolutePath('assets/textures/grass1.jpg');
                     var grassTexture = textureLoader.load(grassPath);
                     grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
                     grassTexture.repeat.set( 1.0, 1.0);
 
-                    var dirtPath = PathHelper.absolutePath('assets/textures/dirt1.jpg');
+                    var dirtPath = PathHelper.absolutePath('assets/textures/r_border.png');
+                    // var dirtPath = PathHelper.absolutePath('assets/textures/dirt1.jpg');
                     var dirtTexture = textureLoader.load(dirtPath);
-                    dirtTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
-                    dirtTexture.repeat.set( 1.0, 1.0);
+                    // dirtTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
+                    // dirtTexture.repeat.set( 4.0, 4.0);
 
                     var grassMaterial = new THREE.MeshLambertMaterial({map: grassTexture, side: THREE.FrontSide });
                     var dirtMaterial = new THREE.MeshLambertMaterial({map: dirtTexture, side: THREE.FrontSide });
@@ -107,10 +108,10 @@ define(["THREE",
                     // dirtMaterial.polygonOffset = true;
                     // dirtMaterial.polygonOffsetFactor = 0.5;
 
-                    classToRet.material[key] = new THREE.MeshFaceMaterial(materialArray);
+                    SingleMeshNoiseLayer.material[key] = new THREE.MeshFaceMaterial(materialArray);
                 }
 
-                return classToRet.material[key];
+                return SingleMeshNoiseLayer.material[key];
             },
 
             _subInit: function () {
@@ -152,32 +153,90 @@ define(["THREE",
 
                 if (vertex2.y === vertex1.y && vertex2.y === vertex0.y) {
                     if (vertex2.y !== this.ud.faceHeight) {
-                        face0.materialIndex = classToRet.GRASS_MATERIAL;
+                        face0.materialIndex = SingleMeshNoiseLayer.GRASS_MATERIAL;
                     }
                 } else {
-                    face0.materialIndex = classToRet.DIRT_MATERIAL;
+                    face0.materialIndex = SingleMeshNoiseLayer.DIRT_MATERIAL;
                 }
 
                 // face0.materialIndex = 0;
                 var face1 = new THREE.Face3(vertex3Index, vertex2Index, vertex0Index);
                 if (vertex3.y === vertex2.y && vertex3.y === vertex0.y) {
                     if (vertex3.y !== this.ud.faceHeight) {
-                        face1.materialIndex = classToRet.GRASS_MATERIAL;
+                        face1.materialIndex = SingleMeshNoiseLayer.GRASS_MATERIAL;
                     }
                 } else {
-                    face1.materialIndex = classToRet.DIRT_MATERIAL;
+                    face1.materialIndex = SingleMeshNoiseLayer.DIRT_MATERIAL;
                 }
 
                 geometry.faces.push(face0);
-                geometry.faceVertexUvs[0].push([new THREE.Vector2(1, 1),new THREE.Vector2(1, 0),new THREE.Vector2(0, 0)]);
+                geometry.faceVertexUvs[0].push([new THREE.Vector2(0, 0),new THREE.Vector2(1, 0),new THREE.Vector2(1, 1)]);
+                // geometry.faceVertexUvs[0].push([new THREE.Vector2(1, 1),new THREE.Vector2(0, 0), new THREE.Vector2(1, 0)]);
+                // this._mapFace0Texture(geometry, face0.materialIndex, vertex0, vertex1, vertex2);
 
                 geometry.faces.push(face1);
                 geometry.faceVertexUvs[0].push([new THREE.Vector2(0, 1),new THREE.Vector2(1, 1),new THREE.Vector2(0, 0)]);
+                // this._mapFace1Texture(geometry, face1.materialIndex, vertex0, vertex2, vertex3);
             },
-            // _mapTexture: function (geometry, vertex0, vertex1, vertex2) {
-            //     var vertex1 = geometry.vertices[face.a];
-            //     var vertex2 = geometry.vertices[face.b];
-            //     var vertex3 = geometry.vertices[face.c];
+            // /**
+            //  *
+            //  * @param geometry The geometry you wish to map the text to
+            //  * @param materialIndex Material index of the texture
+            //  * @param vertex0 In a square, bottom left vertex
+            //  * @param vertex1 In a square, bottom right vertex
+            //  * @param vertex2 In a square, top right vertex
+            //  * @private
+            //  */
+            // _mapFace0Texture: function (geometry, materialIndex, vertex0, vertex1, vertex2) {
+            //     if (materialIndex === SingleMeshNoiseLayer.GRASS_MATERIAL) {
+            //         geometry.faceVertexUvs[0].push([new THREE.Vector2(1, 1),new THREE.Vector2(1, 0),new THREE.Vector2(0, 0)]);
+            //         return;
+            //     }
+            //
+            //     // var line0to1 = new THREE.Line3(vertex0, vertex1);
+            //     var line1to2 = new THREE.Line3(vertex1, vertex2);
+            //
+            //     // var faceWidth = Math.abs(line0to1.distance());
+            //     var faceHeight = Math.abs(line1to2.distance());
+            //
+            //
+            //     var uValue = 1.0;
+            //     // var vValue = faceHeight / (512 / minDim);
+            //     var vValue = 0.1;
+            //
+            //     geometry.faceVertexUvs[0].push([new THREE.Vector2(uValue, vValue),
+            //         new THREE.Vector2(uValue, 0), new THREE.Vector2(0, 0)]);
+            // },
+            //
+            // /**
+            //  *
+            //  * @param geometry The geometry you wish to map the text to
+            //  * @param materialIndex Material index of the texture
+            //  * @param vertex0 In a square, bottom left vertex
+            //  * @param vertex2 In a square, top right vertex
+            //  * @param vertex3 in a square, top left vertex
+            //  * @private
+            //  */
+            // _mapFace1Texture: function (geometry, materialIndex, vertex0, vertex2, vertex3) {
+            //     if (materialIndex === SingleMeshNoiseLayer.GRASS_MATERIAL) {
+            //         geometry.faceVertexUvs[0].push([new THREE.Vector2(0, 1),new THREE.Vector2(1, 1),new THREE.Vector2(0, 0)]);
+            //         return;
+            //     }
+            //
+            //     var line3to2 = new THREE.Line3(vertex3, vertex2);
+            //     // var line0to3 = new THREE.Line3(vertex0, vertex3);
+            //
+            //     var faceHeight = Math.abs(line3to2.distance());
+            //     // var faceWidth = Math.abs(line0to3.distance());
+            //
+            //     // var minDim = Math.min(faceWidth, faceHeight);
+            //
+            //     var uValue = 1.0;
+            //     // var vValue = faceHeight / (512 / minDim);
+            //     var vValue = 0.1;
+            //
+            //     geometry.faceVertexUvs[0].push([new THREE.Vector2(0, vValue),
+            //         new THREE.Vector2(uValue, vValue), new THREE.Vector2(0, 0)]);
             // },
 
             _getYValueFromSimplexNoise: function (x, z) {
@@ -302,10 +361,10 @@ define(["THREE",
                     1, 1, 1);
 
                 cubeGeom.faces.forEach(function (face) {
-                    face.materialIndex = classToRet.DIRT_MATERIAL;
+                    face.materialIndex = SingleMeshNoiseLayer.DIRT_MATERIAL;
                 });
-                cubeGeom.faces[4].materialIndex = classToRet.TRANSPARENT_MATERIAL;
-                cubeGeom.faces[5].materialIndex = classToRet.TRANSPARENT_MATERIAL;
+                cubeGeom.faces[4].materialIndex = SingleMeshNoiseLayer.TRANSPARENT_MATERIAL;
+                cubeGeom.faces[5].materialIndex = SingleMeshNoiseLayer.TRANSPARENT_MATERIAL;
 
                 var baseBoxMesh = new THREE.Mesh(cubeGeom, this.getMaterial());
                 baseBoxMesh.position.set(this.ud.totalWidth / 2.0,
@@ -358,5 +417,5 @@ define(["THREE",
 
         });
 
-        return classToRet;
+        return SingleMeshNoiseLayer;
     });
