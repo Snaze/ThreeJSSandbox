@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27156f0a-5b77-4f7d-9fc1-292d83c5c864" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/textures/r_border.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/html/test/PlateauTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/html/test/UVsDebugTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/GameObjects/Plateau.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/GameObjects/DarkTemplarKnight.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/test/PlateauTest.html" afterPath="$PROJECT_DIR$/src/html/test/PlateauTest.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/test/SingleMeshNoiseLayerTest.html" afterPath="$PROJECT_DIR$/src/html/test/SingleMeshNoiseLayerTest.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/test/WorldTest.html" afterPath="$PROJECT_DIR$/src/html/test/WorldTest.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/Plateau.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/Plateau.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/SingleMeshNoiseLayer.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/SingleMeshNoiseLayer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/World.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/World.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/GameObjects/config/WorldConfig.js" afterPath="$PROJECT_DIR$/src/js/GameObjects/config/WorldConfig.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/RequireConfig.js" afterPath="$PROJECT_DIR$/src/js/RequireConfig.js" />
     </list>
     <ignored path="ThreeJSSandbox.iws" />
@@ -34,33 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UVsDebug.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/utils/UVsDebug.js">
+      <file leaf-file-name="World.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/World.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hull.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bower_components/hull-js/dist/hull.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2595">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequireConfig.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="450">
+              <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -69,7 +48,7 @@
       <file leaf-file-name="GameObjectBase.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
+            <state relative-caret-position="540">
               <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
               <folding>
                 <element signature="e#1754#2305#0" expanded="false" />
@@ -78,84 +57,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeometryUtils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/utils/GeometryUtils.js">
+      <file leaf-file-name="DarkTemplarKnight.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/DarkTemplarKnight.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-127">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#274#681#0" expanded="false" />
-                <element signature="e#685#746#0" expanded="false" />
-                <element signature="e#870#1389#0" expanded="false" />
-                <element signature="e#1395#1433#0" expanded="false" />
-                <element signature="e#1510#1710#0" expanded="false" />
-                <element signature="e#1714#1764#0" expanded="false" />
-                <element signature="e#2012#3507#0" expanded="false" />
-                <element signature="e#3566#5540#0" expanded="false" />
-                <element signature="e#5544#5588#0" expanded="false" />
-                <element signature="e#5668#5956#0" expanded="false" />
-                <element signature="e#5992#6137#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UVsDebugTest.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/html/test/UVsDebugTest.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+            <state relative-caret-position="132">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleMeshNoiseLayer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/SingleMeshNoiseLayer.js">
+      <file leaf-file-name="three.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower_components/three.js/build/three.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="339" column="0" selection-start-line="339" selection-start-column="0" selection-end-line="344" selection-end-column="43" />
-              <folding>
-                <element signature="e#2048#2333#0" expanded="false" />
-                <element signature="e#2373#2651#0" expanded="false" />
-                <element signature="e#4560#4854#0" expanded="false" />
-                <element signature="e#4929#7745#0" expanded="false" />
-                <element signature="e#7759#7765#0" expanded="false" />
-                <element signature="e#10791#11936#0" expanded="false" />
-                <element signature="e#11976#12487#0" expanded="false" />
-                <element signature="e#14924#16607#0" expanded="false" />
-                <element signature="e#16651#16695#0" expanded="false" />
-                <element signature="e#16738#17691#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Plateau.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/GameObjects/Plateau.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="138" column="44" selection-start-line="138" selection-start-column="44" selection-end-line="138" selection-end-column="44" />
+            <state relative-caret-position="162">
+              <caret line="19470" column="0" selection-start-line="19470" selection-start-column="0" selection-end-line="19470" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlateauTest.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/html/test/PlateauTest.html">
+      <file leaf-file-name="dark_templar_knight.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/dark_templar_knight/dark_templar_knight.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="require.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bower_components/requirejs/require.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="1692" column="34" selection-start-line="1692" selection-start-column="34" selection-end-line="1692" selection-end-column="34" />
+            <state relative-caret-position="505">
+              <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -177,8 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/html/SkyBoxTest.html" />
-        <option value="$PROJECT_DIR$/src/html/WorldTest.html" />
         <option value="$PROJECT_DIR$/src/js/Utility/config/ControlHelperConfig.js" />
         <option value="$PROJECT_DIR$/src/js/Utility/Document.js" />
         <option value="$PROJECT_DIR$/src/js/Utility/Console.js" />
@@ -201,7 +125,6 @@
         <option value="$PROJECT_DIR$/src/js/Utility/TrimeshCreator.js" />
         <option value="$PROJECT_DIR$/bower_components/cannon.js/demos/singleBodyOnPlane.html" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/PhysicsBox.js" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" />
         <option value="$PROJECT_DIR$/src/html/PhysicsBoxTest.html" />
         <option value="$PROJECT_DIR$/src/html/SingleMeshNoiseLayerTest.html" />
         <option value="$PROJECT_DIR$/src/html/PlayerTest.html" />
@@ -216,18 +139,21 @@
         <option value="$PROJECT_DIR$/src/html/test/PlayerTest.html" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/WaterBox.js" />
         <option value="$PROJECT_DIR$/src/html/test/SkyBoxTest.html" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/config/WorldConfig.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/Player.js" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/World.js" />
-        <option value="$PROJECT_DIR$/src/html/test/WorldTest.html" />
-        <option value="$PROJECT_DIR$/src/js/GameObjects/SingleMeshNoiseLayer.js" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/NoiseLayerComponent.js" />
         <option value="$PROJECT_DIR$/src/js/Utility/MorphUtils.js" />
-        <option value="$PROJECT_DIR$/src/html/test/SingleMeshNoiseLayerTest.html" />
         <option value="$PROJECT_DIR$/src/html/test/UVsDebugTest.html" />
         <option value="$PROJECT_DIR$/src/js/RequireConfig.js" />
+        <option value="$PROJECT_DIR$/src/html/test/SingleMeshNoiseLayerTest.html" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/SingleMeshNoiseLayer.js" />
+        <option value="$PROJECT_DIR$/src/html/test/WorldTest.html" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/config/WorldConfig.js" />
         <option value="$PROJECT_DIR$/src/html/test/PlateauTest.html" />
         <option value="$PROJECT_DIR$/src/js/GameObjects/Plateau.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/World.js" />
+        <option value="$PROJECT_DIR$/src/js/GameObjects/DarkTemplarKnight.js" />
+        <option value="$PROJECT_DIR$/assets/dark_templar_knight/dark_templar_knight.json" />
       </list>
     </option>
   </component>
@@ -238,8 +164,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="101" />
-    <option name="y" value="50" />
+    <option name="x" value="123" />
+    <option name="y" value="51" />
     <option name="width" value="1259" />
     <option name="height" value="830" />
   </component>
@@ -327,6 +253,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -341,7 +268,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -442,15 +368,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -464,7 +382,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dark_templar_knight" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -486,21 +408,21 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/html/test" />
-      <recent name="$PROJECT_DIR$/src/js/GameObjects" />
-      <recent name="$PROJECT_DIR$/assets/textures" />
-      <recent name="$PROJECT_DIR$/src/js/Utility" />
-      <recent name="$PROJECT_DIR$/src/html" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/html/test" />
       <recent name="$PROJECT_DIR$/src/js/GameObjects" />
       <recent name="$PROJECT_DIR$/src/js" />
       <recent name="$PROJECT_DIR$/lib/three" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/js/GameObjects" />
+      <recent name="$PROJECT_DIR$/src/html/test" />
+      <recent name="$PROJECT_DIR$/assets/textures" />
+      <recent name="$PROJECT_DIR$/src/js/Utility" />
+      <recent name="$PROJECT_DIR$/src/html" />
+    </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.PlateauTest.html">
+  <component name="RunManager" selected="JavaScript Debug.WorldTest.html">
     <configuration default="false" name="WorldTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ThreeJSSandbox/src/html/test/WorldTest.html">
       <method />
     </configuration>
@@ -578,10 +500,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.PlateauTest.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.UVsDebugTest.html" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.WorldTest.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.PlateauTest.html" />
         <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.SingleMeshNoiseLayerTest.html" />
-        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.WorldTest.html" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.UVsDebugTest.html" />
         <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.SkyBoxTest.html" />
       </list>
     </recent_temporary>
@@ -622,21 +544,26 @@
       <workItem from="1471661024724" duration="16092000" />
       <workItem from="1471718862804" duration="16087000" />
       <workItem from="1471788280425" duration="24258000" />
-      <workItem from="1471914900632" duration="7964000" />
+      <workItem from="1471914900632" duration="8162000" />
+      <workItem from="1472009643412" duration="5575000" />
+      <workItem from="1472170276139" duration="1635000" />
+      <workItem from="1472172188834" duration="1577000" />
+      <workItem from="1472328821641" duration="116000" />
+      <workItem from="1472328950474" duration="1733000" />
+      <workItem from="1472421968896" duration="2358000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307939000" />
+    <option name="totallyTimeSpent" value="321131000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="101" y="50" width="1259" height="830" extended-state="0" />
+    <frame x="123" y="51" width="1259" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26655897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27642277" sideWeight="0.51857835" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.4927302" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -650,6 +577,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -669,75 +597,50 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/html/test/PlateauTest.html</url>
-          <line>33</line>
-          <properties />
-          <option name="timeStamp" value="234" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/js/GameObjects/Plateau.js</url>
           <line>44</line>
-          <properties />
           <option name="timeStamp" value="235" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/js/GameObjects/Plateau.js</url>
-          <line>120</line>
-          <properties />
+          <line>128</line>
           <option name="timeStamp" value="236" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/js/GameObjects/Plateau.js</url>
+          <line>148</line>
+          <option name="timeStamp" value="237" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/js/GameObjects/Plateau.js</url>
+          <line>137</line>
+          <option name="timeStamp" value="238" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/js/GameObjects/DarkTemplarKnight.js</url>
+          <line>16</line>
+          <option name="timeStamp" value="240" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/bower_components/three.js/build/three.js</url>
+          <line>19491</line>
+          <option name="timeStamp" value="244" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/js/GameObjects/DarkTemplarKnight.js</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="245" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="237" />
+      <option name="time" value="246" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bower_components/jquery-ui/ui/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/jquery-ui/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/jquery-ui/component.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/jquery-ui/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/jquery-ui/jquery-ui.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="2" column="731" selection-start-line="2" selection-start-column="725" selection-end-line="2" selection-end-column="731" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/PhysicsBox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/text/README.md">
       <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
@@ -797,7 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
           <caret line="872" column="8" selection-start-line="872" selection-start-column="8" selection-end-line="872" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,13 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
           <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/cannon.js/libs/Three.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="146" column="255" selection-start-line="146" selection-start-column="255" selection-end-line="146" selection-end-column="255" />
         </state>
       </provider>
     </entry>
@@ -847,14 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/Utility/PathHelper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -869,7 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="44" column="53" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -877,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -885,23 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="29" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/config/WorldConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/World.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="49" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -923,14 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/html/test/WorldTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/textures/r_border.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -940,9 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1405">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#504#808#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -950,10 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
-          <folding>
-            <element signature="e#429#640#0" expanded="false" />
-            <element signature="e#679#3624#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -961,7 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -969,7 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,15 +828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/three.js/build/three.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132075">
-          <caret line="8805" column="4" selection-start-line="8805" selection-start-column="4" selection-end-line="8805" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -994,7 +836,6 @@
         <state split_layout="FIRST">
           <first_editor relative-caret-position="-345">
             <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1003,79 +844,151 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/html/test/SingleMeshNoiseLayerTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/requirejs/require.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
+        <state relative-caret-position="25335">
           <caret line="1692" column="34" selection-start-line="1692" selection-start-column="34" selection-end-line="1692" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/utils/GeometryUtils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-127">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#274#681#0" expanded="false" />
-            <element signature="e#685#746#0" expanded="false" />
-            <element signature="e#870#1389#0" expanded="false" />
-            <element signature="e#1395#1433#0" expanded="false" />
-            <element signature="e#1510#1710#0" expanded="false" />
-            <element signature="e#1714#1764#0" expanded="false" />
-            <element signature="e#2012#3507#0" expanded="false" />
-            <element signature="e#3566#5540#0" expanded="false" />
-            <element signature="e#5544#5588#0" expanded="false" />
-            <element signature="e#5668#5956#0" expanded="false" />
-            <element signature="e#5992#6137#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/html/test/UVsDebugTest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="555">
           <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/utils/UVsDebug.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="30">
           <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/hull-js/dist/hull.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2595">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/threejs/build/three.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/three.js/examples/js/controls/OrbitControls.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/RequireConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="1185">
+          <caret line="79" column="41" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/test/SingleMeshNoiseLayerTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1860">
+          <caret line="124" column="27" selection-start-line="124" selection-start-column="27" selection-end-line="124" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/SingleMeshNoiseLayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="96" column="50" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
+          <folding>
+            <element signature="e#2104#2389#0" expanded="false" />
+            <element signature="e#2429#2707#0" expanded="false" />
+            <element signature="e#5314#5608#0" expanded="false" />
+            <element signature="e#11817#12962#0" expanded="false" />
+            <element signature="e#13002#13513#0" expanded="false" />
+            <element signature="e#15950#17633#0" expanded="false" />
+            <element signature="e#17677#17721#0" expanded="false" />
+            <element signature="e#17764#18717#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/test/WorldTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/config/WorldConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/test/PlateauTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/Plateau.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="70" column="17" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
+          <folding>
+            <element signature="e#5742#5780#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/cannon.js/libs/Three.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="261" column="10" selection-start-line="261" selection-start-column="10" selection-end-line="261" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Utility/PathHelper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Tester.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/dark_templar_knight/dark_templar_knight.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12090">
+          <caret line="806" column="0" selection-start-line="806" selection-start-column="0" selection-end-line="806" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/GameObjects/GameObjectBase.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
+        <state relative-caret-position="540">
           <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
           <folding>
             <element signature="e#1754#2305#0" expanded="false" />
@@ -1083,37 +996,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/SingleMeshNoiseLayer.js">
+    <entry file="file://$PROJECT_DIR$/bower_components/three.js/build/three.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="339" column="0" selection-start-line="339" selection-start-column="0" selection-end-line="344" selection-end-column="43" />
-          <folding>
-            <element signature="e#2048#2333#0" expanded="false" />
-            <element signature="e#2373#2651#0" expanded="false" />
-            <element signature="e#4560#4854#0" expanded="false" />
-            <element signature="e#4929#7745#0" expanded="false" />
-            <element signature="e#7759#7765#0" expanded="false" />
-            <element signature="e#10791#11936#0" expanded="false" />
-            <element signature="e#11976#12487#0" expanded="false" />
-            <element signature="e#14924#16607#0" expanded="false" />
-            <element signature="e#16651#16695#0" expanded="false" />
-            <element signature="e#16738#17691#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/html/test/PlateauTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+        <state relative-caret-position="162">
+          <caret line="19470" column="0" selection-start-line="19470" selection-start-column="0" selection-end-line="19470" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/Plateau.js">
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/World.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="138" column="44" selection-start-line="138" selection-start-column="44" selection-end-line="138" selection-end-column="44" />
+        <state relative-caret-position="450">
+          <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/dark_templar_knight/dark_templar_knight.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/GameObjects/DarkTemplarKnight.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>

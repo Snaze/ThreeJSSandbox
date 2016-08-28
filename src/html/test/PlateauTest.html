@@ -22,8 +22,8 @@
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
-        requirejs(['THREE', "GameObjects/Plateau", "Axes", "cannon", "CannonDebugRenderer"],
-                function (THREE, Plateau, Axes, CANNON, CannonDebugRenderer) {
+        requirejs(['THREE', "GameObjects/Plateau", "Axes", "cannon", "CannonDebugRenderer", "OrbitControls"],
+                function (THREE, Plateau, Axes, CANNON, CannonDebugRenderer, OrbitControls) {
 
 //                    var world = new CANNON.World();
 //                    world.gravity.set(0, -9.8, 0);
@@ -34,7 +34,7 @@
                     var scene = new THREE.Scene();
                     var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-                    camera.position.set(0, 7, 7);
+                    camera.position.set(0, 0, 7);
                     camera.lookAt(new THREE.Vector3(0, 0, 0));
 
                     var renderer = new THREE.WebGLRenderer();
@@ -56,15 +56,15 @@
                     scene.add(axes);
 
                     var binaryImage = [
-                            [0, 0, 0, 1, 0, 0, 1],
-                            [0, 0, 1, 1, 1, 1, 0],
-                            [0, 1, 1, 1, 1, 1, 0],
                             [1, 1, 1, 1, 1, 1, 1],
-                            [0, 1, 1, 1, 1, 1, 0],
-                            [0, 1, 1, 1, 1, 0, 0],
-                            [1, 0, 0, 1, 0, 0, 0]];
+                            [1, 1, 1, 1, 1, 1, 1],
+                            [1, 0, 0, 0, 0, 0, 1],
+                            [1, 0, 0, 0, 0, 0, 1],
+                            [1, 0, 0, 0, 0, 0, 1],
+                            [1, 0, 0, 0, 0, 0, 1],
+                            [1, 0, 0, 0, 0, 0, 1]];
                     var concavity = 0;
-                    var extrudeAmt = 10;
+                    var extrudeAmt = 2;
                     var scaleFactor = 1;
 
                     var plateau = new Plateau(binaryImage, concavity, extrudeAmt, scaleFactor).init();
@@ -72,11 +72,21 @@
 
                     var clock = new THREE.Clock();
 
+                    var controls = new OrbitControls(camera, renderer.domElement);
+
+//                    var helper = new THREE.EdgesHelper( plateau.children[0].children[0], 0xffffff ); // or THREE.WireframeHelper
+//                    helper.material.linewidth = 2;
+//                    scene.add( helper );
+
+//                    plateau.children[0].children[0].material.wireframe = true;
+
                     function render() {
                         requestAnimationFrame(render);
 
                         var delta = clock.getDelta();
                         var actualTime = clock.getElapsedTime();
+
+                        controls.update();
 
                         renderer.render(scene, camera);
                     }

@@ -10,6 +10,8 @@ require.config({
         'MTLLoader': 'bower_components/three.js/examples/js/loaders/MTLLoader',
         "WaterShader": "bower_components/three.js/examples/js/WaterShader",
         "UVsDebug": "bower_components/three.js/examples/js/utils/UVsDebug",
+        "OrbitControls": "bower_components/three.js/examples/js/controls/OrbitControls",
+
         "hull": "bower_components/hull-js/dist/hull",
         "Mirror": "bower_components/three.js/examples/js/Mirror",
         'gaussian': 'bower_components/gaussian/lib/gaussian',
@@ -72,6 +74,10 @@ require.config({
         'MTLLoader': {
             deps: ['THREE'],
             exports: 'THREE.MTLLoader'
+        },
+        'OrbitControls': {
+            deps: ['THREE'],
+            exports: 'THREE.OrbitControls'
         },
         'Mirror': {
             deps: ['THREE'],

@@ -4,10 +4,10 @@ define(["THREE"], function (THREE) {
             width: 128,
             depth: 128, // This is really height for SingleMeshNoiseLayer
             seed: 13.0,
-            continuity: 32.0,
-            numLevels: 5,
+            continuity: 60.0,
+            numLevels: 4,
             faceWidth: 1.0,
-            faceHeight: 10.0,
+            faceHeight: 4.0,
             faceDepth: 1.0,
             skyBoxTextureFile: "/assets/textures/LostAtSeaSkybox",
             skyBoxTextureExtension: "jpg",

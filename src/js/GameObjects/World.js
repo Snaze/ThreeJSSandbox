@@ -8,7 +8,8 @@ define([
         "SkyBox",
         "GameObjects/config/WorldConfig",
         "GameObjects/Player",
-        "cannon"
+        "cannon",
+        "GameObjects/DarkTemplarKnight"
     ],
     function (THREE,
               GameObjectBase,
@@ -17,9 +18,10 @@ define([
               SkyBox,
               WorldConfig,
               Player,
-              CANNON) {
+              CANNON,
+              DarkTemplarKnight) {
 
-        var classToRet = function (args) {
+        var World = function (args) {
             GameObjectBase.call(this);
 
             this.renderer = args.renderer;
@@ -61,10 +63,11 @@ define([
             this.physicsWorld.broadphase = new CANNON.NaiveBroadphase();
             this.physicsWorld.solver.iterations = 10;
 
+            this.knight = new DarkTemplarKnight();
         };
 
 
-        classToRet.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
+        World.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
 
             _subInit: function () {
                 this.player.init();
@@ -72,11 +75,14 @@ define([
                 this.singleMeshNoiseLayer.init();
                 this.skyBox.init();
                 this.waterBox.init();
+                this.knight.init();
+                this.knight.setPosition(-20, 50, 0);
 
                 this.player.addPhysicsBodyToWorld(this.physicsWorld);
                 this.singleMeshNoiseLayer.addPhysicsBodyToWorld(this.physicsWorld);
                 this.skyBox.addPhysicsBodyToWorld(this.physicsWorld);
                 this.waterBox.addPhysicsBodyToWorld(this.physicsWorld);
+                this.knight.addPhysicsBodyToWorld(this.physicsWorld);
             },
 
             _createObject: function () {
@@ -85,11 +91,10 @@ define([
 
                 object3D.add(this.singleMeshNoiseLayer);
                 object3D.add(this.skyBox);
+                this.skyBox.setPosition(0, 0, 0);
                 object3D.add(this.waterBox);
                 object3D.add(this.player);
-                this.skyBox.setPosition(0, 0, 0);
-                // this.waterBox.position.x += 1.0;
-                // this.waterBox.position.z += 1.0;
+                object3D.add(this.knight);
 
                 return object3D;
             },
@@ -100,8 +105,9 @@ define([
                 this.waterBox.update(deltaTime, actualTime);
                 // this.skyBox.update(deltaTime, actualTime);
                 this.singleMeshNoiseLayer.update(deltaTime, actualTime);
+                this.knight.update(deltaTime, actualTime);
             }
         });
 
-        return classToRet;
+        return World;
     });

@@ -42,7 +42,7 @@ define(["THREE",
                     }
                 }
 
-                this._shapePoints = hull(this._innerPoints, this.concavity);
+                this._shapePoints = hull(this._innerPoints);
             },
 
             _getShape: function () {
@@ -50,7 +50,7 @@ define(["THREE",
                     console.assert(this._shapePoints !== null && this._shapePoints.length > 0);
 
                     this._shape = new THREE.Shape();
-                    this._shape.autoClose = true;
+                    // this._shape.autoClose = true;
 
                     for (var pointIndex = 0; pointIndex < this._shapePoints.length; pointIndex++) {
                         var currentPoint = this._shapePoints[pointIndex];
@@ -96,10 +96,18 @@ define(["THREE",
                     var dirtPath = PathHelper.absolutePath('assets/textures/dirt1.jpg');
                     var dirtTexture = textureLoader.load(dirtPath);
                     dirtTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
-                    dirtTexture.repeat.set( 1.0, 1.0);
+                    dirtTexture.repeat.set( 0.5, 0.5);
 
-                    var grassMaterial = new THREE.MeshLambertMaterial({map: grassTexture, side: THREE.FrontSide });
-                    var dirtMaterial = new THREE.MeshLambertMaterial({map: dirtTexture, side: THREE.FrontSide });
+                    var grassMaterial = new THREE.MeshLambertMaterial({
+                        map: grassTexture,
+                        side: THREE.FrontSide
+                        // , wireframe: true
+                    });
+                    var dirtMaterial = new THREE.MeshLambertMaterial({
+                        map: dirtTexture,
+                        side: THREE.FrontSide
+                        // , wireframe: true
+                    });
                     var transparentMaterial = new THREE.MeshBasicMaterial({transparent: true,
                         opacity: 0,
                         side: THREE.DoubleSide
@@ -129,12 +137,12 @@ define(["THREE",
                 });
                 geometry.scale(this.scaleFactor, this.scaleFactor, this.scaleFactor);
                 geometry.center();
-                geometry.elementsNeedUpdate = true;
-                geometry.verticesNeedUpdate = true;
-                geometry.mergeVertices();
-                geometry.computeLineDistances();
-                geometry.computeVertexNormals();
-                geometry.computeFaceNormals();
+                // geometry.elementsNeedUpdate = true;
+                // geometry.verticesNeedUpdate = true;
+                // geometry.mergeVertices();
+                // geometry.computeLineDistances();
+                // geometry.computeVertexNormals();
+                // geometry.computeFaceNormals();
                 // geometry.uvsNeedUpdate();
                 // geometry.quaternion.setFromEuler(new THREE.Euler(-Math.PI / 2, 0, 0));
 

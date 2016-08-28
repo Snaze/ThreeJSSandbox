@@ -59,6 +59,7 @@ define(["THREE",
         SingleMeshNoiseLayer.GRASS_MATERIAL = 0;
         SingleMeshNoiseLayer.DIRT_MATERIAL = 1;
         SingleMeshNoiseLayer.TRANSPARENT_MATERIAL = 2;
+        SingleMeshNoiseLayer.DIRT_MATERIAL_NO_WRAP = 3;
 
         SingleMeshNoiseLayer.prototype = Object.assign(Object.create(GameObjectBase.prototype), {
             getKey: function () {
@@ -88,22 +89,38 @@ define(["THREE",
                     grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
                     grassTexture.repeat.set( 1.0, 1.0);
 
-                    var dirtPath = PathHelper.absolutePath('assets/textures/r_border.png');
+                    // var dirtPath = PathHelper.absolutePath('assets/textures/r_border.png');
                     // var dirtPath = PathHelper.absolutePath('assets/textures/dirt1.jpg');
+                    var dirtPath = PathHelper.absolutePath('assets/textures/dirt_big.png');
+                    var dirtTextureWrap = textureLoader.load(dirtPath);
+                    dirtTextureWrap.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
+                    dirtTextureWrap.repeat.set(0.25, 0.25);
+
                     var dirtTexture = textureLoader.load(dirtPath);
-                    // dirtTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
-                    // dirtTexture.repeat.set( 4.0, 4.0);
+
 
                     var grassMaterial = new THREE.MeshLambertMaterial({map: grassTexture, side: THREE.FrontSide });
-                    var dirtMaterial = new THREE.MeshLambertMaterial({map: dirtTexture, side: THREE.FrontSide });
+                    var dirtMaterial = new THREE.MeshLambertMaterial({
+                        map: dirtTextureWrap,
+                        side: THREE.FrontSide,
+                        // vertexColors: THREE.FaceColors
+                        // wireframe: true
+                    });
                     var transparentMaterial = new THREE.MeshBasicMaterial({transparent: true,
                         opacity: 0,
                         side: THREE.DoubleSide
+                    });
+                    var dirtMaterialNoWrap = new THREE.MeshLambertMaterial({
+                        map: dirtTexture,
+                        side: THREE.FrontSide,
+                        // vertexColors: THREE.FaceColors
+                        // wireframe: true
                     });
                     var materialArray = [];
                     materialArray.push(grassMaterial);
                     materialArray.push(dirtMaterial);
                     materialArray.push(transparentMaterial);
+                    materialArray.push(dirtMaterialNoWrap);
 
                     // dirtMaterial.polygonOffset = true;
                     // dirtMaterial.polygonOffsetFactor = 0.5;
@@ -149,7 +166,11 @@ define(["THREE",
                 geometry.vertices.push(vertex3);
                 var vertex3Index = geometry.vertices.length - 1;
 
+                var color0 = new THREE.Color(Math.random() % 255, Math.random() % 255, Math.random() % 255);
+                var color1 = new THREE.Color(Math.abs(color0.r), color0.g, color0.b);
+
                 var face0 = new THREE.Face3(vertex2Index, vertex1Index, vertex0Index);
+                face0.color = color0;
 
                 if (vertex2.y === vertex1.y && vertex2.y === vertex0.y) {
                     if (vertex2.y !== this.ud.faceHeight) {
@@ -161,6 +182,7 @@ define(["THREE",
 
                 // face0.materialIndex = 0;
                 var face1 = new THREE.Face3(vertex3Index, vertex2Index, vertex0Index);
+                face1.color = color1;
                 if (vertex3.y === vertex2.y && vertex3.y === vertex0.y) {
                     if (vertex3.y !== this.ud.faceHeight) {
                         face1.materialIndex = SingleMeshNoiseLayer.GRASS_MATERIAL;

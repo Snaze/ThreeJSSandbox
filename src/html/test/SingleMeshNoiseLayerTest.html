@@ -22,8 +22,8 @@
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
-        requirejs(['THREE', "SingleMeshNoiseLayer", "Axes", "cannon", "CannonDebugRenderer"],
-                function (THREE, SingleMeshNoiseLayer, Axes, CANNON, CannonDebugRenderer) {
+        requirejs(['THREE', "SingleMeshNoiseLayer", "Axes", "cannon", "CannonDebugRenderer", "OrbitControls"],
+                function (THREE, SingleMeshNoiseLayer, Axes, CANNON, CannonDebugRenderer, OrbitControls) {
 
                     var world = new CANNON.World();
                     world.gravity.set(0, -9.8, 0);
@@ -55,9 +55,9 @@
 //            light.lookAt(new THREE.Vector3(0, 0, 0));
                     scene.add(light);
 
-                    var dimension = 4;
+                    var dimension = 16;
 
-                    var height = 4.0;
+                    var height = 8.0;
                     var numLevels = 3;
                     var noiseLayer = new SingleMeshNoiseLayer(dimension, dimension, 1.0, 32.0, numLevels, 1.0, height, 1.0).init();
 //            section.setAxesVisible(true, true);
@@ -96,11 +96,13 @@
 //            camera.target.set(0, 0, 0);
 
 
-                    var cannonDebugRenderer = new CannonDebugRenderer(scene, world);
+//                    var cannonDebugRenderer = new CannonDebugRenderer(scene, world);
                     var clock = new THREE.Clock();
 
                     var isFirst = true;
                     var degrees = 0;
+
+                    var controls = new OrbitControls(camera, renderer.domElement);
 
                     function render() {
                         requestAnimationFrame(render);
@@ -109,19 +111,20 @@
 
                         world.step(delta);
 
-                        noiseLayer.update(delta, actualTime);
-                        mesh.position.copy(body.position);
-                        mesh.quaternion.copy(body.quaternion);
+//                        noiseLayer.update(delta, actualTime);
+//                        mesh.position.copy(body.position);
+//                        mesh.quaternion.copy(body.quaternion);
 
-                        cannonDebugRenderer.update();
+//                        cannonDebugRenderer.update();
+                        controls.update();
 
                         renderer.render(scene, camera);
 
-                        if (degrees >= 360) {
-                            degrees = 0;
-                        }
-
-                        noiseLayer.setRotation(0, degrees++ * Math.PI / 180.0, 0);
+//                        if (degrees >= 360) {
+//                            degrees = 0;
+//                        }
+//
+//                        noiseLayer.setRotation(0, degrees++ * Math.PI / 180.0, 0);
                     }
 
                     render();
