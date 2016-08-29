@@ -71,12 +71,12 @@ define([
 
             _subInit: function () {
                 this.player.init();
-                this.player.setPosition(0, 50, 0);
+                this.player.setPosition(0, 10, 0);
                 this.singleMeshNoiseLayer.init();
                 this.skyBox.init();
                 this.waterBox.init();
                 this.knight.init();
-                this.knight.setPosition(-20, 50, 0);
+                this.knight.setPosition(-20, 10, 0);
 
                 this.player.addPhysicsBodyToWorld(this.physicsWorld);
                 this.singleMeshNoiseLayer.addPhysicsBodyToWorld(this.physicsWorld);

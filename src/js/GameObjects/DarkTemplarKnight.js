@@ -36,20 +36,56 @@ define(["THREE",
                     var material = new THREE.MultiMaterial( materials );
 
                     var object = new THREE.Mesh( geometry, material );
+                    // geometry.scale.set(0.25, 0.25, 0.25);
+                    object.scale.set(0.15, 0.15, 0.15);
                     object3D.add(object);
                 });
 
-
-
                 return object3D;
             },
+
+            update: function (deltaTime, actualTime) {
+                // GameObjectBase.prototype.update.call(this, deltaTime, actualTime);
+
+                if (!this._innerObject3D) {
+                    return;
+                }
+
+                var physicsBody = this._getPhysicsBody();
+                if (physicsBody) {
+                    // this._setHorizontalRotation();
+                    // this._setVerticalRotation();
+                    // this._setDisplacementVector();
+                    //
+                    // this.verticalObject3D.quaternion.copy(this.verticalQuaternion);
+
+                    // physicsBody.velocity.x = this.displacementVector.x;
+                    // physicsBody.velocity.z = this.displacementVector.z;
+                    // physicsBody.velocity.y += this.displacementVector.y;
+
+                    /** THIS IS UPDATE CODE THAT TIES THE PHYSICS BODY TO THE THREEJS MODEL **/
+                    if (this.physicsBodyPositionOffset) {
+                        this.position.set(physicsBody.position.x - this.physicsBodyPositionOffset.x,
+                            physicsBody.position.y - this.physicsBodyPositionOffset.y,
+                            physicsBody.position.z - this.physicsBodyPositionOffset.z);
+                    } else {
+                        this.position.copy(physicsBody.position);
+                    }
+
+                    // this.quaternion.copy(this.horizontalQuaternion);
+
+                }
+
+
+            },
+
             _isPhysicsObject: function () {
                 return true;
             },
             _getPhysicsBody: function () {
                 if (null === this.physicsBody) {
                     var self = this;
-                    var shape = new CANNON.Sphere(this.boxHeight);
+                    var shape = new CANNON.Sphere(1);
                     var hfBody = new CANNON.Body({
                         mass: 81
                         // type: CANNON.DYNAMIC,
@@ -59,7 +95,7 @@ define(["THREE",
                     hfBody.addShape(shape);
 
                     this.physicsBody = hfBody;
-                    this.physicsBodyPositionOffset.set(0, 0, 0);
+                    this.physicsBodyPositionOffset.set(0, 1, 0);
                     this.physicsBodyEulerOffset.set(0, 0, 0);
 
                     this.physicsBody.addEventListener("collide", $.proxy(this._collide_event, this));
