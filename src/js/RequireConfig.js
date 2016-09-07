@@ -9,6 +9,8 @@ require.config({
         'DDSLoader': 'bower_components/three.js/examples/js/loaders/DDSLoader',
         'MTLLoader': 'bower_components/three.js/examples/js/loaders/MTLLoader',
         "WaterShader": "bower_components/three.js/examples/js/WaterShader",
+        "Animation": "bower_components/three.js/examples/js/loaders/collada/Animation",
+        "AnimationHandler": "bower_components/three.js/examples/js/loaders/collada/AnimationHandler",
         "UVsDebug": "bower_components/three.js/examples/js/utils/UVsDebug",
         "OrbitControls": "bower_components/three.js/examples/js/controls/OrbitControls",
 
@@ -74,6 +76,14 @@ require.config({
         'MTLLoader': {
             deps: ['THREE'],
             exports: 'THREE.MTLLoader'
+        },
+        'Animation': {
+            deps: ['THREE'],
+            exports: 'THREE.Animation'
+        },
+        'AnimationHandler': {
+            deps: ['THREE'],
+            exports: 'THREE.AnimationHandler'
         },
         'OrbitControls': {
             deps: ['THREE'],

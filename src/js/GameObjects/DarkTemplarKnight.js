@@ -5,16 +5,23 @@ define(["THREE",
         "util/ArrayUtils",
         "cannon",
         "util/Console",
-        "util/PathHelper"],
+        "util/PathHelper",
+        "Animation",
+        "AnimationHandler"],
     function (THREE,
               GameObjectBase,
               ArrayUtils,
               CANNON,
               console,
-              PathHelper) {
+              PathHelper,
+              Animation,
+              AnimationHandler) {
 
         var DarkTemplarKnight = function () {
             GameObjectBase.call(this);
+
+            this.actions = {};
+            this.mixer = null;
 
         };
 
@@ -25,6 +32,7 @@ define(["THREE",
             },
 
             _createObject: function () {
+                var self = this;
 
                 var object3D = new THREE.Object3D();
 
@@ -35,10 +43,52 @@ define(["THREE",
 
                     var material = new THREE.MultiMaterial( materials );
 
-                    var object = new THREE.Mesh( geometry, material );
+                    var object = new THREE.SkinnedMesh( geometry, material );
                     // geometry.scale.set(0.25, 0.25, 0.25);
                     object.scale.set(0.15, 0.15, 0.15);
                     object3D.add(object);
+
+                    // var materials = object.material.materials;
+
+                    for (var k in material.materials) {
+                        materials[k].skinning = true;
+                    }
+
+                    // self.actions.attack = new THREE.AnimationAction( geometry.animations[ 0 ] );
+                    // self.actions.attack.weight = 0;
+                    // self.actions.die = new THREE.AnimationAction( geometry.animations[ 1 ] );
+                    // self.actions.die.weight = 0;
+                    // self.actions.hurt = new THREE.AnimationAction( geometry.animations[ 2 ] );
+                    // self.actions.hurt.weight = 0;
+                    // self.actions.idle = new THREE.AnimationAction( geometry.animations[ 3 ] );
+                    // self.actions.idle.weight = 1;
+                    // self.actions.run  = new THREE.AnimationAction( geometry.animations[ 4 ] );
+                    // self.actions.run.weight = 0;
+                    // self.actions.walk = new THREE.AnimationAction( geometry.animations[ 5 ] );
+                    // self.actions.walk.weight = 0;
+
+                    self.mixer = new THREE.AnimationMixer(object);
+                    // self.actions.attack = self.mixer.clipAction(geometry.animations[ 0 ]);  // ATTACK
+                    // self.actions.die = self.mixer.clipAction(geometry.animations[ 1 ]);  // DIE
+                    // self.actions.hurt = self.mixer.clipAction(geometry.animations[ 2 ]);  // HURT
+                    self.actions.idle = self.mixer.clipAction(geometry.animations[ 3 ]);  // IDLE
+                    // self.actions.run = self.mixer.clipAction(geometry.animations[ 4 ]);  // RUN
+                    // self.actions.walk = self.mixer.clipAction(geometry.animations[ 5 ]);  // WALK
+
+                    self.actions.idle.setEffectiveWeight( 1 ).play();
+                    // self.actions.attack.setEffectiveWeight( 1 ).stop();
+                    // self.actions.die.setEffectiveWeight( 1 ).stop();
+                    // self.actions.hurt.setEffectiveWeight( 1 ).stop();
+                    // self.actions.run.setEffectiveWeight( 1 ).stop();
+                    // self.actions.walk.setEffectiveWeight( 1 ).stop();
+
+                    // self.actions.attack.setLoop( THREE.LoopOnce, 0 );
+                    // self.actions.attack.clampWhenFinished = true;
+                    // self.actions.die.setLoop( THREE.LoopOnce, 0 );
+                    // self.actions.die.clampWhenFinished = true;
+                    // self.actions.hurt.setLoop( THREE.LoopOnce, 0 );
+                    // self.actions.hurt.clampWhenFinished = true;
+
                 });
 
                 return object3D;
@@ -76,6 +126,9 @@ define(["THREE",
 
                 }
 
+                if (this.mixer) {
+                    this.mixer.update(deltaTime);
+                }
 
             },
 
@@ -115,7 +168,7 @@ define(["THREE",
                     this.contactNormal.copy(contact.ni); // bi is something else. Keep the normal as it is
 
                 // If contactNormal.dot(upAxis) is between 0 and 1, we know that the contact normal is somewhat in the up direction.
-                if(this.contactNormal.dot(this.upAxis) > 0.5) // Use a "good" threshold value between 0 and 1 here!
+                if(this.contactNormal && this.contactNormal.dot(this.upAxis) > 0.5) // Use a "good" threshold value between 0 and 1 here!
                     this.canJump = true;
             }
         });
