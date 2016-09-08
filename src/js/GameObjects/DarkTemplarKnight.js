@@ -68,19 +68,19 @@ define(["THREE",
                     // self.actions.walk.weight = 0;
 
                     self.mixer = new THREE.AnimationMixer(object);
-                    // self.actions.attack = self.mixer.clipAction(geometry.animations[ 0 ]);  // ATTACK
-                    // self.actions.die = self.mixer.clipAction(geometry.animations[ 1 ]);  // DIE
-                    // self.actions.hurt = self.mixer.clipAction(geometry.animations[ 2 ]);  // HURT
+                    self.actions.attack = self.mixer.clipAction(geometry.animations[ 0 ]);  // ATTACK
+                    self.actions.die = self.mixer.clipAction(geometry.animations[ 1 ]);  // DIE
+                    self.actions.hurt = self.mixer.clipAction(geometry.animations[ 2 ]);  // HURT
                     self.actions.idle = self.mixer.clipAction(geometry.animations[ 3 ]);  // IDLE
-                    // self.actions.run = self.mixer.clipAction(geometry.animations[ 4 ]);  // RUN
-                    // self.actions.walk = self.mixer.clipAction(geometry.animations[ 5 ]);  // WALK
+                    self.actions.run = self.mixer.clipAction(geometry.animations[ 4 ]);  // RUN
+                    self.actions.walk = self.mixer.clipAction(geometry.animations[ 5 ]);  // WALK
 
-                    self.actions.idle.setEffectiveWeight( 1 ).play();
-                    // self.actions.attack.setEffectiveWeight( 1 ).stop();
-                    // self.actions.die.setEffectiveWeight( 1 ).stop();
-                    // self.actions.hurt.setEffectiveWeight( 1 ).stop();
-                    // self.actions.run.setEffectiveWeight( 1 ).stop();
-                    // self.actions.walk.setEffectiveWeight( 1 ).stop();
+                    self.actions.attack.setEffectiveWeight( 1 ).play();
+                    self.actions.idle.setEffectiveWeight( 1 ).stop();
+                    self.actions.die.setEffectiveWeight( 1 ).stop();
+                    self.actions.hurt.setEffectiveWeight( 1 ).stop();
+                    self.actions.run.setEffectiveWeight( 1 ).stop();
+                    self.actions.walk.setEffectiveWeight( 1 ).stop();
 
                     // self.actions.attack.setLoop( THREE.LoopOnce, 0 );
                     // self.actions.attack.clampWhenFinished = true;
