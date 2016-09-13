@@ -18,7 +18,7 @@
 <body>
 
 <script>
-    requirejs(['../js/RequireConfig'], function (requireConfig) {
+    requirejs(['../../js/RequireConfig'], function (requireConfig) {
         //js/common sets the baseUrl to be js/ so
         //can just ask for 'app/main1' here instead
         //of 'js/app/main1'
@@ -30,8 +30,8 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(renderer.domElement);
 
-//            var ambient = new THREE.AmbientLight(0xFFFFFF);
-//            scene.add(ambient);
+            var ambient = new THREE.AmbientLight(0xFFFFFF);
+            scene.add(ambient);
             var light = new THREE.DirectionalLight(0xFFFFFF, 1.0);
             light.position.set(100, 100, 100);
             light.target.position.set(0, 0, 0);
